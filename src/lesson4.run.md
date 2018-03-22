@@ -114,4 +114,16 @@ draw_boxes(many_boxes, 'lesson4_random_sizes.svg')
 
 So, we can fill pages and pages with little red squares now. Nice!
 
-But we can do better.
+How about we make the squares not be all the same width?
+
+```python
+many_boxes = [Box(w=1 + randint(-5,5)/10) for i in range(5000)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg')
+```
+
+This adds "noise" to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.
+
+<img src="lesson4_random_box_sizes.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+
+That looks interesting...
