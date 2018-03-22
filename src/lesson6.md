@@ -4,7 +4,7 @@ In our [previous lesson](lesson5.run.html) we created a fully justified layout o
 
 To achieve full justification, we spread the "slack" evenly in the space between all boxes in the row. If we were trying to layout text, that is not the proper way.
 
-You see, text comes separated in words. And usually, in western languages, the words have characters called spaces between them. So what we do, when laying out text, is to make the special **space** boxes slightly larger and keep the separation between boxes constant (in fact, we also tweak separations between letters, but let's ignore that for now. Or for ever.)
+You see, text comes separated in words. And usually, in western languages, the words have characters called spaces between them. So what we do, when laying out text, is to make the special **space** boxes slightly larger and keep the separation between boxes constant (in fact, we also tweak separations between letters, but let's ignore that for now. Or for ever.
 
 How about we choose some boxes and decide they, and only they, are stretchy?
 

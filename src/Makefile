@@ -3,4 +3,4 @@ all: lesson1.run.md lesson2.run.md lesson3.run.md lesson4.run.md lesson5.run.md 
 
 %.run.md: %.md
 	cp $< $@
-	run_markdown --overwrite $@	
+	run_markdown --timeout_seconds=15 --overwrite $@	
