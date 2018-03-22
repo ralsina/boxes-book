@@ -12,4 +12,4 @@ requirements, no fuzz.
 The first part is, then, an iterative doodle, showing the infancy of a project,
 and almost literally thinking with my fingers, and having them tell me where to go.
 
-In a later section, things will get much more serious. So, enjoy this part.
+In later sections, things will get much more serious. So, enjoy this part.
