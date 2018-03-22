@@ -8,4 +8,5 @@
     - [Lesson 5](./lesson5.run.md)
     - [Lesson 6](./lesson6.run.md)
     - [Lesson 7](./lesson7.run.md)
+    - [Lesson 8](./lesson8.run.md)
 [Dependencies](./dependencies.md)
