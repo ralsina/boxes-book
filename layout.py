@@ -1,19 +1,20 @@
 import svgwrite
 
 class Box():
-    def __init__(self, x, y, w, h, red=False, blue=False, letter=None):
+    def __init__(self, x=0, y=0, w=1, h=1, red=False, blue=False, yellow=False, letter=None):
         self.x = x
         self.y = y
         self.w = w
         self.h = h
         self.red = red
         self.blue = blue
+        self.yellow = yellow
         self.letter = letter
 
 big_box = Box(0, 0, 80, 10000)
         
 
-def draw_boxes(boxes):
+def draw_boxes(boxes, with_boxes=True):
     STYLES = """
     .red { fill: red;}
     .green { fill: green;}
@@ -22,12 +23,13 @@ def draw_boxes(boxes):
     dwg = svgwrite.Drawing('test.svg', profile='full', size=('%d' % big_box.w, '%d' % big_box.w))
     dwg.defs.add(dwg.style(STYLES))
     for box in boxes:
-        if box.red:
-            dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='red'))
-        elif box.blue:
-            dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='blue'))
-        else:
-            dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='green'))
+        if with_boxes:
+            if box.red:
+                dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='red'))
+            elif box.blue:
+                dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='blue'))
+            else:
+                dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='green'))
         if box.letter:
             dwg.add(dwg.text(box.letter, insert=(box.x, box.y + box.h), font_size=box.h, font_family='Arial'))
     dwg.save()
@@ -167,8 +169,8 @@ def layout7(boxes):
             box.x = 0
             box.y = prev_box.y + 1.1
             if not prev_box.blue:
-                slack = big_box.w - (prev_box.x + prev_box.w)
                 row = boxes[last_break:i]
+                slack = big_box.w - (row[-1].x + row[-1].w)
                 reds = [b for b in row if b.red]
                 # sometimes there is no red in the row. Do nothing.
                 if reds:
@@ -193,8 +195,8 @@ def layout8(boxes):
                 box.y = prev_box.y + 2.1
             else: # not blue
                 box.y = prev_box.y + 1.1
-                slack = big_box.w - (prev_box.x + prev_box.w)
                 row = boxes[last_break:i]
+                slack = big_box.w - (row[-1].x + row[-1].w)
                 reds = [b for b in row if b.red]
                 # sometimes there is no red in the row. Do nothing.
                 if reds:
@@ -237,6 +239,272 @@ adjust_widths_by_letter(many_boxes)
 separation = 0
 layout8(many_boxes)
 
+# How about we get the letters from a text instead of randomly?
+p_and_p = open('pride-and-prejudice.txt').read()
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l))
+adjust_widths_by_letter(text_boxes)
+# layout8(text_boxes)
+# Oh, it's all green now, and it's all one thing after another. We should make newlines blue!
 
-draw_boxes(many_boxes)
+for b in text_boxes:
+    if b.letter == '\n':
+        b.blue = True
+# layout8(text_boxes)
 
+# Better, but newlines should not really take any space should they?
+def add_blue(boxes):
+    for b in boxes:
+        if b.letter == '\n':
+            b.blue = True
+            b.w = 0
+add_blue(text_boxes)
+# layout8(text_boxes)
+
+# Our big_box is very wide now, that is why we have long lines. Let's make it narrower
+big_box = Box(0, 0, 30, 10000)
+# layout8(text_boxes)
+
+# But our right side is ragged again! We should make spaces red.
+def add_red(boxes):
+    for b in boxes:
+        if b.letter == ' ':
+            b.red = True
+add_red(text_boxes)
+# layout8(text_boxes)
+
+# The second paragraph of Chapter 1 shows a red space as first thing in the row, and that looks bad!
+# So, when the 1st letter in a row is a space, let's make it take no width and not stretch
+
+def layout9(boxes):
+    last_break = 0
+    for i, box in enumerate(boxes[1:], 1):
+        prev_box = boxes[i-1]
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue or box.x > big_box.w:
+            box.x = 0
+            if box.red:
+                box.w = 0
+            if prev_box.blue:
+                box.y = prev_box.y + 2.1
+            else: # not blue
+                box.y = prev_box.y + 1.1
+                row = boxes[last_break:i]
+                slack = big_box.w - (row[-1].x + row[-1].w)
+                # If the 1st thing is a red, that one doesn't stretch
+                reds = [b for b in row[1:] if b.red]
+                # sometimes there is no red in the row. Do nothing.
+                if reds:
+                    mini_slack = slack / len(reds)
+                    for b in reds:
+                        b.w += mini_slack
+                    for j, b in enumerate(row[1:], 1):
+                        b.x = row[j-1].x + row[j-1].w + separation
+            last_break = i
+
+# Just for fun, let's draw it without the colored boxes
+# layout9(text_boxes)
+# draw_boxes(text_boxes, False)
+
+# Looks good, except that the words are broken wrong. You can't break good like: g
+# ood!
+
+def layout10(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    prev_box = boxes.pop(0)
+    row = [prev_box]
+    while(boxes):
+        box = boxes.pop(0)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue or box.x > big_box.w:
+            box.x = 0
+            if box.red:
+                box.w = 0
+            if prev_box.blue:
+                box.y = prev_box.y + 2.1
+
+            else: # not blue
+                box.y = prev_box.y + 1.1
+                slack = big_box.w - (row[-1].x + row[-1].w)
+                # If the 1st thing is a red, that one doesn't stretch
+                reds = [b for b in row[1:] if b.red]
+                # sometimes there is no red in the row. Do nothing.
+                if reds:
+                    mini_slack = slack / len(reds)
+                    for b in reds:
+                        b.w += mini_slack
+                    for j, b in enumerate(row[1:], 1):
+                        b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+        else:
+            row.append(box)
+        prev_box = box
+
+# layout10(text_boxes)
+
+# What if we only break on spaces?
+
+def layout11(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    prev_box = boxes.pop(0)
+    row = [prev_box]
+    while(boxes):
+        box = boxes.pop(0)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue or (box.x > big_box.w and box.red) :
+            box.x = 0
+            if box.red:
+                box.w = 0
+            if prev_box.blue:
+                box.y = prev_box.y + 2.1
+
+            else: # not blue
+                box.y = prev_box.y + 1.1
+                slack = big_box.w - (row[-1].x + row[-1].w)
+                # If the 1st thing is a red, that one doesn't stretch
+                reds = [b for b in row[1:] if b.red]
+                # sometimes there is no red in the row. Do nothing.
+                if reds:
+                    mini_slack = slack / len(reds)
+                    for b in reds:
+                        b.w += mini_slack
+                    for j, b in enumerate(row[1:], 1):
+                        b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+        else:
+            row.append(box)
+        prev_box = box
+
+# layout11(text_boxes)
+
+# That actually ... worked? Except that when we need to fit something wider than
+# big_box because we did not break the row, the slack is NEGATIVE and words get
+# smushed together!
+
+# What we actually need is hyphenation.
+# We can use pyphen to insert soft-hyphen characters wherever words can break.
+# And we can mark those positions yellow.
+
+import pyphen
+hyphenator = pyphen.Pyphen(lang='en_GB')  # These things are language dependent
+
+p_and_p = open('pride-and-prejudice.txt').readlines()
+for i, l in enumerate(p_and_p):
+    words = l.split(' ')
+    p_and_p[i] = ' '.join(hyphenator.inserted(w, '\u00AD') for w in words)
+p_and_p = ''.join(p_and_p)
+
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l))
+
+
+# This makes the characters '\u00AD' (soft-hyphen) yellow.
+def add_yellow(boxes):
+    for b in boxes:
+        if b.letter == '\u00AD':
+            b.yellow = True
+
+add_blue(text_boxes)
+add_red(text_boxes)
+add_yellow(text_boxes)
+adjust_widths_by_letter(text_boxes)
+
+# And create a new layout function that also breaks on yellow boxes.
+
+def layout12(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    prev_box = boxes.pop(0)
+    row = [prev_box]
+    while(boxes):
+        box = boxes.pop(0)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue or (box.x > big_box.w and (box.red or box.yellow)) :
+            box.x = 0
+            if box.red:
+                box.w = 0
+            if prev_box.blue:
+                box.y = prev_box.y + 2.1
+
+            else: # not blue
+                box.y = prev_box.y + 1.1
+                slack = big_box.w - (row[-1].x + row[-1].w)
+                # If the 1st thing is a red, that one doesn't stretch
+                reds = [b for b in row[1:] if b.red]
+                # sometimes there is no red in the row. Do nothing.
+                if reds:
+                    mini_slack = slack / len(reds)
+                    for b in reds:
+                        b.w += mini_slack
+                    for j, b in enumerate(row[1:], 1):
+                        b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+        else:
+            row.append(box)
+        prev_box = box
+
+# layout12(text_boxes)
+
+# Better! Since we have more break chances, there is less word-smushing.
+# However our typography is wrong, because we are hyphenating but not showing a hyphen!
+# So, we need to ADD a box when we hyphenate. That special box is hyphenbox():
+
+def hyphenbox():  # Yes, this is not optimal
+    b = Box(letter='-')
+    adjust_widths_by_letter([b])
+    return b
+
+def layout13(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    prev_box = boxes.pop(0)
+    row = [prev_box]
+    while(boxes):
+        box = boxes.pop(0)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue or (box.x > big_box.w and (box.red or box.yellow)):
+            if box.yellow:  # We need to insert the hyphen!
+                h_b = hyphenbox()
+                h_b.x = prev_box.x + prev_box.w + separation
+                h_b.y = prev_box.y
+                _boxes.append(h_b)  # So it's drawn
+                row.append(h_b) # So it's justified
+            box.x = 0
+            if box.red:
+                box.w = 0
+            if prev_box.blue:
+                box.y = prev_box.y + 2.1
+
+            else: # not blue
+                box.y = prev_box.y + 1.1
+                slack = big_box.w - (row[-1].x + row[-1].w)
+                # If the 1st thing is a red, that one doesn't stretch
+                reds = [b for b in row[1:] if b.red]
+                # sometimes there is no red in the row. Do nothing.
+                if reds:
+                    mini_slack = slack / len(reds)
+                    for b in reds:
+                        b.w += mini_slack
+                    for j, b in enumerate(row[1:], 1):
+                        b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+        else:
+            row.append(box)
+        prev_box = box
+
+
+layout13(text_boxes)
+
+# Good. However, we still have smushing. It's usually considered better to make spaces 
+# between words grow, rather than shrink. So, what we should do is, instead of breaking 
+# in the 1st yellow/red PAST the break, go back and break in the last BEFORE the break!
+
+
+
+
+draw_boxes(text_boxes)
