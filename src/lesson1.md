@@ -48,7 +48,7 @@ And yes, we can draw those boxes.
 ```python
 import svgwrite
 
-def draw_boxes(boxes, with_boxes=True):
+def draw_boxes(boxes):
     dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(100, 100))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))

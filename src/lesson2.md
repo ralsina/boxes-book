@@ -22,8 +22,7 @@ class Box():
 many_boxes = [Box() for i in range(5000)]
 ```
 
-But now, so they are not all stuck one on top of the other, let's lay the boxes down
-in a line, one next to the other.
+But now, so they are not all stuck one on top of the other, let's lay the boxes down in a line, one next to the other.
 
 ```python
 # We add a "separation" constant so you can see the boxes individually
@@ -53,7 +52,7 @@ Let's draw them!
 ```python
 import svgwrite
 
-def draw_boxes(boxes, with_boxes=True):
+def draw_boxes(boxes):
     dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 100))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
