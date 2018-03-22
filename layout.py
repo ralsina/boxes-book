@@ -18,7 +18,7 @@ class Box():
         return self.letter or 'Box'
 
 big_box = Box(0, 0, 80, 1000)
-pages = []
+pages = [big_box]
         
 
 def draw_boxes(boxes, with_boxes=True):
@@ -31,7 +31,6 @@ def draw_boxes(boxes, with_boxes=True):
     """
     dwg = svgwrite.Drawing('test.svg', profile='full', size=('%d' % big_box.w, '%d' % big_box.w))
     dwg.defs.add(dwg.style(STYLES))
-    dwg.add(dwg.rect(insert=(0,0), size=(big_box.w, big_box.h), class_='bigbox'))
     for bb in pages:
         dwg.add(dwg.rect(insert=(bb.x,bb.y), size=(bb.w, bb.h), class_='bigbox'))
     for box in boxes:
@@ -715,5 +714,11 @@ def layout16(_boxes):
             box.y = pages[page].y
             box.x = pages[page].x
 
+# This may even work with oddly-sized pages!
+pages = [Box(i*35, 0, 20, 60 + random.randint(-20, 20)) for i in range(50)]
+
 layout16(text_boxes)
 draw_boxes(text_boxes, False)
+
+# This is a good point to STOP. Look at the code, and clean house.
+
