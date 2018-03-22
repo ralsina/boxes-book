@@ -1,6 +1,6 @@
 # BOXES v3
 
-In our [previous lesson](lesson2_run.html) we ended with something like a line
+In our [previous lesson](lesson2.run.html) we ended with something like a line
 of army ants, all our boxes lined up. Let's make it better by making them
 organize themselves in rows.
 
