@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lesson 4 - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./lesson1.run.html"><strong>1.</strong> Lesson 1</a></li><li><a href="./lesson2.run.html"><strong>2.</strong> Lesson 2</a></li><li><a href="./lesson3.run.html"><strong>3.</strong> Lesson 3</a></li><li><a href="./lesson4.run.html" class="active"><strong>4.</strong> Lesson 4</a></li><li><a href="./lesson5.run.html"><strong>5.</strong> Lesson 5</a></li><li><a href="./lesson6.run.html"><strong>6.</strong> Lesson 6</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./lesson4.run.html#boxes-v4" id="boxes-v4"><h1>BOXES v4</h1></a>
+<p>In the <a href="lesson3.run.html">previous lesson</a> we totally nailed drawing between the lines ... horizontally. Let's improve on that by being bidimensional.</p>
+<p>This code is just like before:</p>
+<pre><code class="language-python">class Box():
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;We accept a few arguments to define our box, and we store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        &quot;&quot;&quot;This is what is shown if we print a Box. We want it to be useful.&quot;&quot;&quot;
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+many_boxes = [Box() for i in range(5000)]
+</code></pre>
+<p>But now, instead of a big box, let's have a list of, say, 10 pages (or large boxes), one below the other, slighty separated.</p>
+<pre><code class="language-python">pages = [Box(0, i * 55, 30, 50) for i in range(10)]
+</code></pre>
+<p>Of course our layout routine needs improvements to handle overflowing a
+page vertically.</p>
+<pre><code class="language-python"># We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; pages[page].x + pages[page].w:
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        previous = box
+
+layout(many_boxes)
+</code></pre>
+<p>And we need to change our drawing code to draw more than one page. Also, because we will run it more than once, I added an argument to choose
+the name of the output file.</p>
+<pre><code class="language-python">import svgwrite
+
+def draw_boxes(boxes, name='lesson4.svg'):
+    dwg = svgwrite.Drawing(name, profile='full', size=(100, 100))
+    for page in pages:
+        dwg.add(dwg.rect(insert=(page.x, page.y), 
+                size=(page.w, page.h), fill='yellow'))
+    for box in boxes:
+        dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
+    dwg.save()
+
+draw_boxes(many_boxes)
+</code></pre>
+<p>And here is the output:</p>
+<p><img src="lesson4.svg" width="100%" style='border: 1px solid green; overflow: auto;'></p>
+<p>Would this work if the pages are arranged differently? Let's put the pages
+side by side instead.</p>
+<pre><code class="language-python">pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_side_by_side.svg')
+</code></pre>
+<p><img src="lesson4_side_by_side.svg" width="100%" style='border: 1px solid green; overflow: auto;'></p>
+<p>And how about pages of different sizes?</p>
+<pre><code class="language-python">from random import randint
+pages = [Box(i * 35, 0, 30 + randint(-3,3), 50 + randint(-10, 10)) for i in range(10)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_random_sizes.svg')
+</code></pre>
+<p><img src="lesson4_random_sizes.svg" width="100%" style='border: 1px solid green; overflow: auto;'></p>
+<p>So, we can fill pages and pages with little red squares now. Nice!</p>
+<p>How about we make the squares not be all the same width?</p>
+<pre><code class="language-python">many_boxes = [Box(w=1 + randint(-5,5)/10) for i in range(5000)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg')
+</code></pre>
+<p>This adds &quot;noise&quot; to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.</p>
+<p><img src="lesson4_random_box_sizes.svg" width="100%" style='border: 1px solid green; overflow: auto;'></p>
+<p>That looks interesting...</p>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="./lesson3.run.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="./lesson5.run.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./lesson3.run.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./lesson5.run.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
