@@ -37,7 +37,7 @@ And of course, we need a new layout function. The plan is this:
 * When we are about to go too wide, see how much "slack" is left
   between the right side of our last box in the row and the edge of
   the page.
-* Spread that slack in the space between all boxes so noone notices.
+* Spread that slack by sliding all boxes slightly right so noone notices.
 
 ```python
 # We add a "separation" constant so you can see the boxes individually
