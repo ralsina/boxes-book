@@ -61,7 +61,7 @@ def layout(_boxes):
         # At the same vertical location
         box.y = previous.y
         # But if it's too far to the right...
-        if box.x > pages[page].x + pages[page].w:
+        if (box.x + box.w) > (pages[page].x + pages[page].w):
             # We adjust the row
             slack = (pages[page].x + pages[page].w) - (row[-1].x + row[-1].w)
             bump = slack / len(row)

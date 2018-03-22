@@ -49,7 +49,7 @@ def layout(_boxes):
         # At the same vertical location
         box.y = previous.y
         # But if it's too far to the right...
-        if box.x > big_box.w:
+        if (box.x + box.w) > big_box.w:
             # We go all the way left and a little down
             box.x = 0
             box.y = previous.y + previous.h + separation

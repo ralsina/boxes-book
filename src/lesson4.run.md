@@ -50,7 +50,7 @@ def layout(_boxes):
         # At the same vertical location
         box.y = previous.y
         # But if it's too far to the right...
-        if box.x > pages[page].x + pages[page].w:
+        if (box.x + box.w) > pages[page].x + pages[page].w:
             # We go all the way left and a little down
             box.x = pages[page].x
             box.y = previous.y + previous.h + separation
