@@ -55,3 +55,19 @@ But we need to work on our layout engine, a lot. Here is the image of our attemp
 Let's count the problems:
 
 1. It totally ignores newlines everywhere
+2. It keeps spaces at the end of rows, making the right side ragged 
+   (see "said his " in the seventh line)
+3. White space at the beginning of rows is shown and it looks bad 
+   (see " a neigh" at the beginning of the fifth line)
+4. Words are split between lines haphazardly, but this is for later and leads
+   to some serious code that needs its own lesson.
+
+Let's go in order.
+
+## Newlines
+
+## Spaces against the right margin
+
+## Spaces against the left margin
+
+And we will keep hyphenation for the next lesson.

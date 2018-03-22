@@ -62,4 +62,12 @@ Let's count the problems:
 4. Words are split between lines haphazardly, but this is for later and leads
    to some serious code that needs its own lesson.
 
+Let's go in order.
 
+## Newlines
+
+## Spaces against the right margin
+
+## Spaces against the left margin
+
+And we will keep hyphenation for the next lesson.
