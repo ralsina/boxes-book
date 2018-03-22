@@ -10,8 +10,15 @@ class Box():
         self.blue = blue
         self.yellow = yellow
         self.letter = letter
+    
+    def __str__(self):
+        return self.letter or 'Box'
+    
+    def __repr__(self):
+        return self.letter or 'Box'
 
-big_box = Box(0, 0, 80, 10000)
+big_box = Box(0, 0, 80, 1000)
+pages = []
         
 
 def draw_boxes(boxes, with_boxes=True):
@@ -19,15 +26,22 @@ def draw_boxes(boxes, with_boxes=True):
     .red { fill: red;}
     .green { fill: green;}
     .blue {fill: blue;}
+    .yellow {fill: yellow;}
+    .bigbox {fill: cyan; }
     """
     dwg = svgwrite.Drawing('test.svg', profile='full', size=('%d' % big_box.w, '%d' % big_box.w))
     dwg.defs.add(dwg.style(STYLES))
+    dwg.add(dwg.rect(insert=(0,0), size=(big_box.w, big_box.h), class_='bigbox'))
+    for bb in pages:
+        dwg.add(dwg.rect(insert=(bb.x,bb.y), size=(bb.w, bb.h), class_='bigbox'))
     for box in boxes:
         if with_boxes:
             if box.red:
                 dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='red'))
             elif box.blue:
                 dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='blue'))
+            elif box.yellow:
+                dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='yellow'))
             else:
                 dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), class_='green'))
         if box.letter:
@@ -229,7 +243,7 @@ def adjust_widths_by_letter(boxes):
     hb.shape(font, buf)
     # at this point buf.glyph_positions has all the data we need
     for box, position in zip(boxes, buf.glyph_positions):
-        box.w = position.x_advance - position.x_offset
+        box.w = position.x_advance
 
 adjust_widths_by_letter(many_boxes)
 # layout8(many_boxes)
@@ -263,7 +277,7 @@ add_blue(text_boxes)
 # layout8(text_boxes)
 
 # Our big_box is very wide now, that is why we have long lines. Let's make it narrower
-big_box = Box(0, 0, 30, 10000)
+big_box = Box(0, 0, 30, 1000)
 # layout8(text_boxes)
 
 # But our right side is ragged again! We should make spaces red.
@@ -308,8 +322,7 @@ def layout9(boxes):
 # layout9(text_boxes)
 # draw_boxes(text_boxes, False)
 
-# Looks good, except that the words are broken wrong. You can't break good like: g
-# ood!
+# XXX layout9 rewritten using pop(), need to backport this version
 
 def layout10(_boxes):
     boxes = _boxes[:]  # Work on a copy
@@ -317,10 +330,12 @@ def layout10(_boxes):
     row = [prev_box]
     while(boxes):
         box = boxes.pop(0)
+        row.append(box)
         box.x = prev_box.x + prev_box.w + separation 
         box.y = prev_box.y
         if prev_box.blue or box.x > big_box.w:
             box.x = 0
+            row.pop()  # our box will go in the next row
             if box.red:
                 box.w = 0
             if prev_box.blue:
@@ -339,11 +354,12 @@ def layout10(_boxes):
                     for j, b in enumerate(row[1:], 1):
                         b.x = row[j-1].x + row[j-1].w + separation
             row = [box]
-        else:
-            row.append(box)
         prev_box = box
 
 # layout10(text_boxes)
+
+# Looks good, except that the words are broken wrong. You can't break good like: g
+# ood!
 
 # What if we only break on spaces?
 
@@ -353,9 +369,11 @@ def layout11(_boxes):
     row = [prev_box]
     while(boxes):
         box = boxes.pop(0)
+        row.append(box)
         box.x = prev_box.x + prev_box.w + separation 
         box.y = prev_box.y
         if prev_box.blue or (box.x > big_box.w and box.red) :
+            row.pop()  # our box will go in the next row
             box.x = 0
             if box.red:
                 box.w = 0
@@ -375,8 +393,6 @@ def layout11(_boxes):
                     for j, b in enumerate(row[1:], 1):
                         b.x = row[j-1].x + row[j-1].w + separation
             row = [box]
-        else:
-            row.append(box)
         prev_box = box
 
 # layout11(text_boxes)
@@ -422,9 +438,11 @@ def layout12(_boxes):
     row = [prev_box]
     while(boxes):
         box = boxes.pop(0)
+        row.append(box)
         box.x = prev_box.x + prev_box.w + separation 
         box.y = prev_box.y
         if prev_box.blue or (box.x > big_box.w and (box.red or box.yellow)) :
+            row.pop()  # our box will go in the next row
             box.x = 0
             if box.red:
                 box.w = 0
@@ -444,8 +462,6 @@ def layout12(_boxes):
                     for j, b in enumerate(row[1:], 1):
                         b.x = row[j-1].x + row[j-1].w + separation
             row = [box]
-        else:
-            row.append(box)
         prev_box = box
 
 # layout12(text_boxes)
@@ -455,7 +471,7 @@ def layout12(_boxes):
 # So, we need to ADD a box when we hyphenate. That special box is hyphenbox():
 
 def hyphenbox():  # Yes, this is not optimal
-    b = Box(letter='-')
+    b = Box(letter='-', yellow=True)
     adjust_widths_by_letter([b])
     return b
 
@@ -465,9 +481,11 @@ def layout13(_boxes):
     row = [prev_box]
     while(boxes):
         box = boxes.pop(0)
+        row.append(box)
         box.x = prev_box.x + prev_box.w + separation 
         box.y = prev_box.y
         if prev_box.blue or (box.x > big_box.w and (box.red or box.yellow)):
+            row.pop()  # our box will go in the next row
             if box.yellow:  # We need to insert the hyphen!
                 h_b = hyphenbox()
                 h_b.x = prev_box.x + prev_box.w + separation
@@ -493,18 +511,142 @@ def layout13(_boxes):
                     for j, b in enumerate(row[1:], 1):
                         b.x = row[j-1].x + row[j-1].w + separation
             row = [box]
-        else:
-            row.append(box)
         prev_box = box
 
 
-layout13(text_boxes)
+# layout13(text_boxes)
 
 # Good. However, we still have smushing. It's usually considered better to make spaces 
 # between words grow, rather than shrink. So, what we should do is, instead of breaking 
 # in the 1st yellow/red PAST the break, go back and break in the last BEFORE the break!
 
+# XXX backport simplifications from layout14: separation of blue case
+
+def layout14(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    row = [boxes.pop(0)]
+    while(boxes):
+        prev_box = row[-1]
+        box = boxes.pop(0)
+        row.append(box)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue:
+            box.x = 0
+            box.y = prev_box.y + 2.1
+            row.pop()
+            row=[box]
+
+        elif box.x > big_box.w:
+            while not (box.red or box.yellow):  # backtrack onw
+                boxes.insert(0, row.pop())
+                # tip of row is now box, previous one is prev_box
+                box = row[-1]
+                prev_box = row[-2]
+
+            row.pop()  # Breaking box goes in next row
+            if box.yellow:  # We need to insert the hyphen!
+                h_b = hyphenbox()
+                h_b.x = prev_box.x + prev_box.w + separation
+                h_b.y = prev_box.y
+                _boxes.append(h_b)  # So it's drawn
+                row.append(h_b) # So it's justified
+            box.x = 0
+            box.y = prev_box.y + 1.1
+            if box.red:
+                box.w = 0
+            slack = big_box.w - (row[-1].x + row[-1].w)
+            # If the 1st thing is a red, that one doesn't stretch
+            reds = [b for b in row[1:] if b.red]
+            # sometimes there is no red in the row. Do nothing.
+            if reds:
+                mini_slack = slack / len(reds)
+                for b in reds:
+                    b.w += mini_slack
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+
+# With a little separation for niceness, the result is not half bad!
+separation = 0.05
+# layout14(text_boxes)
+
+# So far, our big_box has been very, very tall. What would happen if it were short?
+big_box = Box(0, 0, 30, 60)
+# layout14(text_boxes)
+
+# Well, that our text flows straight out of the box! And our initial problem was 
+# "So, how could we layout the many boxes inside the big_box?" !
+# That won't do. Clearly, if we have more text than fits in a box, we need more than one
+# box. Like pages.
+
+# So, let's make many big boxes.
 
 
+pages = [Box(0, i * 65, 30, 60) for i in range(50)]
 
-draw_boxes(text_boxes)
+# layout14(text_boxes)
+
+# Of course our layout engine does nothing with those pages. Let's fix that.
+
+def layout15(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    row = [boxes.pop(0)]
+
+    # Put the 1st box in the beginning of the 1st page
+    page = 0
+    row[0].x = pages[page].x
+    row[0].y = pages[page].y
+    
+    while(boxes):
+        prev_box = row[-1]
+        box = boxes.pop(0)
+        row.append(box)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue:
+            box.x = 0
+            box.y = prev_box.y + 2.1
+            row.pop()
+            row=[box]
+
+        elif box.x > pages[page].w:
+            while not (box.red or box.yellow):  # backtrack onw
+                boxes.insert(0, row.pop())
+                # tip of row is now box, previous one is prev_box
+                box = row[-1]
+                prev_box = row[-2]
+
+            row.pop()  # Breaking box goes in next row
+            if box.yellow:  # We need to insert the hyphen!
+                h_b = hyphenbox()
+                h_b.x = prev_box.x + prev_box.w + separation
+                h_b.y = prev_box.y
+                _boxes.append(h_b)  # So it's drawn
+                row.append(h_b) # So it's justified
+            box.x = 0
+            box.y = prev_box.y + 1.1
+            if box.red:
+                box.w = 0
+            slack = pages[page].w - (row[-1].x + row[-1].w)
+            # If the 1st thing is a red, that one doesn't stretch
+            reds = [b for b in row[1:] if b.red]
+            # sometimes there is no red in the row. Do nothing.
+            if reds:
+                mini_slack = slack / len(reds)
+                for b in reds:
+                    b.w += mini_slack
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+
+        if box.y + box.h > pages[page].y + pages[page].h:
+            # We need to go to the next page
+            page = page + 1
+            box.y = pages[page].y
+
+        
+layout15(text_boxes)
+# And there you go, pagination
+
+draw_boxes(text_boxes, False)
