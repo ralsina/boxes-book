@@ -98,7 +98,7 @@ def draw_boxes(boxes, name='lesson5.svg'):
     dwg = svgwrite.Drawing(name, profile='full', size=(150, 60))
     for page in pages:
         dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='yellow'))
+                size=(page.w, page.h), fill='lightyellow'))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()

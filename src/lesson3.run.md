@@ -59,7 +59,7 @@ layout(many_boxes)
 ```
 
 And now we can draw it. Just so we are sure we are staying inside the 
-big box, we will draw it too, in yellow.
+big box, we will draw it too, in lightyellow.
 
 ```python
 import svgwrite
@@ -67,7 +67,7 @@ import svgwrite
 def draw_boxes(boxes):
     dwg = svgwrite.Drawing('lesson3.svg', profile='full', size=(100, 100))
     dwg.add(dwg.rect(insert=(big_box.x, big_box.y), 
-            size=(big_box.w, big_box.h), fill='yellow'))
+            size=(big_box.w, big_box.h), fill='lightyellow'))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()

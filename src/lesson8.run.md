@@ -35,10 +35,10 @@ adjust_widths_by_letter(text_boxes)
 import svgwrite
 
 def draw_boxes(boxes, name='lesson8.svg', hide_boxes=False):
-    dwg = svgwrite.Drawing(name, profile='full', size=(32, 57))
+    dwg = svgwrite.Drawing(name, profile='full', size=(32, 52))
     for page in pages:
         dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='yellow'))
+                size=(page.w, page.h), fill='lightyellow'))
     for box in boxes:
         color = 'green' if box.stretchy else 'red'
         if not hide_boxes:
@@ -161,10 +161,113 @@ As mentioned, the code changes are small, but the output now looks radically dif
 <img src="lesson8_handle_newlines.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
 
 
-## Spaces against the right margin
+## Spaces against the right and left margins
+
+You can see clearly, in the previous sample output where this happens in one of the latter paragraphs, "to see the place,  " appears ragged when it should not. And a similar thing happens in an earlier paragraph where there is a hole against the left margin in " told me all about it".
+
+In both cases, the cause is because the "empty" space is used by spaces!
+
+So, one possible solution is, when justifying a row, to make all the spaces at the right margins 0-width and not stretchy. At the same time, when adding spaces at the beginning of a row, they should become 0-width and not stretchy.
+
+**BUT** this means the list of boxes will need its width readjusted if they are to be layouted again on different pages! That's because some of the spaces will now be thin and "rigid" so they will work badly if they are **not** against the margin on a different layout.
+
+It's not a big problem, but it's worth keeping in mind, since it's the kind of thing that becomes an obscure bug later on. So, we add it to the docstring.
+
+```python
+# We add a "separation" constant so you can see the boxes individually
+separation = .05
+
+def layout(_boxes):
+    """Layout boxes along pages.
+
+    Keep in mind that this function modifies the boxes themselves, so
+    you should be very careful about trying to call layout() more than once
+    on the same boxes.
+
+    Specifically, some spaces will become 0-width and not stretchy.
+    """
+
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+
+        # The next 10 lines are almost all the change
+        break_line = False
+        # But if it's a newline
+        if (box.letter == '\n'):
+            break_line = True
+            # Newlines take no horizontal space ever
+            box.w = 0
+            box.stretchy = False
+
+        # Or if it's too far to the right...
+        elif (box.x + box.w) > (pages[page].x + pages[page].w):
+            break_line = True
+            # We adjust the row
+            # Remove all right-margin spaces
+            while row[-1].letter == ' ':
+                row.pop()
+            slack = (pages[page].x + pages[page].w) - (row[-1].x + row[-1].w)
+            stretchies = [b for b in row if b.stretchy]
+            if stretchies:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j-1].x + row[j-1].w + separation
+
+            else:  # Nothing stretches!!! Do it like before.
+                bump = slack / len(row)
+                for i, b in enumerate(row):
+                    b.x += bump * i
+
+        if break_line:
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h > pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+
+        # Collapse all left-margin space
+        if all(b.letter == ' ' for b in row):
+            box.w = 0
+            box.stretchy = False
+            box.x = pages[page].x
+            
+        previous = box
+
+layout(text_boxes)
+draw_boxes(text_boxes, 'lesson8_handle_spaces.svg', hide_boxes=True)
+```
 
 
+<img src="lesson8_handle_spaces.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
 
-## Spaces against the left margin
 
-And we will keep hyphenation for the next lesson.
+With that taken care of, we will keep hyphenation for the next lesson.

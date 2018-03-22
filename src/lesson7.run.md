@@ -107,7 +107,7 @@ def draw_boxes(boxes, name='lesson7.svg', hide_boxes=False):
     dwg = svgwrite.Drawing(name, profile='full', size=(32, 20))
     for page in pages:
         dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='yellow'))
+                size=(page.w, page.h), fill='lightyellow'))
     for box in boxes:
         color = 'green' if box.stretchy else 'red'
         if not hide_boxes:
