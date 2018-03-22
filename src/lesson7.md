@@ -29,7 +29,7 @@ class Box():
         return 'Box(%s, %s, %s, %s, "%s")' % (self.x, self.y, self.w, self.y, self.letter)
 
 # A few pages all the same size
-pages = [Box(i * 35 + 1, 5, 30, 50) for i in range(10)]
+pages = [Box(i * 35 + 1, 1, 30, 50) for i in range(10)]
 
 # Many boxes, all the same width, with an x in them
 text_boxes = [Box() for i in range(5000)]
@@ -193,3 +193,25 @@ draw_boxes(text_boxes, 'lesson7_adjusted_letters_no_boxes.svg', hide_boxes=True)
 ```
 
 <img src="lesson7_adjusted_letters_no_boxes.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+
+And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on, 
+Jane Austen's [Pride and Prejudice from Project Gutenberg](http://www.gutenberg.org/ebooks/1342)
+
+```python
+separation = .05
+p_and_p = open('pride-and-prejudice.txt').read()
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l==' '))
+adjust_widths_by_letter(text_boxes)
+layout(text_boxes)
+draw_boxes(text_boxes, 'lesson7_pride_and_prejudice.svg', hide_boxes=True)
+```
+
+<img src="lesson7_pride_and_prejudice.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+
+And that is ... maybe disappointing? While we spent a lot of time on things like justifying text, we have not even looked at newlines!
+
+Also, spaces at the end of lines make the line appear ragged again, now that they are not boxes.
+
+So, we know what to hit in the next lesson.
