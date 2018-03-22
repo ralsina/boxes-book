@@ -646,7 +646,74 @@ def layout15(_boxes):
             box.y = pages[page].y
 
         
-layout15(text_boxes)
+# layout15(text_boxes)
 # And there you go, pagination
 
+# What happens if pages are organized differently?
+# Let's put them left-to-right
+pages = [Box(i*35, 0, 30, 60) for i in range(50)]
+# layout15(text_boxes)
+
+# Everything is in the same page, because we are resetting x to 0 on line breaks.
+# You always need to find your hidden assumptions.
+
+def layout16(_boxes):
+    boxes = _boxes[:]  # Work on a copy
+    row = [boxes.pop(0)]
+
+    # Put the 1st box in the beginning of the 1st page
+    page = 0
+    row[0].x = pages[page].x
+    row[0].y = pages[page].y
+    
+    while(boxes):
+        prev_box = row[-1]
+        box = boxes.pop(0)
+        row.append(box)
+        box.x = prev_box.x + prev_box.w + separation 
+        box.y = prev_box.y
+        if prev_box.blue:
+            box.x = pages[page].x
+            box.y = prev_box.y + 2.1
+            row.pop()
+            row=[box]
+
+        elif box.x > pages[page].w + pages[page].x:
+            while not (box.red or box.yellow):  # backtrack onw
+                boxes.insert(0, row.pop())
+                # tip of row is now box, previous one is prev_box
+                box = row[-1]
+                prev_box = row[-2]
+
+            row.pop()  # Breaking box goes in next row
+            if box.yellow:  # We need to insert the hyphen!
+                h_b = hyphenbox()
+                h_b.x = prev_box.x + prev_box.w + separation
+                h_b.y = prev_box.y
+                _boxes.append(h_b)  # So it's drawn
+                row.append(h_b) # So it's justified
+            box.x = pages[page].x
+            box.y = prev_box.y + 1.1
+            if box.red:
+                box.w = 0
+            slack = (pages[page].w + pages[page].x) - (row[-1].x + row[-1].w)
+            # If the 1st thing is a red, that one doesn't stretch
+            reds = [b for b in row[1:] if b.red]
+            # sometimes there is no red in the row. Do nothing.
+            if reds:
+                mini_slack = slack / len(reds)
+                for b in reds:
+                    b.w += mini_slack
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j-1].x + row[j-1].w + separation
+            row = [box]
+
+        # We may need to go to the next page
+        if box.y + box.h > pages[page].y + pages[page].h:
+            page = page + 1
+            # Since the location of a page is arbitrary, both coordinates are reset
+            box.y = pages[page].y
+            box.x = pages[page].x
+
+layout16(text_boxes)
 draw_boxes(text_boxes, False)
