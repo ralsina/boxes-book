@@ -124,6 +124,6 @@ draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg')
 
 This adds "noise" to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.
 
-<img src="lesson4_random_box_sizes.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson4.svg](lesson4.svg)
 
 That looks interesting...

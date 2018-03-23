@@ -106,7 +106,7 @@ def draw_boxes(boxes, name='lesson5.svg'):
 draw_boxes(many_boxes)
 ```
 
-<img src="lesson5.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson5.svg](lesson5.svg)
 
 Isn't that nice? If you look at it from afar it looks sort of familiar.
 Doesn't it?

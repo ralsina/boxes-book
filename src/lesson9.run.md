@@ -255,7 +255,7 @@ layout(text_boxes)
 draw_boxes(text_boxes, hide_boxes=True)
 ```
 
-<img src="lesson9.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson9.svg](lesson9.svg)
 
 And there in "proper-ty" you can see it in action. Of course this is 
 a naïve implementation. What happens if you just can't break?
@@ -267,7 +267,7 @@ layout(many_boxes)
 draw_boxes(many_boxes, hide_boxes=True, name='lesson9_lots_of_a.svg')
 ```
 
-<img src="lesson9_lots_of_a.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson9_lots_of_a.svg](lesson9_lots_of_a.svg)
 
 Since it can't break at all, it just goes on and on.
 
@@ -281,7 +281,7 @@ layout(many_boxes)
 draw_boxes(many_boxes, hide_boxes=True, name='lesson9_one_break.svg')
 ```
 
-<img src="lesson9_one_break.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson9_one_break.svg](lesson9_one_break.svg)
 
 Because there is only one place to break the line, it then tries to 
 wedge 100 letter "a" where there is room for 54 (I counted!) and something interesting happens... the "slack" is negative!

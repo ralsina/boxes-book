@@ -48,7 +48,7 @@ And yes, we can draw those boxes.
 import svgwrite
 
 def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(5, 5))
+    dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(5, 2))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()
@@ -57,7 +57,7 @@ draw_boxes(many_boxes)
 ```
 And here is the output:
 
-<img src="lesson1.svg" width="100%" style='border: 1px solid green;'>
+![lesson1.svg](lesson1.svg)
 
 That ... was not very interesting. It's a single small red square!
 

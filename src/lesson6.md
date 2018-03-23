@@ -115,7 +115,7 @@ def draw_boxes(boxes, name='lesson6.svg'):
 draw_boxes(many_boxes)
 ```
 
-<img src="lesson6.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson6.svg](lesson6.svg)
 
 This layout strategy works:
 

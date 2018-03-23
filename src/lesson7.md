@@ -119,7 +119,7 @@ def draw_boxes(boxes, name='lesson7.svg', hide_boxes=False):
 draw_boxes(text_boxes)
 ```
 
-<img src="lesson7.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7.svg](lesson7.svg)
 
 Of course this is very boring, so we need to spice up our data a little.
 We can use different letters, and then make the right ones stretchy. That is easy!
@@ -136,7 +136,7 @@ layout(text_boxes)
 draw_boxes(text_boxes, 'lesson7_different_letters.svg')
 ```
 
-<img src="lesson7_different_letters.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7_different_letters.svg](lesson7_different_letters.svg)
 
 As you can see, there are very minor horizontal shifts and stretches, since all boxes are the same size.
 
@@ -181,7 +181,7 @@ layout(text_boxes)
 draw_boxes(text_boxes, 'lesson7_adjusted_letters.svg')
 ```
 
-<img src="lesson7_adjusted_letters.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7_adjusted_letters.svg](lesson7_adjusted_letters.svg)
 
 And nicer, without the boxes:
 
@@ -192,7 +192,7 @@ layout(text_boxes)
 draw_boxes(text_boxes, 'lesson7_adjusted_letters_no_boxes.svg', hide_boxes=True)
 ```
 
-<img src="lesson7_adjusted_letters_no_boxes.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7_adjusted_letters_no_boxes.svg](lesson7_adjusted_letters_no_boxes.svg)
 
 And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on, 
 Jane Austen's [Pride and Prejudice from Project Gutenberg](http://www.gutenberg.org/ebooks/1342)
@@ -207,8 +207,7 @@ adjust_widths_by_letter(text_boxes)
 layout(text_boxes)
 draw_boxes(text_boxes, 'lesson7_pride_and_prejudice.svg', hide_boxes=True)
 ```
-
-<img src="lesson7_pride_and_prejudice.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
 
 And that is ... maybe disappointing? While we spent a lot of time on things like justifying text, we have not even looked at newlines!
 
