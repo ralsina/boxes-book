@@ -1,6 +1,5 @@
 # BOXES v1
 
-
 Welcome to Boxes v1. I want to be able to draw some boxes. By boxes I don't mean actual boxes,
 but rather squares. I found a library called svgwrite that lets you do that pretty easily.
 
@@ -49,7 +48,7 @@ And yes, we can draw those boxes.
 import svgwrite
 
 def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(100, 100))
+    dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(5, 5))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()
@@ -59,7 +58,6 @@ draw_boxes(many_boxes)
 And here is the output:
 
 <img src="lesson1.svg" width="100%" style='border: 1px solid green;'>
-
 
 That ... was not very interesting. It's a single small red square!
 

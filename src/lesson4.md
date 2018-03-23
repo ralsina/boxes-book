@@ -75,7 +75,7 @@ the name of the output file.
 import svgwrite
 
 def draw_boxes(boxes, name='lesson4.svg'):
-    dwg = svgwrite.Drawing(name, profile='full', size=(100, 100))
+    dwg = svgwrite.Drawing(name, profile='full', size=(100, 60))
     for page in pages:
         dwg.add(dwg.rect(insert=(page.x, page.y), 
                 size=(page.w, page.h), fill='yellow'))

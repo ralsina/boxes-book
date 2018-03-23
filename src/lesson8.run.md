@@ -259,7 +259,7 @@ def layout(_boxes):
             box.w = 0
             box.stretchy = False
             box.x = pages[page].x
-            
+
         previous = box
 
 layout(text_boxes)
@@ -269,5 +269,5 @@ draw_boxes(text_boxes, 'lesson8_handle_spaces.svg', hide_boxes=True)
 
 <img src="lesson8_handle_spaces.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
 
-
+As you can see, the justification now is absolutely tight where it needs to be.
 With that taken care of, we will keep hyphenation for the next lesson.

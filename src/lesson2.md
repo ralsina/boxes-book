@@ -53,7 +53,7 @@ Let's draw them!
 import svgwrite
 
 def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 100))
+    dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 5))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()
