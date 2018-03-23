@@ -53,7 +53,7 @@ Let's draw them!
 import svgwrite
 
 def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 100))
+    dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 5))
     for box in boxes:
         dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
     dwg.save()
@@ -62,7 +62,7 @@ draw_boxes(many_boxes)
 ```
 And here is the output:
 
-<img src="lesson2.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson2.svg](lesson2.svg)
 
 That was more or less what we expected, right? Of course since there are 5000 small
 boxes that row of boxes goes on for quite a while.

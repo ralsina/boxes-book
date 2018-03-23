@@ -1,0 +1,14 @@
+[book]
+title = "BOXES (WIP title)"
+author = "Roberto Alsina"
+description = "The whole lifecycle of a project."
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+additional-css = ["custom.css"]
+
+[output.html.search]
+limit-results = 15

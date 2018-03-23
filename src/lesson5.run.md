@@ -1,6 +1,6 @@
 # BOXES v5
 
-In our [previous lesson](lesson.4.run.html) we created code that can fill a series of pages using many small boxes.
+In our [previous lesson](lesson4.run.html) we created code that can fill a series of pages using many small boxes.
 
 But only when those boxes are all alike. Once the boxes had different widths, the right side of our layout got all ragged. You surely have seen things like it when using word processors or reading web pages, where the text is all aligned on the left and all ragged on the right. It's called a "left-aligned" or "ragged-right" layout. 
 
@@ -106,7 +106,7 @@ def draw_boxes(boxes, name='lesson5.svg'):
 draw_boxes(many_boxes)
 ```
 
-<img src="lesson5.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson5.svg](lesson5.svg)
 
 Isn't that nice? If you look at it from afar it looks sort of familiar.
 Doesn't it?

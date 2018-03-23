@@ -9,4 +9,6 @@
     - [Lesson 6](./lesson6.run.md)
     - [Lesson 7](./lesson7.run.md)
     - [Lesson 8](./lesson8.run.md)
+    - [Lesson 9](./lesson9.run.md)
+    - [Lesson 10](./lesson10.run.md)
 [Dependencies](./dependencies.md)

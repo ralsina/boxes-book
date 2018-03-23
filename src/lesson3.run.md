@@ -76,7 +76,7 @@ draw_boxes(many_boxes)
 ```
 And here is the output:
 
-<img src="lesson3.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson3.svg](lesson3.svg)
 
 That is strangely satisfying! Of course we are doing something wrong in that
 we are overflowing the big box vertically.

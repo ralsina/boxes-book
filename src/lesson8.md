@@ -1,6 +1,6 @@
 # BOXES v8
 
-In the [previous lesson](./lesson7.run.md) we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.
+In the [previous lesson](lesson7.run.html) we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.
 
 We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes. Also unchanged is the drawing code.
 
@@ -50,7 +50,7 @@ def draw_boxes(boxes, name='lesson8.svg', hide_boxes=False):
 
 But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying "Pride and Prejudice":
 
-<img src="lesson7_pride_and_prejudice.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
 
 Let's count the problems:
 
@@ -158,8 +158,7 @@ draw_boxes(text_boxes, 'lesson8_handle_newlines.svg', hide_boxes=True)
 
 As mentioned, the code changes are small, but the output now looks radically different.
 
-<img src="lesson8_handle_newlines.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
-
+![lesson8_handle_newlines.svg](lesson8_handle_newlines.svg)
 
 ## Spaces against the right and left margins
 
@@ -266,8 +265,7 @@ layout(text_boxes)
 draw_boxes(text_boxes, 'lesson8_handle_spaces.svg', hide_boxes=True)
 ```
 
-
-<img src="lesson8_handle_spaces.svg" width="100%" style='border: 1px solid green; overflow: auto;'>
+![lesson8_handle_spaces.svg](lesson8_handle_spaces.svg)
 
 As you can see, the justification now is absolutely tight where it needs to be.
 With that taken care of, we will keep hyphenation for the next lesson.
