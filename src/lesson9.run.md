@@ -1,6 +1,6 @@
 # BOXES v9
 
-In our [previous lesson](../lesson8.run.html) we created a serviceable text layout engine.
+In our [previous lesson](lesson8.run.html) we created a serviceable text layout engine.
 It has many problems, but remember our goal is not to create the best possible thing, this
 is an educational experience. The spit and polish will appear later on.
 
@@ -13,7 +13,7 @@ between lines in the correct places.
 Instead of breaking anywhere, we will break only in the places where the [rules of each language](https://english.stackexchange.com/questions/385/what-are-the-rules-for-splitting-words-at-the-end-of-a-line)
 allow us to.
 
-Just as it happened with [text shaping](./lesson7.run.html) we are lucky to live in a moment in time
+Just as it happened with [text shaping](lesson7.run.html) we are lucky to live in a moment in time
 when almost everything we need to do it right is already in place. In particular, we will use
 a library called [Pyphen](https://github.com/Kozea/Pyphen) mostly because I already have used it
 in another project.

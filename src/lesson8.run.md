@@ -1,6 +1,6 @@
 # BOXES v8
 
-In the [previous lesson](./lesson7.run.md) we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.
+In the [previous lesson](lesson7.run.html) we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.
 
 We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes. Also unchanged is the drawing code.
 

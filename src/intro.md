@@ -15,5 +15,5 @@ So, not much like a documentary on the beginnings of a rock band.
 > ### How it's done
 > 
 > * It's written in markdown
-> * The sections with code are fed to [pyliterate]  (https://github.com/bslatkin/pyliterate) and its output is built into a "book" by [mdbook](https://github.com/rust-lang-nursery/mdBook)
-> * The code uses a ton of things, links are provided in the [Dependencies Appendix](./dependencies.html) 
+> * The sections with code are fed to [pyliterate](https://github.com/bslatkin/pyliterate) and its output is built into a "book" by [mdbook](https://github.com/rust-lang-nursery/mdBook)
+> * The code uses a ton of things, links are provided in the [Dependencies Appendix](dependencies.html) 
