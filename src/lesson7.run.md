@@ -244,7 +244,7 @@ layout(text_boxes)
 draw_boxes(
     text_boxes,
     'lesson7_adjusted_letters_no_boxes.svg',
-    (32, 20),
+    (30, 20),
     hide_boxes=True,
 )
 
@@ -266,7 +266,7 @@ layout(text_boxes)
 draw_boxes(
     text_boxes,
     'lesson7_pride_and_prejudice.svg',
-    (32, 20),
+    (30, 20),
     hide_boxes=True,
 )
 

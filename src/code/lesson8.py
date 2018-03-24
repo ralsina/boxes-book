@@ -49,7 +49,7 @@ def layout(_boxes):
         # At the same vertical location
         box.y = previous.y
 
-        # The next 10 lines are almost all the change
+        # Handle breaking on newlines
         break_line = False
         # But if it's a newline
         if (box.letter == '\n'):
