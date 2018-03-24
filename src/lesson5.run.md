@@ -12,23 +12,28 @@ Could we make it look aligned on BOTH sides? Of course. Let's try.
 This code is just like before:
 
 ```python
+# lesson5.py
 class Box():
+
     def __init__(self, x=0, y=0, w=1, h=1):
-        """We accept a few arguments to define our box, and we store them."""
+        """Accept arguments to define our box, and store them."""
         self.x = x
         self.y = y
         self.w = w
         self.h = h
 
     def __repr__(self):
-        """This is what is shown if we print a Box. We want it to be useful."""
         return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
 
 # Many boxes with varying widths
 from random import randint
-many_boxes = [Box(w=1 + randint(-5,5)/10) for i in range(5000)]
+
+many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
+
 # A few pages all the same size
 pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+
 ```
 
 And of course, we need a new layout function. The plan is this:
@@ -40,8 +45,10 @@ And of course, we need a new layout function. The plan is this:
 * Spread that slack by sliding all boxes slightly right so noone notices.
 
 ```python
+# lesson5.py
 # We add a "separation" constant so you can see the boxes individually
 separation = .2
+
 
 def layout(_boxes):
     # Because we modify the box list, we will work on a copy
@@ -63,7 +70,9 @@ def layout(_boxes):
         # But if it's too far to the right...
         if (box.x + box.w) > (pages[page].x + pages[page].w):
             # We adjust the row
-            slack = (pages[page].x + pages[page].w) - (row[-1].x + row[-1].w)
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
             bump = slack / len(row)
             # The 1st box gets 0 bumps, the 2nd gets 1 and so on
             for i, b in enumerate(row):
@@ -86,27 +95,51 @@ def layout(_boxes):
         row.append(box)
         previous = box
 
+
 layout(many_boxes)
+
 ```
 
 The drawing code needs no changes.
 
 ```python
+# lesson5.py
 import svgwrite
 
-def draw_boxes(boxes, name='lesson5.svg'):
-    dwg = svgwrite.Drawing(name, profile='full', size=(150, 60))
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
     for page in pages:
-        dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='lightyellow'))
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
     for box in boxes:
-        dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
     dwg.save()
 
-draw_boxes(many_boxes)
+
+draw_boxes(many_boxes, 'lesson5.svg', (100, 60))
+
 ```
 
 ![lesson5.svg](lesson5.svg)
 
 Isn't that nice? If you look at it from afar it looks sort of familiar.
 Doesn't it?
+
+----------
+
+Further references:
+
+* Full source code for this lesson [lesson5.py](code/lesson5.py)
+* [Difference with code from last lesson](diffs/lesson4_lesson5.html)
