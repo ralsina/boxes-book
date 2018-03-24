@@ -196,7 +196,7 @@ The code changes are small, but the output now looks radically different.
 
 ```python
 # lesson8.py
-draw_boxes(text_boxes, 'lesson8.svg', (32, 52), hide_boxes=True)
+draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
 
 ```
 

@@ -145,4 +145,4 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
     dwg.save()
 
 
-draw_boxes(text_boxes, 'lesson8.svg', (32, 52), hide_boxes=True)
+draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
