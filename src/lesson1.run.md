@@ -8,17 +8,16 @@ First let's create a data structure. A simple class called Box.
 ```python
 # lesson1.py
 class Box():
+
     def __init__(self, x=0, y=0, w=1, h=1):
-        """We accept a few arguments to define our box, and we store them."""
+        """Accept arguments to define our box, and store them."""
         self.x = x
         self.y = y
         self.w = w
         self.h = h
 
     def __repr__(self):
-        """This is what is shown if we print a Box. We want it to be useful."""
         return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
-
 
 ```
 
@@ -55,11 +54,17 @@ And yes, we can draw those boxes.
 # lesson1.py
 import svgwrite
 
+
 def draw_boxes(boxes):
     dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(5, 2))
     for box in boxes:
-        dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill='red'))
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
     dwg.save()
+
 
 draw_boxes(many_boxes)
 

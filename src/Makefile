@@ -1,5 +1,7 @@
-all: *.run.md *.md
+all: format *.run.md *.md 
 
 %.run.md: %.md 
-	cp $< $@
-	env PYTHONPATH=. run_markdown --timeout_seconds=15 --overwrite $@
+	env PYTHONPATH=. run_markdown --timeout_seconds=15 $< > $@ 
+
+format:
+	black -l 72 code/*py
