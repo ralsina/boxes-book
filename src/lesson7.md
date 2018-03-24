@@ -23,7 +23,7 @@ We can keep using the exact same layout function.
 
 And tweak the drawing function to show us letters, and to make the colored boxes optional.
 
-```python-include:code/lesson7.py:90:129
+```python-include:code/lesson7.py:90:130
 ```
 
 ![lesson7.svg](lesson7.svg)
@@ -31,7 +31,7 @@ And tweak the drawing function to show us letters, and to make the colored boxes
 Of course this is very boring, so we need to spice up our data a little.
 We can use different letters, and then make the right ones stretchy. That is easy!
 
-```python-include:code/lesson7.py:132:141
+```python-include:code/lesson7.py:133:142
 ```
 
 ![lesson7_different_letters.svg](lesson7_different_letters.svg)
@@ -55,14 +55,14 @@ I will show you this code, and then put it in a separate file called `fonts.py` 
 
 And now we will pretend we know what that does, based on its docstring and use it.
 
-```python-include:code/lesson7.py:144:150
+```python-include:code/lesson7.py:145:151
 ```
 
 ![lesson7_adjusted_letters.svg](lesson7_adjusted_letters.svg)
 
 And nicer, without the boxes:
 
-```python-include:code/lesson7.py:153:160
+```python-include:code/lesson7.py:154:161
 ```
 
 ![lesson7_adjusted_letters_no_boxes.svg](lesson7_adjusted_letters_no_boxes.svg)
@@ -70,7 +70,7 @@ And nicer, without the boxes:
 And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on, 
 Jane Austen's [Pride and Prejudice from Project Gutenberg](http://www.gutenberg.org/ebooks/1342)
 
-```python-include:code/lesson7.py:163:174
+```python-include:code/lesson7.py:164:175
 ```
 
 ![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)

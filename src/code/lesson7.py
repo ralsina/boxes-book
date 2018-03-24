@@ -114,6 +114,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
                     fill=color,
                 )
             )
+        # Display the letter in the box
         if box.letter:
             dwg.add(
                 dwg.text(

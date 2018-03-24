@@ -143,6 +143,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
                     fill=color,
                 )
             )
+        # Display the letter in the box
         if box.letter:
             dwg.add(
                 dwg.text(
@@ -278,3 +279,10 @@ And that is ... maybe disappointing? While we spent a lot of time on things like
 Also, spaces at the end of lines make the line appear ragged again, now that they are not boxes.
 
 So, we know what to hit in the next lesson.
+
+----------
+
+Further references:
+
+* Full source code for this lesson [lesson7.py](code/lesson7.py)
+* [Difference with code from last lesson](diffs/lesson6_lesson7.html)
