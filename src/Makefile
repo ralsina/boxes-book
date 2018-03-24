@@ -1,4 +1,4 @@
-all: *.run.md
+all: *.run.md *.md
 
 %.run.md: %.md 
 	cp $< $@

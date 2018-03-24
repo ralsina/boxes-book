@@ -1,5 +1,6 @@
 # Summary
 [Introduction](./intro.md)
+
 - [Part 1](./finger_thinking.md)
     - [Lesson 1](./lesson1.run.md)
     - [Lesson 2](./lesson2.run.md)
@@ -11,4 +12,5 @@
     - [Lesson 8](./lesson8.run.md)
     - [Lesson 9](./lesson9.run.md)
     - [Lesson 10](./lesson10.run.md)
+
 [Dependencies](./dependencies.md)
