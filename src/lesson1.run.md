@@ -78,3 +78,9 @@ That ... was not very interesting. It's a single small red square!
 Remember *all our boxes have the same size and position!*
 
 So ... we should do something better. Or at least more interesting, in lesson 2.
+
+----------
+
+Further references:
+
+* [Full source code for this lesson](code/lesson1.py)
