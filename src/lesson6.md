@@ -12,107 +12,30 @@ That way, our strategy to fully justify the text will be: stretch the stretchy b
 
 For the first time in a few lessons, we need to change our Box class:
 
-```python
-class Box():
-    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False):
-        """We accept a few arguments to define our box, and we store them."""
-        self.x = x
-        self.y = y
-        self.w = w
-        self.h = h
-        self.stretchy = stretchy
-
-    def __repr__(self):
-        """This is what is shown if we print a Box. We want it to be useful."""
-        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
-
-# Many boxes with varying widths, and about 1 in 10 will be stretchy
-from random import randint
-many_boxes = [Box(w=1 + randint(-5,5)/10, stretchy=(randint(0,5) == 4)) 
-    for i in range(5000)]
-# A few pages all the same size
-pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+```python-include:code/lesson6.py:1:23
 ```
 
 The changes in the layout function are not so big.
 
-```python
-# We add a "separation" constant so you can see the boxes individually
-separation = .2
+```python-include:code/lesson6.py:25:51
+```
 
-def layout(_boxes):
-    # Because we modify the box list, we will work on a copy
-    boxes = _boxes[:]
-    # We start at page 0
-    page = 0
-    # The 1st box should be placed in the correct page
-    previous = boxes.pop(0)
-    previous.x = pages[page].x
-    previous.y = pages[page].y
-    row = []
-    while boxes:
-        # We take the new 1st box
-        box = boxes.pop(0)
-        # And put it next to the other
-        box.x = previous.x + previous.w + separation
-        # At the same vertical location
-        box.y = previous.y
-        # But if it's too far to the right...
-        if (box.x + box.w) > (pages[page].x + pages[page].w):
-            # We adjust the row
-            slack = (pages[page].x + pages[page].w) - (row[-1].x + row[-1].w)
-            stretchies = [b for b in row if b.stretchy]
-            if stretchies:
-                bump = slack / len(stretchies)
-                # Each stretchy gets wider
-                for b in stretchies:
-                    b.w += bump
-                # And we put each thing next to the previous one
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j-1].x + row[j-1].w + separation
+When finishing a row, see if it has stretchy boxes in it.
 
-            else:  # Nothing stretches!!! Do it like before.
-                bump = slack / len(row)
-                for i, b in enumerate(row):
-                    b.x += bump * i
+If it doesn't, bump each box a little to the right like we did before.
 
-            # We start a new row
-            row = []
-            # We go all the way left and a little down
-            box.x = pages[page].x
-            box.y = previous.y + previous.h + separation
+```python-include:code/lesson6.py:52:58
+```
 
-        # But if we go too far down
-        if box.y + box.h > pages[page].y + pages[page].h:
-            # We go to the next page
-            page += 1
-            # And put the box at the top-left
-            box.x = pages[page].x
-            box.y = pages[page].y
+If we do have stretchy boxes in the row, make each one wider.
 
-        # Put the box in the row
-        row.append(box)
-        previous = box
 
-layout(many_boxes)
+```python-include:code/lesson6.py:59:88
 ```
 
 The drawing code needs a change so we can see the "stretchy" boxes in a different color.
 
-```python
-import svgwrite
-
-def draw_boxes(boxes, name='lesson6.svg'):
-    dwg = svgwrite.Drawing(name, profile='full', size=(100, 60))
-    for page in pages:
-        dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='lightyellow'))
-    for box in boxes:
-        color = 'green' if box.stretchy else 'red'
-        dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill=color))
-    dwg.save()
-
-draw_boxes(many_boxes)
+```python-include:code/lesson6.py:91
 ```
 
 ![lesson6.svg](lesson6.svg)
@@ -124,3 +47,10 @@ This layout strategy works:
 * Even if nothing can stretch
 
 But the next lesson will start taking things to the next level.
+
+----------
+
+Further references:
+
+* Full source code for this lesson [lesson6.py](code/lesson6.py)
+* [Difference with code from last lesson](diffs/lesson5_lesson6.html)
