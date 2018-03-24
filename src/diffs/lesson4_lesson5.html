@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <!-- 
+          html_title:    browser tab title
+          reset_css:     relative path to reset css file
+          pygments_css:  relative path to pygments css file
+          diff_css:      relative path to diff layout css file
+          page_title:    title shown at the top of the page. This should be the filename of the files being diff'd
+          original_code: full html contents of original file
+          modified_code: full html contents of modified file
+          jquery_js:     path to jquery.min.js
+          diff_js:       path to diff.js
+        -->
+    <meta charset="utf-8">
+    <title>
+        code/lesson5.py
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./deps/reset.css" type="text/css">
+    <link rel="stylesheet" href="./deps/diff.css" type="text/css">
+    <link class="syntaxdef" rel="stylesheet" href="./deps/codeformats/vs.css" type="text/css">
+</head>
+
+<body>
+    <div id="maincontainer" class="page-80-width">
+        <div id="leftcode" class="codebox divider-outside-bottom">
+            <div class="codefiletab">
+                &#10092; code/lesson4.py
+            </div>
+            <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="lineno_q lineno_leftdel">1</span><span class="lineno_q lineno_leftdel">2</span><span class="lineno_q lineno_leftdel">3</span><span class="lineno_q lineno_leftdel">4</span><span class="lineno_q lineno_leftdel">5</span><span class="lineno_q lineno_leftdel">6</span><span class="lineno_q lineno_leftdel">7</span><span class="lineno_q lineno_leftdel">8</span><span class="lineno_q lineno_leftdel">9</span><span class="lineno_q lineno_leftdel">10</span><span class="lineno_q lineno_leftdel">11</span><span class="lineno_q lineno_leftdel">12</span><span class="lineno_q lineno_leftdel">13</span><span class="lineno_q lineno_leftdel">14</span><span class="lineno_q lineno_leftdel">15</span><span class="lineno_q lineno_leftdel">16</span><span class="lineno_q lineno_leftdel">17</span><span class="lineno_q lineno_leftdel">18</span><span class="lineno_q lineno_leftdel">19</span><span class="lineno_q lineno_leftdel">20</span><span class="lineno_q lineno_leftdel">21</span><span class="lineno_q lineno_leftdel">22</span><span class="lineno_q lineno_leftdel">23</span><span class="lineno_q lineno_leftdel">24</span><span class="lineno_q lineno_leftdel">25</span><span class="lineno_q lineno_leftdel">26</span><span class="lineno_q lineno_leftdel">27</span><span class="lineno_q lineno_leftdel">28</span><span class="lineno_q lineno_leftdel">29</span><span class="lineno_q lineno_leftdel">30</span><span class="lineno_q lineno_leftdel">31</span><span class="lineno_q lineno_leftdel">32</span><span class="lineno_q lineno_leftdel">33</span><span class="lineno_q lineno_leftdel">34</span><span class="lineno_q lineno_leftdel">35</span><span class="lineno_q lineno_leftdel">36</span><span class="lineno_q lineno_leftdel">37</span><span class="lineno_q lineno_leftdel">38</span><span class="lineno_q lineno_leftdel">39</span><span class="lineno_q lineno_leftdel">40</span><span class="lineno_q lineno_leftdel">41</span><span class="lineno_q lineno_leftdel">42</span><span class="lineno_q lineno_leftdel">43</span><span class="lineno_q lineno_leftdel">44</span><span class="lineno_q lineno_leftdel">45</span><span class="lineno_q lineno_leftdel">46</span><span class="lineno_q lineno_leftdel">47</span><span class="lineno_q lineno_leftdel">48</span><span class="lineno_q lineno_leftdel">49</span><span class="lineno_q lineno_leftdel">50</span><span class="lineno_q lineno_leftdel">51</span><span class="lineno_q lineno_leftdel">52</span><span class="lineno_q lineno_leftdel">53</span><span class="lineno_q lineno_leftdel">54</span><span class="lineno_q lineno_leftdel">55</span><span class="lineno_q lineno_leftdel">56</span><span class="lineno_q lineno_leftdel">57</span><span class="lineno_q lineno_leftdel">58</span><span class="lineno_q lineno_leftdel">59</span><span class="lineno_q lineno_leftdel">60</span><span class="lineno_q lineno_leftdel">61</span><span class="lineno_q lineno_leftdel">62</span><span class="lineno_q lineno_leftdel">63</span><span class="lineno_q lineno_leftdel">64</span><span class="lineno_q lineno_leftdel">65</span><span class="lineno_q lineno_leftdel">66</span><span class="lineno_q lineno_leftdel">67</span><span class="lineno_q lineno_leftdel">68</span><span class="lineno_q lineno_leftdel">69</span><span class="lineno_q lineno_leftdel">70</span><span class="lineno_q lineno_leftdel">71</span><span class="lineno_q lineno_leftdel">72</span><span class="lineno_q lineno_leftdel">73</span><span class="lineno_q lineno_leftdel">74</span><span class="lineno_q lineno_leftdel">75</span><span class="lineno_q lineno_leftdel">76</span><span class="lineno_q lineno_leftdel">77</span><span class="lineno_q lineno_leftdel">78</span><span class="lineno_q lineno_leftdel">79</span><span class="lineno_q lineno_leftdel">80</span><span class="lineno_q lineno_leftdel">81</span><span class="lineno_q lineno_leftdel">82</span><span class="lineno_q lineno_leftdel">83</span><span class="lineno_q lineno_leftdel">84</span><span class="lineno_q lineno_leftdel">85</span><span class="lineno_q lineno_leftdel">86</span><span class="lineno_q lineno_leftdel">87</span><span class="lineno_q lineno_leftdel">88</span><span class="lineno_q lineno_leftdel">89</span><span class="lineno_q lineno_leftdel">90</span><span class="lineno_q lineno_leftdel">91</span><span class="lineno_q lineno_leftdel">92</span><span class="lineno_q lineno_leftdel">93</span><span class="lineno_q lineno_leftdel">94</span><span class="lineno_q lineno_leftdel">95</span><span class="lineno_q lineno_leftdel">96</span><span class="lineno_q lineno_leftdel">97</span><span class="lineno_q lineno_leftdel">98</span><span class="lineno_q lineno_leftdel">99</span><span class="lineno_q lineno_leftdel">100</span></pre></div></td><td class="code"><pre><span class="left_diff_del"><span class="k">class</span> <span class="nc">Box</span><span class="p">():</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span class="left_diff_del">        <span class="sd">&quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;</span>
+</span><span class="left_diff_del">        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+</span><span class="left_diff_del">        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+</span><span class="left_diff_del">        <span class="bp">self</span><span class="o">.</span><span class="n">w</span> <span class="o">=</span> <span class="n">w</span>
+</span><span class="left_diff_del">        <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class="left_diff_del">        <span class="k">return</span> <span class="s1">&#39;Box(</span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">many_boxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Box</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">)]</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="n">Box</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="c1"># We add a &quot;separation&quot; constant so you can see the boxes individually</span>
+</span><span class="left_diff_del"><span class="n">separation</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="k">def</span> <span class="nf">layout</span><span class="p">(</span><span class="n">_boxes</span><span class="p">):</span>
+</span><span class="left_diff_del">    <span class="c1"># Because we modify the box list, we will work on a copy</span>
+</span><span class="left_diff_del">    <span class="n">boxes</span> <span class="o">=</span> <span class="n">_boxes</span><span class="p">[:]</span>
+</span><span class="left_diff_del">    <span class="c1"># We start at page 0</span>
+</span><span class="left_diff_del">    <span class="n">page</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class="left_diff_del">    <span class="c1"># The 1st box should be placed in the correct page</span>
+</span><span class="left_diff_del">    <span class="n">previous</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class="left_diff_del">    <span class="n">previous</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">x</span>
+</span><span class="left_diff_del">    <span class="n">previous</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">y</span>
+</span><span class="left_diff_del">    <span class="k">while</span> <span class="n">boxes</span><span class="p">:</span>
+</span><span class="left_diff_del">        <span class="c1"># We take the new 1st box</span>
+</span><span class="left_diff_del">        <span class="n">box</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class="left_diff_del">        <span class="c1"># And put it next to the other</span>
+</span><span class="left_diff_del">        <span class="n">box</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">previous</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">previous</span><span class="o">.</span><span class="n">w</span> <span class="o">+</span> <span class="n">separation</span>
+</span><span class="left_diff_del">        <span class="c1"># At the same vertical location</span>
+</span><span class="left_diff_del">        <span class="n">box</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">previous</span><span class="o">.</span><span class="n">y</span>
+</span><span class="left_diff_del">        <span class="c1"># But if it&#39;s too far to the right...</span>
+</span><span class="left_diff_del">        <span class="k">if</span> <span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">box</span><span class="o">.</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">w</span><span class="p">):</span>
+</span><span class="left_diff_del">            <span class="c1"># We go all the way left and a little down</span>
+</span><span class="left_diff_del">            <span class="n">box</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">x</span>
+</span><span class="left_diff_del">            <span class="n">box</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">previous</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">previous</span><span class="o">.</span><span class="n">h</span> <span class="o">+</span> <span class="n">separation</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">        <span class="c1"># But if we go too far down</span>
+</span><span class="left_diff_del">        <span class="k">if</span> <span class="n">box</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">box</span><span class="o">.</span><span class="n">h</span> <span class="o">&gt;</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">h</span><span class="p">:</span>
+</span><span class="left_diff_del">            <span class="c1"># We go to the next page</span>
+</span><span class="left_diff_del">            <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class="left_diff_del">            <span class="c1"># And put the box at the top-left</span>
+</span><span class="left_diff_del">            <span class="n">box</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">x</span>
+</span><span class="left_diff_del">            <span class="n">box</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="n">page</span><span class="p">]</span><span class="o">.</span><span class="n">y</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">        <span class="n">previous</span> <span class="o">=</span> <span class="n">box</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">layout</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">)</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="kn">import</span> <span class="nn">svgwrite</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="k">def</span> <span class="nf">draw_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+</span><span class="left_diff_del">    <span class="n">dwg</span> <span class="o">=</span> <span class="n">svgwrite</span><span class="o">.</span><span class="n">Drawing</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</span><span class="left_diff_del">    <span class="c1"># Draw the pages</span>
+</span><span class="left_diff_del">    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span><span class="p">:</span>
+</span><span class="left_diff_del">        <span class="n">dwg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span><span class="left_diff_del">            <span class="n">dwg</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span>
+</span><span class="left_diff_del">                <span class="n">insert</span><span class="o">=</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">y</span><span class="p">),</span>
+</span><span class="left_diff_del">                <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">page</span><span class="o">.</span><span class="n">h</span><span class="p">),</span>
+</span><span class="left_diff_del">                <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span>
+</span><span class="left_diff_del">            <span class="p">)</span>
+</span><span class="left_diff_del">        <span class="p">)</span>
+</span><span class="left_diff_del">    <span class="c1"># Draw all the boxes</span>
+</span><span class="left_diff_del">    <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
+</span><span class="left_diff_del">        <span class="n">dwg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+</span><span class="left_diff_del">            <span class="n">dwg</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span>
+</span><span class="left_diff_del">                <span class="n">insert</span><span class="o">=</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">h</span><span class="p">),</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>
+</span><span class="left_diff_del">            <span class="p">)</span>
+</span><span class="left_diff_del">        <span class="p">)</span>
+</span><span class="left_diff_del">    <span class="n">dwg</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">draw_boxes</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">,</span> <span class="s1">&#39;lesson4.svg&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">pages</span> <span class="o">=</span> <span class="p">[</span><span class="n">Box</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span><span class="left_diff_del"><span class="n">layout</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">)</span>
+</span><span class="left_diff_del"><span class="n">draw_boxes</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">,</span> <span class="s1">&#39;lesson4_side_by_side.svg&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">pages</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class="left_diff_del">    <span class="n">Box</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</span><span class="left_diff_del">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class="left_diff_del"><span class="p">]</span>
+</span><span class="left_diff_del"><span class="n">layout</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">)</span>
+</span><span class="left_diff_del"><span class="n">draw_boxes</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">,</span> <span class="s1">&#39;lesson4_random_sizes.svg&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</span><span class="left_diff_del">
+</span><span class="left_diff_del"><span class="n">many_boxes</span> <span class="o">=</span> <span class="p">[</span><span class="n">Box</span><span class="p">(</span><span class="n">w</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">)]</span>
+</span><span class="left_diff_del"><span class="n">layout</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">)</span>
+</span><span class="left_diff_del"><span class="n">draw_boxes</span><span class="p">(</span><span class="n">many_boxes</span><span class="p">,</span> <span class="s1">&#39;lesson4_random_box_sizes.svg&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+</span>
+</pre></td></tr></table>
+        </div>
+        <div id="rightcode" class="codebox divider-outside-bottom">
+            <div class="codefiletab">
+                &#10093; code/lesson5.py
+            </div>
+            <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span><span class="lineno_q lineno_rightdel">  </span></pre></div></td><td class="code"><pre><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span><span class="right_diff_del">
+</span>
+</pre></td></tr></table>
+        </div>
+    </div>
+    <script src="./deps/jquery.min.js" type="text/javascript"></script>
+    <script src="./deps/diff.js" type="text/javascript"></script>
+</body>
+
+</html>
