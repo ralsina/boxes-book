@@ -1,22 +1,21 @@
-# BOXES v9
+# BOXES v10
 
-In our [previous lesson](lesson8.run.html) we created a serviceable text layout engine.
-It has many problems, but remember our goal is not to create the best possible thing, this
-is an educational experience. The spit and polish will appear later on.
+In our [previous lesson](lesson9.run.html) we created a serviceable text layout engine. It has many problems, but remember our goal is not to create the best possible thing, this is an educational experience. The spit and polish will appear later on.
 
-But there is a glaring problem, it breaks words in all the wrong places. Examples of it
-appear in almost every line of the output. So, how does one fix that?
+But there is a glaring problem, it breaks words in all the wrong places. Examples of it appear in almost every line of the output. So, how does one 
+fix that?
 
-The traditional answer (and the one we will be using) is hyphenation, breaking words
-between lines in the correct places.
+The traditional answer (and the one we will be using) is hyphenation, breaking
+words between lines in the correct places.
 
 Instead of breaking anywhere, we will break only in the places where the [rules of each language](https://english.stackexchange.com/questions/385/what-are-the-rules-for-splitting-words-at-the-end-of-a-line)
 allow us to.
 
-Just as it happened with [text shaping](lesson7.run.html) we are lucky to live in a moment in time
-when almost everything we need to do it right is already in place. In particular, we will use
-a library called [Pyphen](https://github.com/Kozea/Pyphen) mostly because I already have used it
-in another project.
+Just as it happened with [text shaping](lesson7.run.html) we are lucky to live
+in a moment in time when almost everything we need to do it right is already
+in place. In particular, we will use a library called 
+[Pyphen](https://github.com/Kozea/Pyphen) mostly because I already have
+used it in another project.
 
 Am I sure it's the best one? No. Do I know exactly how it does what it does? No. I know enough to make
 it work, and it works *well enough* so for this stage in the life of this project that is more than

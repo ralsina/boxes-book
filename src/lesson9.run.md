@@ -208,7 +208,7 @@ draw_boxes(text_boxes, 'lesson9.svg', (30, 50), hide_boxes=True)
 ![lesson9.svg](lesson9.svg)
 
 As you can see, the justification now is absolutely tight where it needs to be.
-With that taken care of, we will keep hyphenation for the next lesson.
+With that taken care of, we will consider the problem of breaking lines inside words and how to fix it using hyphenation in the next lesson.
 
 ----------
 
