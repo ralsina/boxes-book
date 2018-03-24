@@ -19,10 +19,10 @@ class Box():
 text_boxes = [Box() for i in range(5000)]
 
 # A few pages all the same size
-pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 
 # We add a "separation" constant so you can see the boxes individually
-separation = .2
+separation = .05
 
 
 def layout(_boxes):
@@ -127,7 +127,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
     dwg.save()
 
 
-draw_boxes(text_boxes, 'lesson7.svg', (32, 20))
+draw_boxes(text_boxes, 'lesson7.svg', (30, 20))
 
 
 from random import choice
@@ -139,7 +139,7 @@ for box in text_boxes:
         box.stretchy = True
 
 layout(text_boxes)
-draw_boxes(text_boxes, 'lesson7_different_letters.svg', (32, 20))
+draw_boxes(text_boxes, 'lesson7_different_letters.svg', (30, 20))
 
 
 from code import fonts
@@ -148,7 +148,7 @@ from code import fonts
 separation = .05
 fonts.adjust_widths_by_letter(text_boxes)
 layout(text_boxes)
-draw_boxes(text_boxes, 'lesson7_adjusted_letters.svg', (32, 20))
+draw_boxes(text_boxes, 'lesson7_adjusted_letters.svg', (30, 20))
 
 
 fonts.adjust_widths_by_letter(text_boxes)
