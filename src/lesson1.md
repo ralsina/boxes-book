@@ -11,12 +11,12 @@ First let's create a data structure. A simple class called Box.
 
 As you can see that is a pretty simple class. And we can create a big box.
 
-```python-include:code/lesson1.py:14:14
+```python-include:code/lesson1.py:15:15
 ```
 
 Or many boxes using a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
 
-```python-include:code/lesson1.py:17:17
+```python-include:code/lesson1.py:18:18
 ```
 
 So now we have a big box, and 5000 smaller boxes, all alike.
@@ -32,7 +32,7 @@ Output goes here
 
 And yes, we can draw those boxes.
 
-```python-include:code/lesson1.py:19:27
+```python-include:code/lesson1.py:20:30
 ```
 And here is the output:
 
