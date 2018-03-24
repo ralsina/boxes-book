@@ -23,9 +23,7 @@ class Box():
 
 As you can see that is a pretty simple class. And we can create a big box.
 
-```python
-# lesson1.py
-big_box = Box(0, 0, 80, 100)
+```
 
 ```
 
@@ -55,8 +53,8 @@ And yes, we can draw those boxes.
 import svgwrite
 
 
-def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson1.svg', profile='full', size=(5, 2))
+def draw_boxes(boxes, fname):
+    dwg = svgwrite.Drawing(fname, profile='full', size=(5, 2))
     for box in boxes:
         dwg.add(
             dwg.rect(
@@ -66,7 +64,7 @@ def draw_boxes(boxes):
     dwg.save()
 
 
-draw_boxes(many_boxes)
+draw_boxes(many_boxes, 'lesson1.svg')
 
 ```
 And here is the output:

@@ -13,6 +13,17 @@ class Box():
 
 many_boxes = [Box() for i in range(5000)]
 
+# We add a "separation" constant so you can see the boxes individually
+separation = .2
+
+
+def layout(boxes):
+    for i, box in enumerate(boxes):
+        box.x = i * (1 + separation)
+
+
+layout(many_boxes)
+
 import svgwrite
 
 

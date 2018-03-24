@@ -4,3 +4,7 @@ https://gitlab.com/ldo/python_freetype/repository/master/archive.zip
 pyphen
 https://github.com/ralsina/pyliterate/archive/master.zip
 black
+
+# for diff2HtmlCompare
+pygments
+mistune
