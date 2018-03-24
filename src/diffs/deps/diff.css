@@ -160,7 +160,7 @@ input.toggle-yes-no:checked + label:after {
 
 div#maincontainer {
   overflow-x: auto;
-  margin: 20px 0 0 15px;
+  margin: auto;
 }
 .page-80-width {
   width: 106em;
@@ -178,16 +178,17 @@ div#maincontainer {
 }
 div#leftcode {
   width: 50%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 div#rightcode {
   width: 50%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 div.codebox {
   float: left;
   display: block;
   padding-top: 20px;
+  overflow-x: hidden:
 }
 div.codebox table {
   border-right: 1px solid #ddd;

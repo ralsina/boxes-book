@@ -34,87 +34,10 @@ from pygments.formatters import HtmlFormatter
 from pygments.token import *
 
 # Monokai is not quite right yet
-PYGMENTS_STYLES = ["vs", "xcode"] 
+PYGMENTS_STYLES = ["vs", "xcode"]
+import os
 
-HTML_TEMPLATE = """
-<!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <!-- 
-          html_title:    browser tab title
-          reset_css:     relative path to reset css file
-          pygments_css:  relative path to pygments css file
-          diff_css:      relative path to diff layout css file
-          page_title:    title shown at the top of the page. This should be the filename of the files being diff'd
-          original_code: full html contents of original file
-          modified_code: full html contents of modified file
-          jquery_js:     path to jquery.min.js
-          diff_js:       path to diff.js
-        -->
-        <meta charset="utf-8">
-        <title>
-            %(html_title)s
-        </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="%(reset_css)s" type="text/css">
-        <link rel="stylesheet" href="%(diff_css)s" type="text/css">
-        <link class="syntaxdef" rel="stylesheet" href="%(pygments_css)s" type="text/css">
-    </head>
-    <body>
-        <div class="" id="topbar">
-          <div id="filetitle"> 
-            %(page_title)s
-          </div>
-          <div class="switches">
-            <div class="switch">
-              <input id="showoriginal" class="toggle toggle-yes-no menuoption" type="checkbox" checked>
-              <label for="showoriginal" data-on="&#10004; Original" data-off="Original"></label>
-            </div>
-            <div class="switch">
-              <input id="showmodified" class="toggle toggle-yes-no menuoption" type="checkbox" checked>
-              <label for="showmodified" data-on="&#10004; Modified" data-off="Modified"></label>
-            </div>
-            <div class="switch">
-              <input id="highlight" class="toggle toggle-yes-no menuoption" type="checkbox" checked>
-              <label for="highlight" data-on="&#10004; Highlight" data-off="Highlight"></label>
-            </div>
-            <div class="switch">
-              <input id="codeprintmargin" class="toggle toggle-yes-no menuoption" type="checkbox" checked>
-              <label for="codeprintmargin" data-on="&#10004; Margin" data-off="Margin"></label>
-            </div>
-            <div class="switch">
-              <input id="dosyntaxhighlight" class="toggle toggle-yes-no menuoption" type="checkbox" checked>
-              <label for="dosyntaxhighlight" data-on="&#10004; Syntax" data-off="Syntax"></label>
-            </div>
-          </div>
-        </div>
-        <div id="maincontainer" class="%(page_width)s">
-            <div id="leftcode" class="left-inner-shadow codebox divider-outside-bottom">
-                <div class="codefiletab">
-                    &#10092; Original
-                </div>
-                <div class="printmargin">
-                    01234567890123456789012345678901234567890123456789012345678901234567890123456789
-                </div>
-                %(original_code)s
-            </div>
-            <div id="rightcode" class="left-inner-shadow codebox divider-outside-bottom">
-                <div class="codefiletab">
-                    &#10093; Modified
-                </div>
-                <div class="printmargin">
-                    01234567890123456789012345678901234567890123456789012345678901234567890123456789
-                </div>
-                %(modified_code)s
-            </div>
-        </div>
-<script src="%(jquery_js)s" type="text/javascript"></script>
-<script src="%(diff_js)s" type="text/javascript"></script>
-    </body>
-</html>
-"""
+HTML_TEMPLATE = open(os.path.dirname(__file__) + '/difftemplate.html').read()
 
 
 class DefaultLexer(RegexLexer):
@@ -126,11 +49,7 @@ class DefaultLexer(RegexLexer):
     aliases = ['default']
     filenames = ['*']
 
-    tokens = {
-        'root': [
-            (r'.*\n', Text),
-        ]
-    }
+    tokens = {'root': [(r'.*\n', Text)]}
 
 
 class DiffHtmlFormatter(HtmlFormatter):
@@ -151,30 +70,46 @@ class DiffHtmlFormatter(HtmlFormatter):
 
     def getDiffLineNos(self):
         retlinenos = []
-        for idx, ((left_no, left_line), (right_no, right_line), change) in enumerate(self.diffs):
+        for idx, (
+            (left_no, left_line), (right_no, right_line), change
+        ) in enumerate(
+            self.diffs
+        ):
             no = None
             if self.isLeft:
                 if change:
                     if isinstance(left_no, int) and isinstance(right_no, int):
-                        no = '<span class="lineno_q lineno_leftchange">' + \
-                            str(left_no) + "</span>"
-                    elif isinstance(left_no, int) and not isinstance(right_no, int):
-                        no = '<span class="lineno_q lineno_leftdel">' + \
-                            str(left_no) + "</span>"
-                    elif not isinstance(left_no, int) and isinstance(right_no, int):
+                        no = '<span class="lineno_q lineno_leftchange">' + str(
+                            left_no
+                        ) + "</span>"
+                    elif isinstance(left_no, int) and not isinstance(
+                        right_no, int
+                    ):
+                        no = '<span class="lineno_q lineno_leftdel">' + str(
+                            left_no
+                        ) + "</span>"
+                    elif not isinstance(left_no, int) and isinstance(
+                        right_no, int
+                    ):
                         no = '<span class="lineno_q lineno_leftadd">  </span>'
                 else:
                     no = '<span class="lineno_q">' + str(left_no) + "</span>"
             else:
                 if change:
                     if isinstance(left_no, int) and isinstance(right_no, int):
-                        no = '<span class="lineno_q lineno_rightchange">' + \
-                            str(right_no) + "</span>"
-                    elif isinstance(left_no, int) and not isinstance(right_no, int):
+                        no = '<span class="lineno_q lineno_rightchange">' + str(
+                            right_no
+                        ) + "</span>"
+                    elif isinstance(left_no, int) and not isinstance(
+                        right_no, int
+                    ):
                         no = '<span class="lineno_q lineno_rightdel">  </span>'
-                    elif not isinstance(left_no, int) and isinstance(right_no, int):
-                        no = '<span class="lineno_q lineno_rightadd">' + \
-                            str(right_no) + "</span>"
+                    elif not isinstance(left_no, int) and isinstance(
+                        right_no, int
+                    ):
+                        no = '<span class="lineno_q lineno_rightadd">' + str(
+                            right_no
+                        ) + "</span>"
                 else:
                     no = '<span class="lineno_q">' + str(right_no) + "</span>"
 
@@ -186,22 +121,37 @@ class DiffHtmlFormatter(HtmlFormatter):
         source = list(source)
         yield 0, '<pre>'
 
-        for idx, ((left_no, left_line), (right_no, right_line), change) in enumerate(self.diffs):
+        for idx, (
+            (left_no, left_line), (right_no, right_line), change
+        ) in enumerate(
+            self.diffs
+        ):
             # print idx, ((left_no, left_line),(right_no, right_line),change)
             try:
                 if self.isLeft:
                     if change:
-                        if isinstance(left_no, int) and isinstance(right_no, int) and left_no <= len(source):
+                        if isinstance(left_no, int) and isinstance(
+                            right_no, int
+                        ) and left_no <= len(
+                            source
+                        ):
                             i, t = source[left_no - 1]
                             t = '<span class="left_diff_change">' + t + "</span>"
-                        elif isinstance(left_no, int) and not isinstance(right_no, int) and left_no <= len(source):
+                        elif isinstance(left_no, int) and not isinstance(
+                            right_no, int
+                        ) and left_no <= len(
+                            source
+                        ):
                             i, t = source[left_no - 1]
                             t = '<span class="left_diff_del">' + t + "</span>"
-                        elif not isinstance(left_no, int) and isinstance(right_no, int):
+                        elif not isinstance(left_no, int) and isinstance(
+                            right_no, int
+                        ):
                             i, t = 1, left_line
                             t = '<span class="left_diff_add">' + t + "</span>"
                         else:
                             raise
+
                     else:
                         if left_no <= len(source):
                             i, t = source[left_no - 1]
@@ -210,17 +160,28 @@ class DiffHtmlFormatter(HtmlFormatter):
                             t = left_line
                 else:
                     if change:
-                        if isinstance(left_no, int) and isinstance(right_no, int) and right_no <= len(source):
+                        if isinstance(left_no, int) and isinstance(
+                            right_no, int
+                        ) and right_no <= len(
+                            source
+                        ):
                             i, t = source[right_no - 1]
                             t = '<span class="right_diff_change">' + t + "</span>"
-                        elif isinstance(left_no, int) and not isinstance(right_no, int):
+                        elif isinstance(left_no, int) and not isinstance(
+                            right_no, int
+                        ):
                             i, t = 1, right_line
                             t = '<span class="right_diff_del">' + t + "</span>"
-                        elif not isinstance(left_no, int) and isinstance(right_no, int) and right_no <= len(source):
+                        elif not isinstance(left_no, int) and isinstance(
+                            right_no, int
+                        ) and right_no <= len(
+                            source
+                        ):
                             i, t = source[right_no - 1]
                             t = '<span class="right_diff_add">' + t + "</span>"
                         else:
                             raise
+
                     else:
                         if right_no <= len(source):
                             i, t = source[right_no - 1]
@@ -228,6 +189,7 @@ class DiffHtmlFormatter(HtmlFormatter):
                             i = 1
                             t = right_line
                 yield i, t
+
             except:
                 # print "WARNING! failed to enumerate diffs fully!"
                 pass  # this is expected sometimes
@@ -259,15 +221,25 @@ class DiffHtmlFormatter(HtmlFormatter):
         # content in the other cell also is wrapped in a div, some browsers in
         # some configurations seem to mess up the formatting...
         if nocls:
-            yield 0, ('<table class="%stable">' % self.cssclass +
-                      '<tr><td><div class="linenodiv" '
-                      'style="background-color: #f0f0f0; padding-right: 10px">'
-                      '<pre style="line-height: 125%">' +
-                      ls + '</pre></div></td><td class="code">')
+            yield 0, (
+                '<table class="%stable">' %
+                self.cssclass +
+                '<tr><td><div class="linenodiv" '
+                'style="background-color: #f0f0f0; padding-right: 10px">'
+                '<pre style="line-height: 125%">' +
+                ls +
+                '</pre></div></td><td class="code">'
+            )
+
         else:
-            yield 0, ('<table class="%stable">' % self.cssclass +
-                      '<tr><td class="linenos"><div class="linenodiv"><pre>' +
-                      ls + '</pre></div></td><td class="code">')
+            yield 0, (
+                '<table class="%stable">' %
+                self.cssclass +
+                '<tr><td class="linenos"><div class="linenodiv"><pre>' +
+                ls +
+                '</pre></div></td><td class="code">'
+            )
+
         yield 0, dummyoutfile.getvalue()
         yield 0, '</td></tr></table>'
 
@@ -286,6 +258,8 @@ class CodeDiff(object):
     def __init__(self, fromfile, tofile, fromtxt=None, totxt=None, name=None):
         self.filename = name
         self.fromfile = fromfile
+        self.file1 = fromfile
+        self.file2 = tofile
         if fromtxt == None:
             try:
                 with open(fromfile) as f:
@@ -311,9 +285,12 @@ class CodeDiff(object):
             self.tolines = [n + "\n" for n in totxt.split("\n")]
         self.rightcode = "".join(self.tolines)
 
-    def getDiffDetails(self, fromdesc='', todesc='', context=False, numlines=5, tabSize=8):
+    def getDiffDetails(
+        self, fromdesc='', todesc='', context=False, numlines=5, tabSize=8
+    ):
         # change tabs to spaces before it gets more difficult after we insert
         # markkup
+
         def expand_tabs(line):
             # hide real spaces
             line = line.replace(' ', '\0')
@@ -333,8 +310,13 @@ class CodeDiff(object):
         else:
             context_lines = None
 
-        diffs = difflib._mdiff(self.fromlines, self.tolines, context_lines,
-                               linejunk=None, charjunk=difflib.IS_CHARACTER_JUNK)
+        diffs = difflib._mdiff(
+            self.fromlines,
+            self.tolines,
+            context_lines,
+            linejunk=None,
+            charjunk=difflib.IS_CHARACTER_JUNK,
+        )
         return list(diffs)
 
     def format(self, options):
@@ -344,17 +326,20 @@ class CodeDiff(object):
             for diff in self.diffs:
                 print("%-6s %-80s %-80s" % (diff[2], diff[0], diff[1]))
 
-        fields = ((self.leftcode, True, self.fromfile),
-                  (self.rightcode, False, self.tofile))
+        fields = (
+            (self.leftcode, True, self.fromfile),
+            (self.rightcode, False, self.tofile),
+        )
 
         codeContents = []
         for (code, isLeft, filename) in fields:
-
-            inst = DiffHtmlFormatter(isLeft,
-                                     self.diffs,
-                                     nobackground=False,
-                                     linenos=True,
-                                     style=options.syntax_css)
+            inst = DiffHtmlFormatter(
+                isLeft,
+                self.diffs,
+                nobackground=False,
+                linenos=True,
+                style=options.syntax_css,
+            )
 
             try:
                 self.lexer = guess_lexer_for_filename(self.filename, code)
@@ -370,16 +355,18 @@ class CodeDiff(object):
             codeContents.append(formatted)
 
         answers = {
-            "html_title":     self.filename,
-            "reset_css":      self.resetCssFile,
-            "pygments_css":   self.pygmentsCssFile % options.syntax_css,
-            "diff_css":       self.diffCssFile,
-            "page_title":     self.filename,
-            "original_code":  codeContents[0],
-            "modified_code":  codeContents[1],
-            "jquery_js":      self.jqueryJsFile,
-            "diff_js":        self.diffJsFile,
-            "page_width":     "page-80-width" if options.print_width else "page-full-width"
+            "html_title": self.filename,
+            "reset_css": self.resetCssFile,
+            "pygments_css": self.pygmentsCssFile % options.syntax_css,
+            "diff_css": self.diffCssFile,
+            "page_title": self.filename,
+            "original_code": codeContents[0],
+            "modified_code": codeContents[1],
+            "jquery_js": self.jqueryJsFile,
+            "diff_js": self.diffJsFile,
+            'file1': self.file1,
+            'file2': self.file2,
+            "page_width": "page-80-width" if options.print_width else "page-full-width",
         }
 
         self.htmlContents = HTML_TEMPLATE % answers
@@ -395,29 +382,50 @@ def main(file1, file2, outputpath, options):
     codeDiff.format(options)
     codeDiff.write(outputpath)
 
+
 def show(outputpath):
     path = os.path.abspath(outputpath)
     webbrowser.open('file://' + path)
+
 
 if __name__ == "__main__":
     description = """Given two source files this application\
 creates an html page which highlights the differences between the two. """
 
     parser = argparse.ArgumentParser(description=description)
-    parser.add_argument('-s', '--show', action='store_true',
-                        help='show html in a browser.')
-    parser.add_argument('-p', '--print-width', action='store_true', 
-        help='Restrict code to 80 columns wide. (printer friendly in landscape)')
-    parser.add_argument('-c', '--syntax-css', action='store', default="vs",
-        help='Pygments CSS for code syntax highlighting. Can be one of: %s' % str(PYGMENTS_STYLES))
-    parser.add_argument('-v', '--verbose', action='store_true', help='show verbose output.')
-    parser.add_argument('file1', help='source file to compare ("before" file).')
-    parser.add_argument('file2', help='source file to compare ("after" file).')
+    parser.add_argument(
+        '-s', '--show', action='store_true', help='show html in a browser.'
+    )
+    parser.add_argument(
+        '-p',
+        '--print-width',
+        action='store_true',
+        help='Restrict code to 80 columns wide. (printer friendly in landscape)',
+    )
+    parser.add_argument(
+        '-c',
+        '--syntax-css',
+        action='store',
+        default="vs",
+        help='Pygments CSS for code syntax highlighting. Can be one of: %s' %
+        str(PYGMENTS_STYLES),
+    )
+    parser.add_argument(
+        '-v', '--verbose', action='store_true', help='show verbose output.'
+    )
+    parser.add_argument(
+        'file1', help='source file to compare ("before" file).'
+    )
+    parser.add_argument(
+        'file2', help='source file to compare ("after" file).'
+    )
 
     args = parser.parse_args()
 
     if args.syntax_css not in PYGMENTS_STYLES:
-        raise ValueError("Syntax CSS (-c) must be one of %r." % PYGMENTS_STYLES)
+        raise ValueError(
+            "Syntax CSS (-c) must be one of %r." % PYGMENTS_STYLES
+        )
 
     outputpath = "index.html"
     main(args.file1, args.file2, outputpath, args)

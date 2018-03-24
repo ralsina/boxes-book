@@ -6,6 +6,6 @@ all: format *.run.md *.md diffs
 format: code/*py
 	black -l 72 code/*py
 
-diffs: code/*py
-	../tools/diff2HtmlCompare.py code/lesson1.py code/lesson2.py && mv index.html diffs/lesson1_lesson2.html
+diffs: code/*py ../tools/*py ../tools/*html
+	../tools/diff2HtmlCompare.py -p code/lesson1.py code/lesson2.py && mv index.html diffs/lesson1_lesson2.html
 
