@@ -3,3 +3,4 @@ https://github.com/ldo/harfpy/archive/master.zip
 https://gitlab.com/ldo/python_freetype/repository/master/archive.zip
 pyphen
 https://github.com/ralsina/pyliterate/archive/master.zip
+black
