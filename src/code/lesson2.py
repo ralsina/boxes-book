@@ -38,4 +38,4 @@ def draw_boxes(boxes, fname):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson1.svg')
+draw_boxes(many_boxes, 'lesson2.svg')
