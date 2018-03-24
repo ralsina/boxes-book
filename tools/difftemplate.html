@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <!-- 
+          html_title:    browser tab title
+          reset_css:     relative path to reset css file
+          pygments_css:  relative path to pygments css file
+          diff_css:      relative path to diff layout css file
+          page_title:    title shown at the top of the page. This should be the filename of the files being diff'd
+          original_code: full html contents of original file
+          modified_code: full html contents of modified file
+          jquery_js:     path to jquery.min.js
+          diff_js:       path to diff.js
+        -->
+    <meta charset="utf-8">
+    <title>
+        %(html_title)s
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="%(reset_css)s" type="text/css">
+    <link rel="stylesheet" href="%(diff_css)s" type="text/css">
+    <link class="syntaxdef" rel="stylesheet" href="%(pygments_css)s" type="text/css">
+</head>
+
+<body>
+    <div id="maincontainer" class="%(page_width)s">
+        <div id="leftcode" class="codebox divider-outside-bottom">
+            <div class="codefiletab">
+                &#10092; %(file1)s
+            </div>
+            %(original_code)s
+        </div>
+        <div id="rightcode" class="codebox divider-outside-bottom">
+            <div class="codefiletab">
+                &#10093; %(file2)s
+            </div>
+            %(modified_code)s
+        </div>
+    </div>
+    <script src="%(jquery_js)s" type="text/javascript"></script>
+    <script src="%(diff_js)s" type="text/javascript"></script>
+</body>
+
+</html>

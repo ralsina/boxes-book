@@ -14,7 +14,7 @@ But now, so they are not all stuck one on top of the other, let's lay the boxes 
 ```python-include:code/lesson2.py:16:25
 ```
 
-And we can now see that they all have different coordinates now by printing 
+And we can see that they all have different coordinates now by printing 
 a few of them. And yes, some of those numbers do look funny. Floating point
 numbers are weird.
 
@@ -44,5 +44,5 @@ the next lesson.
 
 Further references:
 
-* [Full source code for this lesson](code/lesson2.py)
+* Full source code for this lesson [lesson2.py](code/lesson2.py)
 * [Difference with code from last lesson](diffs/lesson1_lesson2.html)

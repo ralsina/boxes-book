@@ -16,8 +16,9 @@ many_boxes = [Box() for i in range(5000)]
 import svgwrite
 
 
-def draw_boxes(boxes, fname):
-    dwg = svgwrite.Drawing(fname, profile='full', size=(5, 2))
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw all the boxes
     for box in boxes:
         dwg.add(
             dwg.rect(
@@ -27,4 +28,4 @@ def draw_boxes(boxes, fname):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson1.svg')
+draw_boxes(many_boxes, 'lesson1.svg', (5, 2))

@@ -11,7 +11,7 @@ First let's create a data structure. A simple class called Box.
 
 As you can see that is a pretty simple class. And we can create a big box.
 
-```
+```python
 big_box = Box(0, 0, 80, 100)
 ```
 
@@ -33,7 +33,7 @@ Output goes here
 
 And yes, we can draw those boxes.
 
-```python-include:code/lesson1.py:16:30
+```python-include:code/lesson1.py:16
 ```
 And here is the output:
 
@@ -49,4 +49,4 @@ So ... we should do something better. Or at least more interesting, in lesson 2.
 
 Further references:
 
-* [Full source code for this lesson](code/lesson1.py)
+* Full source code for this lesson: [lesson1.py](code/lesson1.py)

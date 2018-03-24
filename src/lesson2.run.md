@@ -42,7 +42,7 @@ layout(many_boxes)
 
 ```
 
-And we can now see that they all have different coordinates now by printing 
+And we can see that they all have different coordinates now by printing 
 a few of them. And yes, some of those numbers do look funny. Floating point
 numbers are weird.
 
@@ -61,8 +61,9 @@ Let's draw them!
 import svgwrite
 
 
-def draw_boxes(boxes):
-    dwg = svgwrite.Drawing('lesson2.svg', profile='full', size=(100, 5))
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw all the boxes
     for box in boxes:
         dwg.add(
             dwg.rect(
@@ -72,7 +73,7 @@ def draw_boxes(boxes):
     dwg.save()
 
 
-draw_boxes(many_boxes)
+draw_boxes(many_boxes, 'lesson2.svg', (5, 2))
 
 ```
 And here is the output:
@@ -89,5 +90,5 @@ the next lesson.
 
 Further references:
 
-* [Full source code for this lesson](code/lesson2.py)
+* Full source code for this lesson [lesson2.py](code/lesson2.py)
 * [Difference with code from last lesson](diffs/lesson1_lesson2.html)

@@ -23,8 +23,8 @@ class Box():
 
 As you can see that is a pretty simple class. And we can create a big box.
 
-```
-
+```python
+big_box = Box(0, 0, 80, 100)
 ```
 
 Or many boxes using a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
@@ -53,8 +53,9 @@ And yes, we can draw those boxes.
 import svgwrite
 
 
-def draw_boxes(boxes, fname):
-    dwg = svgwrite.Drawing(fname, profile='full', size=(5, 2))
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw all the boxes
     for box in boxes:
         dwg.add(
             dwg.rect(
@@ -64,7 +65,7 @@ def draw_boxes(boxes, fname):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson1.svg')
+draw_boxes(many_boxes, 'lesson1.svg', (5, 2))
 
 ```
 And here is the output:
@@ -81,4 +82,4 @@ So ... we should do something better. Or at least more interesting, in lesson 2.
 
 Further references:
 
-* [Full source code for this lesson](code/lesson1.py)
+* Full source code for this lesson: [lesson1.py](code/lesson1.py)
