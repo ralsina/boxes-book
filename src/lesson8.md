@@ -5,7 +5,7 @@ In the [previous lesson](lesson7.run.html) we started using our layout engine to
 We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes. Also unchanged is the drawing code.
 
 ```python
-from fonts import adjust_widths_by_letter
+from code.fonts import adjust_widths_by_letter
 
 class Box():
     def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
