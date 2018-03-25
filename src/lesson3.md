@@ -23,7 +23,7 @@ we go back to the left, a little down, and do it all over again.
 ```
 
 And now we can draw it. Just so we are sure we are staying inside the 
-big box, we will draw it too, in lightyellow.
+big box, we will draw it too, in light blue.
 
 ```python-include:code/lesson3.py:44
 ```

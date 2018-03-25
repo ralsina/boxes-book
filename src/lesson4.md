@@ -18,8 +18,7 @@ page vertically.
 ```python-include:code/lesson4.py:18:55
 ```
 
-And we need to change our drawing code to draw more than one page. Also, because we will run it more than once, I added an argument to choose
-the name of the output file.
+We need to change our drawing code to draw more than one page.
 
 ```python-include:code/lesson4.py:58:82
 ```
