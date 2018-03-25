@@ -57,24 +57,20 @@ Where is it proper to break a line?
 
 One of those things is not like the others. We have boxes with newlines in them and we have boxes with spaces in them, but there are no boxes with breaking points in them.
 
-But we can add them! There is unicode symbol for that: [SOFT HYPHEN (SHY)](https://en.wikipedia.org/wiki/Soft_hyphen)
+But we can add them! There is unicode symbol for that: 
 
-> It serves as an invisible marker used to specify a place in text where a hyphenated break is allowed without forcing a line break in an inconvenient place if the text is re-flowed. It becomes visible only after word wrapping at the end of a line.
+> ### SOFT HYPHEN (SHY)
+>
+> The [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen) serves as an invisible marker used to specify a place in text where a hyphenated break is allowed without forcing a line break in an inconvenient place if the text is re-flowed. It becomes visible only after word wrapping at the end of a line.
 
-So, if we insert them in all the right places, then we can use them to decide whether we are at a suitable breaking point.
+So, if we insert them in all the right places, then we can use them to decide whether we are at a suitable breaking point. We will put this in a file called
+`hyphen.py`
+
+```python-include:code/hyphen.py
+```
 
 ```python
-
-dic = pyphen.Pyphen(lang='en_US')
-
-# '\xad' is the Soft Hyphen (SHY) character
-def insert_soft_hyphens(text, hyphen='\xad'):
-    """Insert the hyphen in breaking pointsaccording to the dictionary."""
-    lines = []
-    for line in text.splitlines():
-        hyph_words = [dic.inserted(word, hyphen) for word in line.split()]
-        lines.append(' '.join(hyph_words))
-    return '\n'.join(lines)
+from code.hyphen import insert_soft_hyphens
 
 print (insert_soft_hyphens('Roses are red\nViolets are blue', '-'))
 ```
@@ -88,53 +84,19 @@ So, with this code ready, we can get to work on implementing hyphenation support
 
 First, this code is exactly as it was before:
 
-```python
-
-from code.fonts import adjust_widths_by_letter
-
-class Box():
-    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
-        """We accept a few arguments to define our box, and we store them."""
-        self.x = x
-        self.y = y
-        self.w = w
-        self.h = h
-        self.stretchy = stretchy
-        self.letter = letter
-
-    def __repr__(self):
-        """This is what is shown if we print a Box. We want it to be useful."""
-        return 'Box(%s, %s, %s, %s, "%s")' % (self.x, self.y, self.w, self.y, self.letter)
-
-# A few pages all the same size
-pages = [Box(i * 35 + 1, 1, 30, 50) for i in range(10)]
-
-import svgwrite
-
-def draw_boxes(boxes, name='lesson9.svg', hide_boxes=False):
-    dwg = svgwrite.Drawing(name, profile='full', size=(32, 22))
-    for page in pages:
-        dwg.add(dwg.rect(insert=(page.x, page.y), 
-                size=(page.w, page.h), fill='lightyellow'))
-    for box in boxes:
-        color = 'green' if box.stretchy else 'red'
-        if not hide_boxes:
-            dwg.add(dwg.rect(insert=(box.x, box.y), size=(box.w, box.h), fill=color))
-        if box.letter:
-            dwg.add(dwg.text(box.letter, insert=(box.x, box.y + box.h), font_size=box.h, font_family='Arial'))
-    dwg.save()
+```python-include:code/lesson10.py:1:18
 ```
 
 We do need to make a small change to how we load our text, to add the hyphens:
 
-```python
-p_and_p = open('pride-and-prejudice.txt').read()
-p_and_p = insert_soft_hyphens(p_and_p)  # This is the new line
-text_boxes = []
-for l in p_and_p:
-    text_boxes.append(Box(letter=l, stretchy=l==' '))
-adjust_widths_by_letter(text_boxes)
+```python-include:code/lesson10.py:21:29
 ```
+
+No changes in how we draw things.
+
+```python-include:code/lesson10.py:147:184
+```
+
 
 And now our layout function. One first approach, which we will refine later,
 is to simply refuse to break lines if we are not in a "good" place to break it.
@@ -143,116 +105,18 @@ Then, we inject a box with a visible hyphen in the linebreak, and that's it.
 
 Here is the code to create a box with a hyphen:
 
-```python
-def hyphenbox():
-    b = Box(letter='-')
-    adjust_widths_by_letter([b])
-    return b
+```python-include:code/lesson10.py:32:35
 ```
 
 And here finally, our layout supports hyphens:
 
-```python
-# We add a "separation" constant so you can see the boxes individually
-separation = .05
-
-def layout(_boxes):
-    """Layout boxes along pages.
-
-    Keep in mind that this function modifies the boxes themselves, so
-    you should be very careful about trying to call layout() more than once
-    on the same boxes.
-
-    Specifically, some spaces will become 0-width and not stretchy.
-    """
-
-    # Because we modify the box list, we will work on a copy
-    boxes = _boxes[:]
-    # We start at page 0
-    page = 0
-    # The 1st box should be placed in the correct page
-    previous = boxes.pop(0)
-    previous.x = pages[page].x
-    previous.y = pages[page].y
-    row = []
-    while boxes:
-        # We take the new 1st box
-        box = boxes.pop(0)
-        # And put it next to the other
-        box.x = previous.x + previous.w + separation
-        # At the same vertical location
-        box.y = previous.y
-
-        # The next 10 lines are almost all the change
-        break_line = False
-        # But if it's a newline
-        if (box.letter == '\n'):
-            break_line = True
-            # Newlines take no horizontal space ever
-            box.w = 0
-            box.stretchy = False
-
-        # Or if it's too far to the right...
-        elif (box.x + box.w) > (pages[page].x + pages[page].w) and box.letter in (' ', '\xad'):
-            if box.letter == '\xad':
-                # Add a visible hyphen in the row
-                h_b = hyphenbox()
-                h_b.x = previous.x + previous.w + separation
-                h_b.y = previous.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b) # So it's justified
-            break_line = True
-            # We adjust the row
-            # Remove all right-margin spaces
-            while row[-1].letter == ' ':
-                row.pop()
-            slack = (pages[page].x + pages[page].w) - (row[-1].x + row[-1].w)
-            stretchies = [b for b in row if b.stretchy]
-            if stretchies:
-                bump = slack / len(stretchies)
-                # Each stretchy gets wider
-                for b in stretchies:
-                    b.w += bump
-                # And we put each thing next to the previous one
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j-1].x + row[j-1].w + separation
-
-            else:  # Nothing stretches!!! Do it like before.
-                bump = slack / len(row)
-                for i, b in enumerate(row):
-                    b.x += bump * i
-
-        if break_line:
-            # We start a new row
-            row = []
-            # We go all the way left and a little down
-            box.x = pages[page].x
-            box.y = previous.y + previous.h + separation
-
-        # But if we go too far down
-        if box.y + box.h > pages[page].y + pages[page].h:
-            # We go to the next page
-            page += 1
-            # And put the box at the top-left
-            box.x = pages[page].x
-            box.y = pages[page].y
-
-        # Put the box in the row
-        row.append(box)
-
-        # Collapse all left-margin space
-        if all(b.letter == ' ' for b in row):
-            box.w = 0
-            box.stretchy = False
-            box.x = pages[page].x
-
-        previous = box
-
-layout(text_boxes)
-draw_boxes(text_boxes, hide_boxes=True)
+```python-include:code/lesson10.py:38:144
 ```
 
-![lesson9.svg](lesson9.svg)
+```python-include:code/lesson10.py:187:187
+```
+
+![lesson10.svg](lesson10.svg)
 
 And there in "proper-ty" you can see it in action. Of course this is 
 a naïve implementation. What happens if you just can't break?
@@ -261,10 +125,10 @@ a naïve implementation. What happens if you just can't break?
 many_boxes = [Box(letter='a') for i in range(200)]
 adjust_widths_by_letter(many_boxes)
 layout(many_boxes)
-draw_boxes(many_boxes, hide_boxes=True, name='lesson9_lots_of_a.svg')
+draw_boxes(many_boxes, 'lesson10_lots_of_a.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson9_lots_of_a.svg](lesson9_lots_of_a.svg)
+![lesson10_lots_of_a.svg](lesson10_lots_of_a.svg)
 
 Since it can't break at all, it just goes on and on.
 
@@ -275,10 +139,10 @@ many_boxes = [Box(letter='a') for i in range(200)]
 many_boxes[100] = Box(letter=' ', stretchy=True)
 adjust_widths_by_letter(many_boxes)
 layout(many_boxes)
-draw_boxes(many_boxes, hide_boxes=True, name='lesson9_one_break.svg')
+draw_boxes(many_boxes, 'lesson10_one_break.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson9_one_break.svg](lesson9_one_break.svg)
+![lesson10_one_break.svg](lesson10_one_break.svg)
 
 Because there is only one place to break the line, it then tries to 
 wedge 100 letter "a" where there is room for 54 (I counted!) and something interesting happens... the "slack" is negative!
@@ -290,3 +154,10 @@ The lesson is that just because it works for the usual case it doesn't mean
 it's **done**. Even in the case of words, it can happen that breaking points take a while to appear and our line becomes overfull.
 
 We will tackle that problem next.
+
+----------
+
+Further references:
+
+* Full source code for this lesson [lesson10.py](code/lesson10.py)
+* [Difference with code from last lesson](diffs/lesson9_lesson10.html)
