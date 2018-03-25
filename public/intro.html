@@ -87,7 +87,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html" class="active">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson1.run.html"><strong aria-hidden="true">1.1.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 10</a></li><li><a href="lesson11.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 11</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li><li class="affix"><a href="original.run.html">Original Code</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="intro.html" class="active">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Lesson 0</a></li><li><a href="lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li><li class="affix"><a href="original.run.html">Original Code</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -152,16 +152,40 @@
                         <a class="header" href="intro.html#introduction" id="introduction"><h1>Introduction</h1></a>
 <p>This book tries to achieve only one thing:</p>
 <p>Show you a project go from <strong>nothing</strong> to <strong>good</strong>.</p>
-<p>By nothing I mean, no code at all. Not even a fleshed idea of what it does. No goals, no committments. Just a vague interest.</p>
-<p>And by good I mean it will work, it will have tests, it will be available to use, it will be <strong>useful</strong> and be a real thing.</p>
-<p>Think of it as a sort of documentary on the beginnings of a rock band, only instead of rockers there is a single overweight argentinian dev, and instead of a band there is a piece of software.</p>
+<p>By nothing I mean, no code at all. Not even a fleshed idea of what it does. No
+goals, no committments. Just a vague interest.</p>
+<p>And by good I mean it will work, it will have tests, it will be available to
+use, it will be <strong>useful</strong> and be a real thing.</p>
+<p>Think of it as a sort of documentary on the beginnings of a rock band, only
+instead of rockers there is a single overweight argentinian dev, and instead
+of a band there is a piece of software.</p>
 <p>So, not much like a documentary on the beginnings of a rock band.</p>
+<a class="header" href="intro.html#target-audience" id="target-audience"><h2>Target Audience</h2></a>
+<p>To get the most benefit from this book I expect the reader to have a basic
+knowledge of the Python programming language. Knowing and
+understanding the contents of the official
+<a href="https://docs.python.org/3/tutorial/">Python Tutorial.</a> should be enough to be
+able to follow all the code in the book, which has been kept as simple as
+possible.</p>
+<p>Readers with deeper knowledge of the language or more extensive programming
+experience may still benefit from it but will find a lot of the first part
+boring.</p>
+<a class="header" href="intro.html#requirements" id="requirements"><h2>Requirements</h2></a>
+<p>You can try to follow the book by just reading it but that is probably not the
+best idea. Actually running the example code is educational. Modifying it
+even more so.</p>
+<p>So, you will need a working python interpreter.
+The examples have only been tested on Linux. I suppose before calling this
+book &quot;finished&quot; I will have to make them work on Windows and/or OSX somehow.</p>
+<p>Each one of the larger parts of te book requires a separate development
+environment and has a &quot;Chapter 0&quot; about setting it up.</p>
 <blockquote>
-<a class="header" href="intro.html#how-its-done" id="how-its-done"><h3>How it's done</h3></a>
+<a class="header" href="intro.html#how-the-book-is-built" id="how-the-book-is-built"><h3>How the book is built</h3></a>
 <ul>
 <li>It's written in markdown</li>
 <li>The sections with code are fed to <a href="https://github.com/bslatkin/pyliterate">pyliterate</a> and its output is built into a &quot;book&quot; by <a href="https://github.com/rust-lang-nursery/mdBook">mdbook</a></li>
 <li>The code uses a ton of things, links are provided in the <a href="dependencies.html">Dependencies Appendix</a></li>
+<li>All the code and text for the book is available in a <a href="https://gitlab.com/ralsina/boxes-book">gitlab repo</a> and it's published and updated at <a href="https://ralsina.gitlab.io">https://ralsina.gitlab.io</a></li>
 </ul>
 </blockquote>
 
