@@ -190,6 +190,7 @@ def layout(_boxes):
         previous = box
 
 
+layout(text_boxes)
 
 ```
 

@@ -42,7 +42,7 @@ The changes are minor:
   left, etc.
 
 
-```python-include:code/lesson8.py:30:104
+```python-include:code/lesson8.py:30:105
 ```
 
 The code changes are small, but the output now looks radically different.
