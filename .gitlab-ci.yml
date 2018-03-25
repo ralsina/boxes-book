@@ -1,5 +1,6 @@
 image: alpine:latest
 
+
 pages:
   stage: deploy
   script:
