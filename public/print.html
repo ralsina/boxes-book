@@ -1845,6 +1845,95 @@ one we saw.</li>
 <li>If the overfull breaking point is better, break.</li>
 <li>If the overfull breaking point is worse, use the underfull breaking point.</li>
 </ul>
+<p>As you probably expected... no changes in the Box class, or in how we draw
+things, or in how we load the data.</p>
+<pre><code class="language-python"># lesson11.py
+from code.fonts import adjust_widths_by_letter
+from code.hyphen import insert_soft_hyphens
+
+
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+        self.letter = letter
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s, &quot;%s&quot;)' % (
+            self.x, self.y, self.w, self.y, self.letter
+        )
+
+
+p_and_p = open('pride-and-prejudice.txt').read()
+p_and_p = insert_soft_hyphens(p_and_p)  # Insert invisible hyphens
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l == ' '))
+adjust_widths_by_letter(text_boxes)
+
+# A few pages all the same size
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+
+def hyphenbox():
+    b = Box(letter='-')
+    adjust_widths_by_letter([b])
+    return b
+
+
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+</code></pre>
+<pre><code class="language-python"># lesson11.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size, hide_boxes=False):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        # Make the colored boxes optional
+        if not hide_boxes:
+            dwg.add(
+                dwg.rect(
+                    insert=(box.x, box.y),
+                    size=(box.w, box.h),
+                    fill=color,
+                )
+            )
+        # Display the letter in the box
+        if box.letter:
+            dwg.add(
+                dwg.text(
+                    box.letter,
+                    insert=(box.x, box.y + box.h),
+                    font_size=box.h,
+                    font_family='Arial',
+                )
+            )
+    dwg.save()
+
+
+draw_boxes(text_boxes, 'lesson10.svg', (30, 50), hide_boxes=True)
+
+</code></pre>
 <a class="header" href="print.html#dependencies" id="dependencies"><h1>Dependencies</h1></a>
 <p>(add list of things used in the code with references)</p>
 <a class="header" href="print.html#original-code" id="original-code"><h1>Original Code</h1></a>
