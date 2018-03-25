@@ -13,7 +13,7 @@ class Box():
 
 many_boxes = [Box() for i in range(5000)]
 
-big_box = Box(0, 0, 50, 80)
+big_box = Box(0, 0, 30, 50)
 
 # We add a "separation" constant so you can see the boxes individually
 separation = .2

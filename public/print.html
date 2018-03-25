@@ -771,7 +771,9 @@ def layout(_boxes):
                 for j, b in enumerate(row[1:], 1):
                     b.x = row[j - 1].x + row[j - 1].w + separation
 
-
+</code></pre>
+<p>And continue like we did before.</p>
+<pre><code class="language-python"># lesson6.py
             # We start a new row
             row = []
             # We go all the way left and a little down
@@ -1821,6 +1823,21 @@ it's <strong>done</strong>. Even in the case of words, it can happen that breaki
             }
         </script>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

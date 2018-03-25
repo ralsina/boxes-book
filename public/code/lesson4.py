@@ -79,7 +79,7 @@ def draw_boxes(boxes, fname, size):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson4.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4.svg', (100, 50))
 
 pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 layout(many_boxes)
@@ -93,8 +93,8 @@ pages = [
     for i in range(10)
 ]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 50))
 
 many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 50))

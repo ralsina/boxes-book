@@ -30,7 +30,12 @@ If it doesn't, bump each box a little to the right like we did before.
 If we do have stretchy boxes in the row, make each one wider.
 
 
-```python-include:code/lesson6.py:59:88
+```python-include:code/lesson6.py:59:66
+```
+
+And continue like we did before.
+
+```python-include:code/lesson6.py:69:88
 ```
 
 The drawing code needs a change so we can see the "stretchy" boxes in a different color.

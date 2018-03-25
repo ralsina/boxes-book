@@ -104,7 +104,12 @@ If we do have stretchy boxes in the row, make each one wider.
                 for j, b in enumerate(row[1:], 1):
                     b.x = row[j - 1].x + row[j - 1].w + separation
 
+```
 
+And continue like we did before.
+
+```python
+# lesson6.py
             # We start a new row
             row = []
             # We go all the way left and a little down

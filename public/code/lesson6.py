@@ -20,7 +20,7 @@ many_boxes = [
     for i in range(5000)
 ]
 # A few pages all the same size
-pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 
 # We add a "separation" constant so you can see the boxes individually
 separation = .2
@@ -114,4 +114,4 @@ def draw_boxes(boxes, fname, size):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson6.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
