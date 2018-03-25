@@ -69,7 +69,7 @@ layout(many_boxes)
 ```
 
 And now we can draw it. Just so we are sure we are staying inside the 
-big box, we will draw it too, in lightyellow.
+big box, we will draw it too, in light blue.
 
 ```python
 # lesson3.py
