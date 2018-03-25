@@ -1,0 +1,1854 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>BOXES (WIP title)</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The whole lifecycle of a project.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <noscript>
+            <style type="text/css">
+                .javascript-only {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson1.run.html"><strong aria-hidden="true">1.1.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 10</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons javascript-only">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">BOXES (WIP title)</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </div>
+                <div id="searchresults-outer" class="searchresults-outer">
+                    <div class="searchresults-header" id="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="print.html#introduction" id="introduction"><h1>Introduction</h1></a>
+<p>This book tries to achieve only one thing:</p>
+<p>Show you a project go from <strong>nothing</strong> to <strong>good</strong>.</p>
+<p>By nothing I mean, no code at all. Not even a fleshed idea of what it does. No goals, no committments. Just a vague interest.</p>
+<p>And by good I mean it will work, it will have tests, it will be available to use, it will be <strong>useful</strong> and be a real thing.</p>
+<p>Think of it as a sort of documentary on the beginnings of a rock band, only instead of rockers there is a single overweight argentinian dev, and instead of a band there is a piece of software.</p>
+<p>So, not much like a documentary on the beginnings of a rock band.</p>
+<blockquote>
+<a class="header" href="print.html#how-its-done" id="how-its-done"><h3>How it's done</h3></a>
+<ul>
+<li>It's written in markdown</li>
+<li>The sections with code are fed to <a href="https://github.com/bslatkin/pyliterate">pyliterate</a> and its output is built into a &quot;book&quot; by <a href="https://github.com/rust-lang-nursery/mdBook">mdbook</a></li>
+<li>The code uses a ton of things, links are provided in the <a href="dependencies.html">Dependencies Appendix</a></li>
+</ul>
+</blockquote>
+<a class="header" href="print.html#finger-thinking" id="finger-thinking"><h1>Finger Thinking</h1></a>
+<p>This is the first part of the book, and the goal is starting a project from scratch. This happens in the beginning of many programming books, but I have
+this feeling that they are lying to me.</p>
+<p>The code seems rehearsed, there are no errors, everything progresses monotonically towards a lovely pyramid of code with no false starts and no wrong assumptions.</p>
+<p>In the decades I have programmed, that has <strong>never</strong> happened to me. Not once. So, I guess those &quot;start from scratch&quot; things are actually done backwards, from
+the working butterfly into a fake larva, or they are much better at this than I. Since I am not <strong>that</strong> awful a programmer, I have decided to believe the former, and take a shot at doing it the opposite way.</p>
+<p>Everything you see here is in the order I wrote it. I have, occasionally, gone back and cleaned up a bad idea, but trust me, there are plenty still left.</p>
+<hr />
+<p>Sometimes, when you start a project, you will find that you don't have a clear goal. Some of my most fun projects were created because I was doing the equivalent of doodling on a computer.</p>
+<p>Sometimes, it starts with a post on a blog, or a link on twitter, and I just think &quot;hmmm, I wonder how that's done&quot; or &quot;well, that sounds fun to write&quot; or
+&quot;that doesn't look so hard!&quot; (those usually <em>are</em> so hard.)</p>
+<p>So, I doodle on the interpreter, or in a throwaway script file. No tests, no
+requirements, no fuzz.</p>
+<p>The first part of this book is, then, an iterative doodle, showing the infancy of a project, and almost literally thinking with my fingers, and having them tell me where to go.</p>
+<p>In later sections, things will get much more serious. So, enjoy this part.</p>
+<a class="header" href="print.html#boxes-v1" id="boxes-v1"><h1>BOXES v1</h1></a>
+<p>Welcome to Boxes v1. I want to be able to draw some boxes. By boxes I don't mean actual boxes,
+but rather squares. I found a library called svgwrite that lets you do that pretty easily.</p>
+<p>First let's create a data structure. A simple class called Box.</p>
+<pre><code class="language-python"># lesson1.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+</code></pre>
+<p>As you can see that is a pretty simple class. And we can create a big box.</p>
+<pre><code class="language-python">big_box = Box(0, 0, 80, 100)
+</code></pre>
+<p>Or many boxes using a <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehension</a></p>
+<pre><code class="language-python"># lesson1.py
+many_boxes = [Box() for i in range(5000)]
+
+</code></pre>
+<p>So now we have a big box, and 5000 smaller boxes, all alike.</p>
+<pre><code class="language-python"># Print the first 10 boxes
+print(many_boxes[:10])
+</code></pre>
+<pre><code>[Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0), Box(0, 0, 1, 0)]
+</code></pre>
+<p>And yes, we can draw those boxes.</p>
+<pre><code class="language-python"># lesson1.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw all the boxes
+    for box in boxes:
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
+    dwg.save()
+
+
+draw_boxes(many_boxes, 'lesson1.svg', (5, 2))
+
+</code></pre>
+<p>And here is the output:</p>
+<p><img src="lesson1.svg" alt="lesson1.svg" /></p>
+<p>That ... was not very interesting. It's a single small red square!</p>
+<p>Remember <em>all our boxes have the same size and position!</em></p>
+<p>So ... we should do something better. Or at least more interesting, in lesson 2.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson: <a href="code/lesson1.py">lesson1.py</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v2" id="boxes-v2"><h1>BOXES v2</h1></a>
+<p>In our <a href="lesson1.run.html">previous lesson</a> we created a rather disappointing
+drawing using boxes. Let's introduce a new wrinkle, and <strong>layout</strong> the many
+boxes.</p>
+<p>This code is just like before:</p>
+<pre><code class="language-python"># lesson2.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+
+many_boxes = [Box() for i in range(5000)]
+
+</code></pre>
+<p>But now, so they are not all stuck one on top of the other, let's lay the boxes down in a line, one next to the other.</p>
+<pre><code class="language-python"># lesson2.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+
+def layout(boxes):
+    for i, box in enumerate(boxes):
+        box.x = i * (1 + separation)
+
+
+layout(many_boxes)
+
+</code></pre>
+<p>And we can see that they all have different coordinates now by printing
+a few of them. And yes, some of those numbers do look funny. Floating point
+numbers are weird.</p>
+<pre><code class="language-python">print([(box.x, box.y) for box in many_boxes[:10]])
+</code></pre>
+<pre><code>[(0.0, 0), (1.2, 0), (2.4, 0), (3.5999999999999996, 0), (4.8, 0), (6.0, 0), (7.199999999999999, 0), (8.4, 0), (9.6, 0), (10.799999999999999, 0)]
+</code></pre>
+<p>Let's draw them!</p>
+<pre><code class="language-python"># lesson2.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw all the boxes
+    for box in boxes:
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
+    dwg.save()
+
+
+draw_boxes(many_boxes, 'lesson2.svg', (5, 2))
+
+</code></pre>
+<p>And here is the output:</p>
+<p><img src="lesson2.svg" alt="lesson2.svg" /></p>
+<p>That was more or less what we expected, right? Of course since there are 5000 small
+boxes that row of boxes goes on for quite a while.</p>
+<p>We <em>could</em> just go to the right for a while, then start a new row. Let's do that in
+the next lesson.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson2.py">lesson2.py</a></li>
+<li><a href="diffs/lesson1_lesson2.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v3" id="boxes-v3"><h1>BOXES v3</h1></a>
+<p>In our <a href="lesson2.run.html">previous lesson</a> we ended with something like a line
+of army ants, all our boxes lined up. Let's make it better by making them
+organize themselves in rows.</p>
+<p>This code is just like before:</p>
+<pre><code class="language-python"># lesson3.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+
+many_boxes = [Box() for i in range(5000)]
+
+</code></pre>
+<p>But now, let's organize our boxes in rank and file. In fact, let's put our
+many boxes inside a big box.</p>
+<pre><code class="language-python"># lesson3.py
+big_box = Box(0, 0, 50, 80)
+
+</code></pre>
+<p>We will get our boxes one at a time, put the first in 0,0 and the next one right
+at its right, and so on, and when we are about to step outside of the big box,
+we go back to the left, a little down, and do it all over again.</p>
+<pre><code class="language-python"># lesson3.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # The 1st box is at 0,0 so no need to do anything with it, right?
+    previous = boxes.pop(0)
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; big_box.w:
+            # We go all the way left and a little down
+            box.x = 0
+            box.y = previous.y + previous.h + separation
+        previous = box
+
+
+layout(many_boxes)
+
+</code></pre>
+<p>And now we can draw it. Just so we are sure we are staying inside the
+big box, we will draw it too, in light blue.</p>
+<pre><code class="language-python"># lesson3.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the &quot;big box&quot;
+    dwg.add(
+        dwg.rect(
+            insert=(big_box.x, big_box.y),
+            size=(big_box.w, big_box.h),
+            fill='lightblue',
+        )
+    )
+    # Draw all the boxes
+    for box in boxes:
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
+    dwg.save()
+
+
+# Make the visible part of the drawing larger to show big_box
+draw_boxes(many_boxes, 'lesson3.svg', (50, 90))
+
+</code></pre>
+<p>And here is the output:</p>
+<p><img src="lesson3.svg" alt="lesson3.svg" /></p>
+<p>That is strangely satisfying! Of course we are doing something wrong in that
+we are overflowing the big box vertically.</p>
+<p>So, we could have more than one big box. And use them as pages?</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson3.py">lesson3.py</a></li>
+<li><a href="diffs/lesson2_lesson3.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v4" id="boxes-v4"><h1>BOXES v4</h1></a>
+<p>In the <a href="lesson3.run.html">previous lesson</a> we totally nailed drawing between the lines ... horizontally. Let's improve on that by being bidimensional.</p>
+<p>This code is just like before:</p>
+<pre><code class="language-python"># lesson4.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+
+many_boxes = [Box() for i in range(5000)]
+
+</code></pre>
+<p>But now, instead of a big box, let's have a list of, say, 10 pages (or large boxes), one below the other, slighty separated.</p>
+<pre><code class="language-python"># lesson4.py
+pages = [Box(0, i * 55, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>Of course our layout routine needs improvements to handle overflowing a
+page vertically.</p>
+<pre><code class="language-python"># lesson4.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        previous = box
+
+
+layout(many_boxes)
+
+</code></pre>
+<p>We need to change our drawing code to draw more than one page.</p>
+<pre><code class="language-python"># lesson4.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
+    dwg.save()
+
+
+draw_boxes(many_boxes, 'lesson4.svg', (100, 60))
+
+</code></pre>
+<p>And here is the output:</p>
+<p><img src="lesson4.svg" alt="lesson4.svg" /></p>
+<p>Would this work if the pages are arranged differently? Let's put the pages
+side by side instead.</p>
+<pre><code class="language-python"># lesson4.py
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 60))
+
+</code></pre>
+<p><img src="lesson4_side_by_side.svg" alt="lesson4_side_by_side.svg" /></p>
+<p>And how about pages of different sizes?</p>
+<pre><code class="language-python"># lesson4.py
+from random import randint
+
+pages = [
+    Box(i * 35, 0, 30 + randint(-3, 3), 50 + randint(-10, 10))
+    for i in range(10)
+]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 60))
+
+</code></pre>
+<p><img src="lesson4_random_sizes.svg" alt="lesson4_random_sizes.svg" /></p>
+<p>So, we can fill pages and pages with little red squares now. Nice!</p>
+<p>How about we make the squares not be all the same width?</p>
+<pre><code class="language-python"># lesson4.py
+many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 60))
+
+</code></pre>
+<p>This adds &quot;noise&quot; to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.</p>
+<p><img src="lesson4_random_box_sizes.svg" alt="lesson4_random_box_sizes.svg" /></p>
+<p>That looks interesting...</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson4.py">lesson4.py</a></li>
+<li><a href="diffs/lesson3_lesson4.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v5" id="boxes-v5"><h1>BOXES v5</h1></a>
+<p>In our <a href="lesson4.run.html">previous lesson</a> we created code that can fill a series of pages using many small boxes.</p>
+<p>But only when those boxes are all alike. Once the boxes had different widths, the right side of our layout got all ragged. You surely have seen things like it when using word processors or reading web pages, where the text is all aligned on the left and all ragged on the right. It's called a &quot;left-aligned&quot; or &quot;ragged-right&quot; layout.</p>
+<p>The reason is that we exceed the page width by a random amount, and then,
+when moving that box to the next row, we are left a random amount <strong>short</strong> of the desired width.</p>
+<p>Could we make it look aligned on BOTH sides? Of course. Let's try.</p>
+<p>This code is just like before:</p>
+<pre><code class="language-python"># lesson5.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+
+# Many boxes with varying widths
+from random import randint
+
+many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
+
+# A few pages all the same size
+pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>And of course, we need a new layout function. The plan is this:</p>
+<ul>
+<li>Organize boxes in rows, like before.</li>
+<li>When we are about to go too wide, see how much &quot;slack&quot; is left
+between the right side of our last box in the row and the edge of
+the page.</li>
+<li>Spread that slack by sliding all boxes slightly right so noone notices.</li>
+</ul>
+<pre><code class="language-python"># lesson5.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            # We adjust the row
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+            bump = slack / len(row)
+            # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+            for i, b in enumerate(row):
+                b.x += bump * i
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+        previous = box
+
+
+layout(many_boxes)
+
+</code></pre>
+<p>The drawing code needs no changes.</p>
+<pre><code class="language-python"># lesson5.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+            )
+        )
+    dwg.save()
+
+
+draw_boxes(many_boxes, 'lesson5.svg', (100, 60))
+
+</code></pre>
+<p><img src="lesson5.svg" alt="lesson5.svg" /></p>
+<p>Isn't that nice? If you look at it from afar it looks sort of familiar.
+Doesn't it?</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson5.py">lesson5.py</a></li>
+<li><a href="diffs/lesson4_lesson5.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v6" id="boxes-v6"><h1>BOXES v6</h1></a>
+<p>In our <a href="lesson5.run.html">previous lesson</a> we created a fully justified layout of varying-width boxes spread across multiple pages. But we cheated.</p>
+<p>To achieve full justification, we spread the &quot;slack&quot; evenly in the space between all boxes in the row. If we were trying to layout text, that is not the proper way.</p>
+<p>You see, text comes separated in words. And usually, in western languages, the words have characters called spaces between them. So what we do, when laying out text, is to make the special <strong>space</strong> boxes slightly larger and keep the separation between boxes constant (in fact, we also tweak separations between letters, but let's ignore that for now. Or for ever.</p>
+<p>How about we choose some boxes and decide they, and only they, are stretchy?</p>
+<p>That way, our strategy to fully justify the text will be: stretch the stretchy bits on each row just enough so that the row is exactly the width we need.</p>
+<p>For the first time in a few lessons, we need to change our Box class:</p>
+<pre><code class="language-python"># lesson6.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+
+
+# Many boxes with varying widths, and about 1 in 10 will be stretchy
+from random import randint
+
+many_boxes = [
+    Box(w=1 + randint(-5, 5) / 10, stretchy=(randint(0, 5) == 4))
+    for i in range(5000)
+]
+# A few pages all the same size
+pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>The changes in the layout function are not so big.</p>
+<pre><code class="language-python"># lesson6.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .2
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            # We adjust the row
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+
+</code></pre>
+<p>When finishing a row, see if it has stretchy boxes in it.</p>
+<p>If it doesn't, bump each box a little to the right like we did before.</p>
+<pre><code class="language-python"># lesson6.py
+            # Get a list of all the ones that are stretchy
+            stretchies = [b for b in row if b.stretchy]
+            if not stretchies:  # Nothing stretches do as before.
+                bump = slack / len(row)
+                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+                for i, b in enumerate(row):
+                    b.x += bump * i
+
+</code></pre>
+<p>If we do have stretchy boxes in the row, make each one wider.</p>
+<pre><code class="language-python"># lesson6.py
+            else:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j - 1].x + row[j - 1].w + separation
+
+
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+        previous = box
+
+
+layout(many_boxes)
+
+</code></pre>
+<p>The drawing code needs a change so we can see the &quot;stretchy&quot; boxes in a different color.</p>
+<pre><code class="language-python"># lesson6.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        dwg.add(
+            dwg.rect(
+                insert=(box.x, box.y), size=(box.w, box.h), fill=color
+            )
+        )
+    dwg.save()
+
+
+draw_boxes(many_boxes, 'lesson6.svg', (100, 60))
+
+</code></pre>
+<p><img src="lesson6.svg" alt="lesson6.svg" /></p>
+<p>This layout strategy works:</p>
+<ul>
+<li>With multiple pages of arbitrary sizes and positions</li>
+<li>With many boxes of different widths and stretch capabilities</li>
+<li>Even if nothing can stretch</li>
+</ul>
+<p>But the next lesson will start taking things to the next level.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson6.py">lesson6.py</a></li>
+<li><a href="diffs/lesson5_lesson6.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v7" id="boxes-v7"><h1>BOXES v7</h1></a>
+<p>So far in our previous lessons we have worked in an abstract world of boxes.
+Some hints of a direction were visible, like organizing our boxes in <em>pages</em> and trying to achieve a <em>justified layout</em> among others.</p>
+<p>So, let's just say it, we are going to be doing text layout. But not the easy one. No, sir. No monospaced fonts for us. We want to do the whole enchilada, we are going to have variable-width fonts with kerning, and multi-page, fully-justified text layouts <strong>with hyphenation</strong>.</p>
+<p>Ok, perhaps about 50% of the enchilada, because it will have no bidirectional support, only wok in english, only read UTF-8 encoded files, and so on a lot of things. But it's still a lot of mexican food!</p>
+<p>And we are going to do that in lessons not much longer than the ones you have been seeing so far. Except this one. This one is much longer. So let's get started.</p>
+<p>Clearly, we want our boxes to have letters. And our &quot;stretchy&quot; boxes are special because they have things like spaces. In fact, let's just say they have spaces.</p>
+<p>We will now expand our Box class to support letters inside the boxes.</p>
+<pre><code class="language-python"># lesson7.py
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+        self.letter = letter
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s, &quot;%s&quot;)' % (
+            self.x, self.y, self.w, self.y, self.letter
+        )
+
+
+# Many boxes, all the same width, with an x in them
+text_boxes = [Box() for i in range(5000)]
+
+# A few pages all the same size
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+
+</code></pre>
+<p>We can keep using the exact same layout function.</p>
+<pre><code class="language-python"># lesson7.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+        # But if it's too far to the right...
+        if (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            # We adjust the row
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+            # Get a list of all the ones that are stretchy
+            stretchies = [b for b in row if b.stretchy]
+            if not stretchies:  # Nothing stretches do as before.
+                bump = slack / len(row)
+                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+                for i, b in enumerate(row):
+                    b.x += bump * i
+            else:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j - 1].x + row[j - 1].w + separation
+
+
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+        previous = box
+
+
+layout(text_boxes)
+
+</code></pre>
+<p>And tweak the drawing function to show us letters, and to make the colored boxes optional.</p>
+<pre><code class="language-python"># lesson7.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size, hide_boxes=False):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        # Make the colored boxes optional
+        if not hide_boxes:
+            dwg.add(
+                dwg.rect(
+                    insert=(box.x, box.y),
+                    size=(box.w, box.h),
+                    fill=color,
+                )
+            )
+        # Display the letter in the box
+        if box.letter:
+            dwg.add(
+                dwg.text(
+                    box.letter,
+                    insert=(box.x, box.y + box.h),
+                    font_size=box.h,
+                    font_family='Arial',
+                )
+            )
+    dwg.save()
+
+
+draw_boxes(text_boxes, 'lesson7.svg', (30, 20))
+
+</code></pre>
+<p><img src="lesson7.svg" alt="lesson7.svg" /></p>
+<p>Of course this is very boring, so we need to spice up our data a little.
+We can use different letters, and then make the right ones stretchy. That is easy!</p>
+<pre><code class="language-python"># lesson7.py
+from random import choice
+
+for box in text_boxes:
+    # More than one space so they appear often
+    box.letter = choice('     abcdefghijklmnopqrstuvwxyz')
+    if box.letter == ' ':  # Spaces are stretchy
+        box.stretchy = True
+
+layout(text_boxes)
+draw_boxes(text_boxes, 'lesson7_different_letters.svg', (30, 20))
+
+</code></pre>
+<p><img src="lesson7_different_letters.svg" alt="lesson7_different_letters.svg" /></p>
+<p>As you can see, there are very minor horizontal shifts and stretches, since all boxes are the same size.</p>
+<p>But as a text layout engine we have a <strong>major</strong> failure: we are ignoring the size of the letters we are layouting!</p>
+<p>This is a very complex thing to do called <em>text shaping</em>. You need to understand the content of the font you are using to display the text, and more subtle things like what happens if you put specific letters next to each other (kerning) and much more.</p>
+<p>The good news is that it's already done for us, in libraries called Harfbuzz and Freetype.</p>
+<p>This paragraph is perhaps the most important one in this book. I am about to show you some obscure code. And I will tell you the secret of how it got here:
+<strong>I copied it from the documentation for the libraries I am using.</strong> Sometimes you will need to do something complicated only once in your life. It's perfectly ok to just google how to do it. And as long as you are confident you can find it again if needed, it's ok to just forget about it.</p>
+<p>I will show you this code, and then put it in a separate file called <code>fonts.py</code> and from now on I will not show it in the lessons, because we are <em>not</em> going to change it, <em>ever</em>.</p>
+<pre><code class="language-python"># fonts.py
+import harfbuzz as hb
+import freetype2 as ft
+
+
+def adjust_widths_by_letter(boxes):
+    &quot;&quot;&quot;Takes a list of boxes as arguments, and uses harfbuzz to
+    adjust the width of each box to match the harfbuzz text shaping.&quot;&quot;&quot;
+    buf = hb.Buffer.create()
+    buf.add_str(''.join(b.letter for b in boxes))
+    buf.guess_segment_properties()
+    font_lib = ft.get_default_lib()
+    face = font_lib.find_face('Arial')
+    face.set_char_size(size=1, resolution=64)
+    font = hb.Font.ft_create(face)
+    hb.shape(font, buf)
+    # at this point buf.glyph_positions has all the data we need
+    for box, position in zip(boxes, buf.glyph_positions):
+        box.w = position.x_advance
+
+</code></pre>
+<p>And now we will pretend we know what that does, based on its docstring and use it.</p>
+<pre><code class="language-python"># lesson7.py
+from code import fonts
+
+
+separation = .05
+fonts.adjust_widths_by_letter(text_boxes)
+layout(text_boxes)
+draw_boxes(text_boxes, 'lesson7_adjusted_letters.svg', (30, 20))
+
+</code></pre>
+<p><img src="lesson7_adjusted_letters.svg" alt="lesson7_adjusted_letters.svg" /></p>
+<p>And nicer, without the boxes:</p>
+<pre><code class="language-python"># lesson7.py
+fonts.adjust_widths_by_letter(text_boxes)
+layout(text_boxes)
+draw_boxes(
+    text_boxes,
+    'lesson7_adjusted_letters_no_boxes.svg',
+    (30, 20),
+    hide_boxes=True,
+)
+
+</code></pre>
+<p><img src="lesson7_adjusted_letters_no_boxes.svg" alt="lesson7_adjusted_letters_no_boxes.svg" /></p>
+<p>And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on,
+Jane Austen's <a href="http://www.gutenberg.org/ebooks/1342">Pride and Prejudice from Project Gutenberg</a></p>
+<pre><code class="language-python"># lesson7.py
+p_and_p = open('pride-and-prejudice.txt').read()
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l == ' '))
+fonts.adjust_widths_by_letter(text_boxes)
+layout(text_boxes)
+draw_boxes(
+    text_boxes,
+    'lesson7_pride_and_prejudice.svg',
+    (30, 20),
+    hide_boxes=True,
+)
+
+</code></pre>
+<p><img src="lesson7_pride_and_prejudice.svg" alt="lesson7_pride_and_prejudice.svg" /></p>
+<p>And that is ... maybe disappointing? While we spent a lot of time on things like justifying text, we have not even looked at newlines!</p>
+<p>Also, spaces at the end of lines make the line appear ragged again, now that they are not boxes.</p>
+<p>So, we know what to hit in the next lesson.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson7.py">lesson7.py</a></li>
+<li><a href="diffs/lesson6_lesson7.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v8" id="boxes-v8"><h1>BOXES v8</h1></a>
+<p>In the <a href="lesson7.run.html">previous lesson</a> we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.</p>
+<p>We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes.</p>
+<pre><code class="language-python"># lesson8.py
+from code.fonts import adjust_widths_by_letter
+
+
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+        self.letter = letter
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s, &quot;%s&quot;)' % (
+            self.x, self.y, self.w, self.y, self.letter
+        )
+
+
+p_and_p = open('pride-and-prejudice.txt').read()
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l == ' '))
+adjust_widths_by_letter(text_boxes)
+
+# A few pages all the same size
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>Also unchanged is the drawing code.</p>
+<pre><code class="language-python"># lesson8.py
+
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size, hide_boxes=False):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        # Make the colored boxes optional
+        if not hide_boxes:
+            dwg.add(
+                dwg.rect(
+                    insert=(box.x, box.y),
+                    size=(box.w, box.h),
+                    fill=color,
+                )
+            )
+        # Display the letter in the box
+        if box.letter:
+            dwg.add(
+                dwg.text(
+                    box.letter,
+                    insert=(box.x, box.y + box.h),
+                    font_size=box.h,
+                    font_family='Arial',
+                )
+            )
+
+</code></pre>
+<p>But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying &quot;Pride and Prejudice&quot;:</p>
+<p><img src="lesson7_pride_and_prejudice.svg" alt="lesson7_pride_and_prejudice.svg" /></p>
+<p>Let's count the problems:</p>
+<ol>
+<li>It totally ignores newlines everywhere</li>
+<li>It keeps spaces at the end of rows, making the right side ragged
+(see &quot;said his &quot; in the seventh line)</li>
+<li>White space at the beginning of rows is shown and it looks bad
+(see &quot; a neigh&quot; at the beginning of the fifth line)</li>
+<li>Words are split between lines haphazardly, but this is for later and leads
+to some serious code that needs its own lesson.</li>
+</ol>
+<p>Let's hit the issues in order. First, newlines.</p>
+<p>The idea is: if we find a newline, we need to break the line. Doesn't sound
+particularly complex, specially since lines that are broken intentionally
+are never fully justified.</p>
+<p>The changes are minor:</p>
+<ul>
+<li>Create a flag <code>break_line</code> set to True if we encounter a newline
+or overflow the page.</li>
+<li>In case of newline, make that box invisible by making it 0-wide and
+not stretchy.</li>
+<li>When the break_line flag is set, handle as usual by moving to the
+left, etc.</li>
+</ul>
+<pre><code class="language-python"># lesson8.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+
+def layout(_boxes):
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+
+        # Handle breaking on newlines
+        break_line = False
+        # But if it's a newline
+        if (box.letter == '\n'):
+            break_line = True
+            # Newlines take no horizontal space ever
+            box.w = 0
+            box.stretchy = False
+
+        # Or if it's too far to the right...
+        elif (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            break_line = True
+            # We adjust the row
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+            # Get a list of all the ones that are stretchy
+            stretchies = [b for b in row if b.stretchy]
+            if not stretchies:  # Nothing stretches do as before.
+                bump = slack / len(row)
+                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+                for i, b in enumerate(row):
+                    b.x += bump * i
+            else:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j - 1].x + row[j - 1].w + separation
+
+
+        if break_line:
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+        previous = box
+
+
+
+</code></pre>
+<p>The code changes are small, but the output now looks radically different.</p>
+<pre><code class="language-python"># lesson8.py
+draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
+
+</code></pre>
+<p><img src="lesson8.svg" alt="lesson8.svg" /></p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson8.py">lesson8.py</a></li>
+<li><a href="diffs/lesson7_lesson8.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v9" id="boxes-v9"><h1>BOXES v9</h1></a>
+<p>In the <a href="lesson8.run.html">previous lesson</a> we fixed the handling of newlines
+in our layout engine, and noticed a problem with spaces. Let's fix it!</p>
+<p>We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes.</p>
+<pre><code class="language-python"># lesson9.py
+from code.fonts import adjust_widths_by_letter
+
+
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+        self.letter = letter
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s, &quot;%s&quot;)' % (
+            self.x, self.y, self.w, self.y, self.letter
+        )
+
+
+p_and_p = open('pride-and-prejudice.txt').read()
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l == ' '))
+adjust_widths_by_letter(text_boxes)
+
+# A few pages all the same size
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>Also unchanged is the drawing code.</p>
+<pre><code class="language-python"># lesson9.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size, hide_boxes=False):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        # Make the colored boxes optional
+        if not hide_boxes:
+            dwg.add(
+                dwg.rect(
+                    insert=(box.x, box.y),
+                    size=(box.w, box.h),
+                    fill=color,
+                )
+            )
+        # Display the letter in the box
+        if box.letter:
+            dwg.add(
+                dwg.text(
+                    box.letter,
+                    insert=(box.x, box.y + box.h),
+                    font_size=box.h,
+                    font_family='Arial',
+                )
+            )
+    dwg.save()
+
+</code></pre>
+<p>The more obvious problems are:</p>
+<ul>
+<li>It keeps spaces at the end of rows, making the right side ragged.</li>
+<li>White space at the beginning of rows is shown and it looks bad</li>
+</ul>
+<p><img src="lesson8.svg" alt="lesson8.svg" /></p>
+<p>You can see clearly, in the previous sample output where this happens in one of the latter paragraphs, &quot;to see the place,  &quot; appears ragged when it should not. And a similar thing happens in an earlier paragraph where there is a hole against the left margin in &quot; told me all about it&quot;.</p>
+<p>In both cases, the cause is because the &quot;empty&quot; space is used by spaces!</p>
+<p>So, one possible solution is, when justifying a row, to make all the spaces at the right margins 0-width and not stretchy. At the same time, when adding spaces at the beginning of a row, they should become 0-width and not stretchy.</p>
+<p><strong>BUT</strong> this means the list of boxes will need its width readjusted if they are to be layouted again on different pages! That's because some of the spaces will now be thin and &quot;rigid&quot; so they will work badly if they are <strong>not</strong> against the margin on a different layout.</p>
+<p>It's not a big problem, but it's worth keeping in mind, since it's the kind of thing that becomes an obscure bug later on. So, we add it to the docstring.</p>
+<pre><code class="language-python"># lesson9.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+
+def layout(_boxes):
+    &quot;&quot;&quot;Layout boxes along pages.
+
+    Keep in mind that this function modifies the boxes themselves, so
+    you should be very careful about trying to call layout() more than once
+    on the same boxes.
+
+    Specifically, some spaces will become 0-width and not stretchy.
+    &quot;&quot;&quot;
+
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+
+        # Handle breaking on newlines
+        break_line = False
+        # But if it's a newline
+        if (box.letter == '\n'):
+            break_line = True
+            # Newlines take no horizontal space ever
+            box.w = 0
+            box.stretchy = False
+
+        # Or if it's too far to the right...
+        elif (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            break_line = True
+            # We adjust the row
+            # Remove all right-margin spaces
+            while row[-1].letter == ' ':
+                row.pop()
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+            # Get a list of all the ones that are stretchy
+            stretchies = [b for b in row if b.stretchy]
+            if not stretchies:  # Nothing stretches do as before.
+                bump = slack / len(row)
+                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+                for i, b in enumerate(row):
+                    b.x += bump * i
+            else:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j - 1].x + row[j - 1].w + separation
+
+
+        if break_line:
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+
+        # Collapse all left-margin space
+        if all(b.letter == ' ' for b in row):
+            box.w = 0
+            box.stretchy = False
+            box.x = pages[page].x
+
+        previous = box
+
+
+layout(text_boxes)
+
+</code></pre>
+<pre><code class="language-python"># lesson9.py
+draw_boxes(text_boxes, 'lesson9.svg', (30, 50), hide_boxes=True)
+
+</code></pre>
+<p><img src="lesson9.svg" alt="lesson9.svg" /></p>
+<p>As you can see, the justification now is absolutely tight where it needs to be.
+With that taken care of, we will consider the problem of breaking lines inside words and how to fix it using hyphenation in the next lesson.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson9.py">lesson9.py</a></li>
+<li><a href="diffs/lesson8_lesson9.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#boxes-v10" id="boxes-v10"><h1>BOXES v10</h1></a>
+<p>In our <a href="lesson9.run.html">previous lesson</a> we created a serviceable text layout engine. It has many problems, but remember our goal is not to create the best possible thing, this is an educational experience. The spit and polish will appear later on.</p>
+<p>But there is a glaring problem, it breaks words in all the wrong places. Examples of it appear in almost every line of the output. So, how does one
+fix that?</p>
+<p>The traditional answer (and the one we will be using) is hyphenation, breaking
+words between lines in the correct places.</p>
+<p>Instead of breaking anywhere, we will break only in the places where the <a href="https://english.stackexchange.com/questions/385/what-are-the-rules-for-splitting-words-at-the-end-of-a-line">rules of each language</a>
+allow us to.</p>
+<p>Just as it happened with <a href="lesson7.run.html">text shaping</a> we are lucky to live
+in a moment in time when almost everything we need to do it right is already
+in place. In particular, we will use a library called
+<a href="https://github.com/Kozea/Pyphen">Pyphen</a> mostly because I already have
+used it in another project.</p>
+<p>Am I sure it's the best one? No. Do I know exactly how it does what it does? No. I know enough to make
+it work, and it works <em>well enough</em> so for this stage in the life of this project that is more than
+enough. In fact, it takes the rules for word-breaking from dictionaries provided by an Office Suite,
+so it does about as good a job as the dictionary does. It even supports subtleties such as the
+differences betwen British and American English!</p>
+<p>Here's an example of how it works:</p>
+<pre><code class="language-python">import pyphen
+dic = pyphen.Pyphen(lang='en_GB')
+print('en_GB:', dic.inserted('dictionary', '-'))
+dic = pyphen.Pyphen(lang='en_US')
+print('en_US:', dic.inserted('dictionary', '-'))
+</code></pre>
+<pre><code>en_GB: dic-tion-ary
+en_US: dic-tio-nary
+</code></pre>
+<p>Keep in mind that this is not magic. If you feed it garbage, it
+will give you garbage.</p>
+<pre><code class="language-python">dic = pyphen.Pyphen(lang='es_ES')
+print('es_ES:', dic.inserted('dictionary', '-'))
+</code></pre>
+<pre><code>es_ES: dic-tio-na-ry
+</code></pre>
+<p>Where is it proper to break a line?</p>
+<ul>
+<li>On a newline character</li>
+<li>On a space</li>
+<li>On a breaking point as defined by Pyphen</li>
+</ul>
+<p>One of those things is not like the others. We have boxes with newlines in them and we have boxes with spaces in them, but there are no boxes with breaking points in them.</p>
+<p>But we can add them! There is unicode symbol for that:</p>
+<blockquote>
+<a class="header" href="print.html#soft-hyphen-shy" id="soft-hyphen-shy"><h3>SOFT HYPHEN (SHY)</h3></a>
+<p>The <a href="https://en.wikipedia.org/wiki/Soft_hyphen">soft hyphen</a> serves as an invisible marker used to specify a place in text where a hyphenated break is allowed without forcing a line break in an inconvenient place if the text is re-flowed. It becomes visible only after word wrapping at the end of a line.</p>
+</blockquote>
+<p>So, if we insert them in all the right places, then we can use them to decide whether we are at a suitable breaking point. We will put this in a file called
+<code>hyphen.py</code></p>
+<pre><code class="language-python"># hyphen.py
+import pyphen
+
+dic = pyphen.Pyphen(lang='en_US')
+
+
+def insert_soft_hyphens(text, hyphen='\xad'):
+    &quot;&quot;&quot;Insert the hyphen in breaking pointsaccording to the dictionary.
+    
+    '\xad' is the Soft Hyphen (SHY) character
+    &quot;&quot;&quot;
+    lines = []
+    for line in text.splitlines():
+        hyph_words = [
+            dic.inserted(word, hyphen) for word in line.split()
+        ]
+        lines.append(' '.join(hyph_words))
+    return '\n'.join(lines)
+
+</code></pre>
+<pre><code class="language-python">from code.hyphen import insert_soft_hyphens
+
+print (insert_soft_hyphens('Roses are red\nViolets are blue', '-'))
+</code></pre>
+<pre><code>Ros-es are red
+Vi-o-lets are blue
+</code></pre>
+<p>So, with this code ready, we can get to work on implementing hyphenation support in our layout function.</p>
+<p>First, this code is exactly as it was before:</p>
+<pre><code class="language-python"># lesson10.py
+from code.fonts import adjust_widths_by_letter
+from code.hyphen import insert_soft_hyphens
+
+
+class Box():
+
+    def __init__(self, x=0, y=0, w=1, h=1, stretchy=False, letter='x'):
+        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+        self.stretchy = stretchy
+        self.letter = letter
+
+    def __repr__(self):
+        return 'Box(%s, %s, %s, %s, &quot;%s&quot;)' % (
+            self.x, self.y, self.w, self.y, self.letter
+        )
+
+</code></pre>
+<p>We do need to make a small change to how we load our text, to add the hyphens:</p>
+<pre><code class="language-python"># lesson10.py
+p_and_p = open('pride-and-prejudice.txt').read()
+p_and_p = insert_soft_hyphens(p_and_p)  # Insert invisible hyphens
+text_boxes = []
+for l in p_and_p:
+    text_boxes.append(Box(letter=l, stretchy=l == ' '))
+adjust_widths_by_letter(text_boxes)
+
+# A few pages all the same size
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+</code></pre>
+<p>No changes in how we draw things.</p>
+<pre><code class="language-python"># lesson10.py
+import svgwrite
+
+
+def draw_boxes(boxes, fname, size, hide_boxes=False):
+    dwg = svgwrite.Drawing(fname, profile='full', size=size)
+    # Draw the pages
+    for page in pages:
+        dwg.add(
+            dwg.rect(
+                insert=(page.x, page.y),
+                size=(page.w, page.h),
+                fill='lightblue',
+            )
+        )
+    # Draw all the boxes
+    for box in boxes:
+        # The box color depends on its features
+        color = 'green' if box.stretchy else 'red'
+        # Make the colored boxes optional
+        if not hide_boxes:
+            dwg.add(
+                dwg.rect(
+                    insert=(box.x, box.y),
+                    size=(box.w, box.h),
+                    fill=color,
+                )
+            )
+        # Display the letter in the box
+        if box.letter:
+            dwg.add(
+                dwg.text(
+                    box.letter,
+                    insert=(box.x, box.y + box.h),
+                    font_size=box.h,
+                    font_family='Arial',
+                )
+            )
+    dwg.save()
+
+</code></pre>
+<p>And now our layout function. One first approach, which we will refine later,
+is to simply refuse to break lines if we are not in a &quot;good&quot; place to break it.</p>
+<p>Then, we inject a box with a visible hyphen in the linebreak, and that's it.</p>
+<p>Here is the code to create a box with a hyphen:</p>
+<pre><code class="language-python"># lesson10.py
+def hyphenbox():
+    b = Box(letter='-')
+    adjust_widths_by_letter([b])
+    return b
+
+</code></pre>
+<p>And here finally, our layout supports hyphens:</p>
+<pre><code class="language-python"># lesson10.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+
+def layout(_boxes):
+    &quot;&quot;&quot;Layout boxes along pages.
+
+    Keep in mind that this function modifies the boxes themselves, so
+    you should be very careful about trying to call layout() more than once
+    on the same boxes.
+
+    Specifically, some spaces will become 0-width and not stretchy.
+    &quot;&quot;&quot;
+
+    # Because we modify the box list, we will work on a copy
+    boxes = _boxes[:]
+    # We start at page 0
+    page = 0
+    # The 1st box should be placed in the correct page
+    previous = boxes.pop(0)
+    previous.x = pages[page].x
+    previous.y = pages[page].y
+    row = []
+    while boxes:
+        # We take the new 1st box
+        box = boxes.pop(0)
+        # And put it next to the other
+        box.x = previous.x + previous.w + separation
+        # At the same vertical location
+        box.y = previous.y
+
+        # Handle breaking on newlines
+        break_line = False
+        # But if it's a newline
+        if (box.letter == '\n'):
+            break_line = True
+            # Newlines take no horizontal space ever
+            box.w = 0
+            box.stretchy = False
+
+        # Or if it's too far to the right, and is a
+        # good place to break the line...
+        elif (box.x + box.w) &gt; (
+            pages[page].x + pages[page].w
+        ) and box.letter in (
+            ' ', '\xad'
+        ):
+            if box.letter == '\xad':
+                # Add a visible hyphen in the row
+                h_b = hyphenbox()
+                h_b.x = previous.x + previous.w + separation
+                h_b.y = previous.y
+                _boxes.append(h_b)  # So it's drawn
+                row.append(h_b)  # So it's justified
+            break_line = True
+            # We adjust the row
+            # Remove all right-margin spaces
+            while row[-1].letter == ' ':
+                row.pop()
+            slack = (pages[page].x + pages[page].w) - (
+                row[-1].x + row[-1].w
+            )
+            # Get a list of all the ones that are stretchy
+            stretchies = [b for b in row if b.stretchy]
+            if not stretchies:  # Nothing stretches do as before.
+                bump = slack / len(row)
+                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
+                for i, b in enumerate(row):
+                    b.x += bump * i
+            else:
+                bump = slack / len(stretchies)
+                # Each stretchy gets wider
+                for b in stretchies:
+                    b.w += bump
+                # And we put each thing next to the previous one
+                for j, b in enumerate(row[1:], 1):
+                    b.x = row[j - 1].x + row[j - 1].w + separation
+
+
+        if break_line:
+            # We start a new row
+            row = []
+            # We go all the way left and a little down
+            box.x = pages[page].x
+            box.y = previous.y + previous.h + separation
+
+        # But if we go too far down
+        if box.y + box.h &gt; pages[page].y + pages[page].h:
+            # We go to the next page
+            page += 1
+            # And put the box at the top-left
+            box.x = pages[page].x
+            box.y = pages[page].y
+
+        # Put the box in the row
+        row.append(box)
+
+        # Collapse all left-margin space
+        if all(b.letter == ' ' for b in row):
+            box.w = 0
+            box.stretchy = False
+            box.x = pages[page].x
+
+        previous = box
+
+
+layout(text_boxes)
+
+</code></pre>
+<pre><code class="language-python"># lesson10.py
+draw_boxes(text_boxes, 'lesson10.svg', (30, 50), hide_boxes=True)
+
+</code></pre>
+<p><img src="lesson10.svg" alt="lesson10.svg" /></p>
+<p>And there in &quot;proper-ty&quot; you can see it in action. Of course this is
+a naïve implementation. What happens if you just can't break?</p>
+<pre><code class="language-python">many_boxes = [Box(letter='a') for i in range(200)]
+adjust_widths_by_letter(many_boxes)
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson10_lots_of_a.svg', (35, 6), hide_boxes=True)
+</code></pre>
+<p><img src="lesson10_lots_of_a.svg" alt="lesson10_lots_of_a.svg" /></p>
+<p>Since it can't break at all, it just goes on and on.</p>
+<p>And there are other corner cases!</p>
+<pre><code class="language-python">many_boxes = [Box(letter='a') for i in range(200)]
+many_boxes[100] = Box(letter=' ', stretchy=True)
+adjust_widths_by_letter(many_boxes)
+layout(many_boxes)
+draw_boxes(many_boxes, 'lesson10_one_break.svg', (35, 6), hide_boxes=True)
+</code></pre>
+<p><img src="lesson10_one_break.svg" alt="lesson10_one_break.svg" /></p>
+<p>Because there is only one place to break the line, it then tries to
+wedge 100 letter &quot;a&quot; where there is room for 54 (I counted!) and something interesting happens... the &quot;slack&quot; is negative!</p>
+<p>Instead of stretching out a &quot;underfilled&quot; line, we are squeezing a &quot;overfilled&quot; one. Everything gets packed too tight, and the letters start
+overlapping one another.</p>
+<p>The lesson is that just because it works for the usual case it doesn't mean
+it's <strong>done</strong>. Even in the case of words, it can happen that breaking points take a while to appear and our line becomes overfull.</p>
+<p>We will tackle that problem next.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="code/lesson10.py">lesson10.py</a></li>
+<li><a href="diffs/lesson9_lesson10.html">Difference with code from last lesson</a></li>
+</ul>
+<a class="header" href="print.html#dependencies" id="dependencies"><h1>Dependencies</h1></a>
+<p>(add list of things used in the code with references)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
