@@ -30,7 +30,7 @@ many boxes inside a big box.
 
 ```python
 # lesson3.py
-big_box = Box(0, 0, 50, 80)
+big_box = Box(0, 0, 30, 50)
 
 ```
 

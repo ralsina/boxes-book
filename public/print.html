@@ -341,7 +341,7 @@ many_boxes = [Box() for i in range(5000)]
 <p>But now, let's organize our boxes in rank and file. In fact, let's put our
 many boxes inside a big box.</p>
 <pre><code class="language-python"># lesson3.py
-big_box = Box(0, 0, 50, 80)
+big_box = Box(0, 0, 30, 50)
 
 </code></pre>
 <p>We will get our boxes one at a time, put the first in 0,0 and the next one right
@@ -510,7 +510,7 @@ def draw_boxes(boxes, fname, size):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson4.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4.svg', (100, 50))
 
 </code></pre>
 <p>And here is the output:</p>
@@ -520,7 +520,7 @@ side by side instead.</p>
 <pre><code class="language-python"># lesson4.py
 pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 50))
 
 </code></pre>
 <p><img src="lesson4_side_by_side.svg" alt="lesson4_side_by_side.svg" /></p>
@@ -529,11 +529,11 @@ draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 60))
 from random import randint
 
 pages = [
-    Box(i * 35, 0, 30 + randint(-3, 3), 50 + randint(-10, 10))
+    Box(i * 35, 0, 30 - randint(0, 10), 50 - randint(0, 30))
     for i in range(10)
 ]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 50))
 
 </code></pre>
 <p><img src="lesson4_random_sizes.svg" alt="lesson4_random_sizes.svg" /></p>
@@ -542,7 +542,7 @@ draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 60))
 <pre><code class="language-python"># lesson4.py
 many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 50))
 
 </code></pre>
 <p>This adds &quot;noise&quot; to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.</p>
@@ -581,7 +581,7 @@ from random import randint
 many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
 
 # A few pages all the same size
-pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 
 </code></pre>
 <p>And of course, we need a new layout function. The plan is this:</p>
@@ -672,7 +672,7 @@ def draw_boxes(boxes, fname, size):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson5.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson5.svg', (100, 50))
 
 </code></pre>
 <p><img src="lesson5.svg" alt="lesson5.svg" /></p>
@@ -714,7 +714,7 @@ many_boxes = [
     for i in range(5000)
 ]
 # A few pages all the same size
-pages = [Box(i * 35, 5, 30, 50) for i in range(10)]
+pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 
 </code></pre>
 <p>The changes in the layout function are not so big.</p>
@@ -824,7 +824,7 @@ def draw_boxes(boxes, fname, size):
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson6.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
 
 </code></pre>
 <p><img src="lesson6.svg" alt="lesson6.svg" /></p>
@@ -1159,6 +1159,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
                     font_family='Arial',
                 )
             )
+    dwg.save()
 
 </code></pre>
 <p>But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying &quot;Pride and Prejudice&quot;:</p>

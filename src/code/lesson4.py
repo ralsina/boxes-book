@@ -83,13 +83,13 @@ draw_boxes(many_boxes, 'lesson4.svg', (100, 50))
 
 pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 layout(many_boxes)
-draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 60))
+draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 50))
 
 
 from random import randint
 
 pages = [
-    Box(i * 35, 0, 30 + randint(-3, 3), 50 + randint(-10, 10))
+    Box(i * 35, 0, 30 - randint(0, 10), 50 - randint(0, 30))
     for i in range(10)
 ]
 layout(many_boxes)

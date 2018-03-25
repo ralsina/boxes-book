@@ -79,6 +79,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
                     font_family='Arial',
                 )
             )
+    dwg.save()
 
 ```
 

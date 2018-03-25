@@ -9,7 +9,7 @@ We have no changes in our Box class, or the page setup, or how we load and adjus
 
 Also unchanged is the drawing code.
 
-```python-include:code/lesson8.py:107:144
+```python-include:code/lesson8.py:107:145
 ```
 
 But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying "Pride and Prejudice":
