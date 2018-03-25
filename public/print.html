@@ -1798,10 +1798,10 @@ overlap. Or, if we are unable to break at all, we just spill to the right
 forever.</p>
 <blockquote>
 <a class="header" href="print.html#underfull-and-overfull" id="underfull-and-overfull"><h3>Underfull and Overfull</h3></a>
-<p>When a line has too few characters, slack is positive and we have to
-&quot;spread&quot; them, that is called &quot;underfull&quot;. The opposite, where a line has
-too many characters, slack is negative and we have to &quot;smush&quot; them, is
-called &quot;overfull&quot;.</p>
+<p>When a line has too few characters, slack is
+positive and we have to &quot;spread&quot; them, that is called <strong>underfull</strong>. The
+opposite, where a line has too many characters, slack is negative and we
+have to &quot;smush&quot; them, is called <strong>overfull</strong>.</p>
 </blockquote>
 <p><img src="lesson10_one_break.svg" alt="lesson10_one_break.svg" /></p>
 <p>So far, our algorithm to break lines is simple:</p>
@@ -1829,9 +1829,9 @@ underfull.</p>
 have a spread out line than overlapping letters.</li>
 <li>If we have many spaces, then a bigger slack is acceptable.</li>
 </ul>
-<p>This is all subjective, of course. How much <em>movement</em> we tolerate on the text is
-a judgment call, so it involves some trial and error.</p>
-<p>Let's start with some numbers totally made up, because we have to start somewhere.</p>
+<p>This is all subjective, of course. How much <em>movement</em> we tolerate on the text
+is a judgment call, so it involves some trial and error.</p>
+<p>Let's start with some made up numbers, because we have to start somewhere.</p>
 <ul>
 <li>The allowed positive slack is 20% of the width of the spaces in the line.</li>
 <li>The allowed negative slack is 10% of the width of the spaces in the line.</li>
@@ -1840,7 +1840,8 @@ a judgment call, so it involves some trial and error.</p>
 <ul>
 <li>When adding characters, check if it's a possible breaking point.</li>
 <li>If it is, remember the &quot;goodness&quot; it has</li>
-<li>When reaching an overfull breaking point, check if it's better than the last one we saw.</li>
+<li>When reaching an overfull breaking point, check if it's better than the last
+one we saw.</li>
 <li>If the overfull breaking point is better, break.</li>
 <li>If the overfull breaking point is worse, use the underfull breaking point.</li>
 </ul>

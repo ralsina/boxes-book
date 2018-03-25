@@ -10,10 +10,10 @@ forever.
 
   > ### Underfull and Overfull 
   >
-  > When a line has too few characters, slack is positive and we have to
-  > "spread" them, that is called "underfull". The opposite, where a line has
-  > too many characters, slack is negative and we have to "smush" them, is
-  > called "overfull".
+  > When a line has too few characters, slack is
+  > positive and we have to "spread" them, that is called **underfull**. The
+  > opposite, where a line has too many characters, slack is negative and we
+  > have to "smush" them, is called **overfull**.
 
 
 ![lesson10_one_break.svg](lesson10_one_break.svg)
@@ -45,8 +45,8 @@ How good is a breaking point?
   have a spread out line than overlapping letters.
 * If we have many spaces, then a bigger slack is acceptable.
 
-This is all subjective, of course. How much *movement* we tolerate on the text is
-a judgment call, so it involves some trial and error.
+This is all subjective, of course. How much *movement* we tolerate on the text
+is a judgment call, so it involves some trial and error.
 
 Let's start with some made up numbers, because we have to start somewhere.
 
@@ -57,12 +57,8 @@ And here's a plan to implement it:
 
 * When adding characters, check if it's a possible breaking point.
 * If it is, remember the "goodness" it has
-* When reaching an overfull breaking point, check if it's better than the last one we saw.
+* When reaching an overfull breaking point, check if it's better than the last
+  one we saw.
 * If the overfull breaking point is better, break.
 * If the overfull breaking point is worse, use the underfull breaking point.
-
-
-
-
-
 

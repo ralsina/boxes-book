@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lesson 11 - BOXES (WIP title)</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The whole lifecycle of a project.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <noscript>
+            <style type="text/css">
+                .javascript-only {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme;
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson1.run.html"><strong aria-hidden="true">1.1.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 10</a></li><li><a href="lesson11.run.html" class="active"><strong aria-hidden="true">1.11.</strong> Lesson 11</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li><li class="affix"><a href="original.run.html">Original Code</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons javascript-only">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">BOXES (WIP title)</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </div>
+                <div id="searchresults-outer" class="searchresults-outer">
+                    <div class="searchresults-header" id="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="lesson11.run.html#boxes-v11" id="boxes-v11"><h1>BOXES v11</h1></a>
+<p>In our <a href="lesson10.run.html">previous lesson</a> we promised we will improve the
+problem of overfull lines in our text layout engine.</p>
+<p>The problem: A long string of letters without any hyphenation points or spaces
+causes a very long row to be fitted into a smaller page, causing letters to
+overlap. Or, if we are unable to break at all, we just spill to the right
+forever.</p>
+<blockquote>
+<a class="header" href="lesson11.run.html#underfull-and-overfull" id="underfull-and-overfull"><h3>Underfull and Overfull</h3></a>
+<p>When a line has too few characters, slack is
+positive and we have to &quot;spread&quot; them, that is called <strong>underfull</strong>. The
+opposite, where a line has too many characters, slack is negative and we
+have to &quot;smush&quot; them, is called <strong>overfull</strong>.</p>
+</blockquote>
+<p><img src="lesson10_one_break.svg" alt="lesson10_one_break.svg" /></p>
+<p>So far, our algorithm to break lines is simple:</p>
+<ol>
+<li>If the next character is a newline: break</li>
+<li>If we are short, add to the line.</li>
+<li>If the next character makes the line overfull:
+a. If it's a space or a hyphen: break
+b. If not, add to the line</li>
+<li>If we broke the line, adjust positions and widths so the line is
+exactly as wide as the page by spreading the slack.</li>
+</ol>
+<p>We need a better way to decide what is the best possible breaking point for
+the line. If it's too overfull, it will look bad. If it's too underfull, it
+will look bad too. And sometimes there is just no good breaking point and we
+need to <em>do something</em>.</p>
+<p>If we were lucky enough to have a breaking point that exactly fills the line,
+then we would not have a problem, so usually this will come down to choosing
+between two breaking points. One makes the line overfull, one keeps it
+underfull.</p>
+<p>How good is a breaking point?</p>
+<ul>
+<li>If the slack is smaller, it's better.</li>
+<li>If it's underfull it's slightly better than overfull, since it's better to
+have a spread out line than overlapping letters.</li>
+<li>If we have many spaces, then a bigger slack is acceptable.</li>
+</ul>
+<p>This is all subjective, of course. How much <em>movement</em> we tolerate on the text
+is a judgment call, so it involves some trial and error.</p>
+<p>Let's start with some made up numbers, because we have to start somewhere.</p>
+<ul>
+<li>The allowed positive slack is 20% of the width of the spaces in the line.</li>
+<li>The allowed negative slack is 10% of the width of the spaces in the line.</li>
+</ul>
+<p>And here's a plan to implement it:</p>
+<ul>
+<li>When adding characters, check if it's a possible breaking point.</li>
+<li>If it is, remember the &quot;goodness&quot; it has</li>
+<li>When reaching an overfull breaking point, check if it's better than the last
+one we saw.</li>
+<li>If the overfull breaking point is better, break.</li>
+<li>If the overfull breaking point is worse, use the underfull breaking point.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="lesson10.run.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="dependencies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="lesson10.run.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="dependencies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '_FontAwesome/css/font-awesome.css';
+                document.head.insertBefore(link, document.head.firstChild)
+            }
+        </script>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
