@@ -1,4 +1,5 @@
 from code.fonts import adjust_widths_by_letter
+from code.hyphen import insert_soft_hyphens
 
 
 class Box():

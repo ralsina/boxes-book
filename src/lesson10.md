@@ -84,17 +84,17 @@ So, with this code ready, we can get to work on implementing hyphenation support
 
 First, this code is exactly as it was before:
 
-```python-include:code/lesson10.py:1:18
+```python-include:code/lesson10.py:1:19
 ```
 
 We do need to make a small change to how we load our text, to add the hyphens:
 
-```python-include:code/lesson10.py:21:29
+```python-include:code/lesson10.py:22:30
 ```
 
 No changes in how we draw things.
 
-```python-include:code/lesson10.py:147:184
+```python-include:code/lesson10.py:148:185
 ```
 
 
@@ -105,15 +105,15 @@ Then, we inject a box with a visible hyphen in the linebreak, and that's it.
 
 Here is the code to create a box with a hyphen:
 
-```python-include:code/lesson10.py:32:35
+```python-include:code/lesson10.py:33:36
 ```
 
 And here finally, our layout supports hyphens:
 
-```python-include:code/lesson10.py:38:144
+```python-include:code/lesson10.py:39:145
 ```
 
-```python-include:code/lesson10.py:187:187
+```python-include:code/lesson10.py:188:188
 ```
 
 ![lesson10.svg](lesson10.svg)

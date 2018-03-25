@@ -108,6 +108,7 @@ First, this code is exactly as it was before:
 ```python
 # lesson10.py
 from code.fonts import adjust_widths_by_letter
+from code.hyphen import insert_soft_hyphens
 
 
 class Box():
