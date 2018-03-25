@@ -2,7 +2,7 @@
 [Introduction](./intro.md)
 
 - [Part 1](./finger_thinking.md)
-    - [Lesson 0](./lesson0.run.md)
+    - [Setup](./lesson0.run.md)
     - [Lesson 1](./lesson1.run.md)
     - [Lesson 2](./lesson2.run.md)
     - [Lesson 3](./lesson3.run.md)
