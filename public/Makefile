@@ -16,6 +16,7 @@ diffs: code/*py ../tools/*py ../tools/*html
 	../tools/diff2HtmlCompare.py -p code/lesson7.py code/lesson8.py && mv index.html diffs/lesson7_lesson8.html
 	../tools/diff2HtmlCompare.py -p code/lesson8.py code/lesson9.py && mv index.html diffs/lesson8_lesson9.html
 	../tools/diff2HtmlCompare.py -p code/lesson9.py code/lesson10.py && mv index.html diffs/lesson9_lesson10.html
+	../tools/diff2HtmlCompare.py -p code/lesson10.py code/lesson11.py && mv index.html diffs/lesson10_lesson11.html
 
 full:
 	rm -f *.svg
