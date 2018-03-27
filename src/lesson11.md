@@ -62,11 +62,12 @@ And here's a plan to implement it:
 * If the overfull breaking point is better, break.
 * If the overfull breaking point is worse, use the underfull breaking point.
 
-As you probably expected... no changes in the Box class, or in how we draw
-things, or in how we load the data.
+As you probably expected... no changes in the Box class,  or in how we load the data.
 
 ```python-include:code/lesson11.py:1:40
 ```
+
+Also no changes in how we draw things.
 
 ```python-include:code/lesson11.py:148
 ```

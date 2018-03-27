@@ -62,8 +62,7 @@ And here's a plan to implement it:
 * If the overfull breaking point is better, break.
 * If the overfull breaking point is worse, use the underfull breaking point.
 
-As you probably expected... no changes in the Box class, or in how we draw
-things, or in how we load the data.
+As you probably expected... no changes in the Box class,  or in how we load the data.
 
 ```python
 # lesson11.py
@@ -109,6 +108,8 @@ def hyphenbox():
 separation = .05
 
 ```
+
+Also no changes in how we draw things.
 
 ```python
 # lesson11.py
