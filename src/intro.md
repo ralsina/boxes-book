@@ -47,4 +47,4 @@ environment and has a "Chapter 0" about setting it up.
 > * It's written in markdown
 > * The sections with code are fed to [pyliterate](https://github.com/bslatkin/pyliterate) and its output is built into a "book" by [mdbook](https://github.com/rust-lang-nursery/mdBook)
 > * The code uses a ton of things, links are provided in the [Dependencies Appendix](dependencies.html) 
-> * All the code and text for the book is available in a [gitlab repo](https://gitlab.com/ralsina/boxes-book) and it's published and updated at [https://ralsina.gitlab.io](https://ralsina.gitlab.io)
+> * All the code and text for the book is available in a [gitlab repo](https://gitlab.com/ralsina/boxes-book) and it's published and updated at [https://ralsina.gitlab.io](https://ralsina.gitlab.io/boxes-book/)

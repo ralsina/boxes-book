@@ -18,6 +18,16 @@ forever.
 
 ![lesson10_one_break.svg](lesson10_one_break.svg)
 
+As you probably expected... no changes in the Box class.
+
+```python-include:code/lesson11.py:1:40
+```
+
+Also no changes in how we draw things.
+
+```python-include:code/lesson11.py:153:187
+```
+
 So far, our algorithm to break lines is simple:
 
 1. If the next character is a newline: break
@@ -62,16 +72,56 @@ And here's a plan to implement it:
 * If the overfull breaking point is better, break.
 * If the overfull breaking point is worse, use the underfull breaking point.
 
-As you probably expected... no changes in the Box class,  or in how we load the data.
+The first new thing is a function to calculate how good a breaking point is, in those terms.
 
-```python-include:code/lesson11.py:1:40
+```python-include:code/lesson11.py:193:212
 ```
 
-Also no changes in how we draw things.
+```python
+# 10 boxes of width 1, 1 stretchy in the middle
+boxes = [Box(x=i, w=1) for i in range(10)]
+boxes[5].stretchy = True
 
-```python-include:code/lesson11.py:148
+# On a page that is 8 units wide:
+print(badness(8, boxes))
 ```
 
+```
+output goes here
+```
+
+Let's see how that works for page widths between 5 and 15 (remember our row is 10 units wide):
+
+```python
+for w in range(5,15):
+  print('page_width:', w, ' -> badness:', badness(w, boxes))
+```
+
+As you can see, if the page was 10 units wide, it would be optimal.
+The second best option is for the page to be slightly wider, then maybe slightly thinner and so on.
+
+```
+output goes here
+```
+
+
+We will need to load data that shows the problem. In this case, it's
+a row of 20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.
+
+Why?
+
+As before, the page is anout wide enough to fix 58 "a"s. That means the first run will not be enough to fill the line. The second run will still not be enough. The third run will, however, badly overfll it. So, we should go all the way to the end, see that it's too long, and then go back to the second space and break there.
+
+
+```python-include:code/lesson11.py:22:32
+```
+
+DO layout
+
+```python-include:code/lesson11.py:35
+```
+
+![lesson11.svg](lesson11.svg)
 
 ----------
 

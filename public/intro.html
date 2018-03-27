@@ -185,7 +185,7 @@ environment and has a &quot;Chapter 0&quot; about setting it up.</p>
 <li>It's written in markdown</li>
 <li>The sections with code are fed to <a href="https://github.com/bslatkin/pyliterate">pyliterate</a> and its output is built into a &quot;book&quot; by <a href="https://github.com/rust-lang-nursery/mdBook">mdbook</a></li>
 <li>The code uses a ton of things, links are provided in the <a href="dependencies.html">Dependencies Appendix</a></li>
-<li>All the code and text for the book is available in a <a href="https://gitlab.com/ralsina/boxes-book">gitlab repo</a> and it's published and updated at <a href="https://ralsina.gitlab.io">https://ralsina.gitlab.io</a></li>
+<li>All the code and text for the book is available in a <a href="https://gitlab.com/ralsina/boxes-book">gitlab repo</a> and it's published and updated at <a href="https://ralsina.gitlab.io/boxes-book/">https://ralsina.gitlab.io</a></li>
 </ul>
 </blockquote>
 
@@ -230,6 +230,21 @@ environment and has a &quot;Chapter 0&quot; about setting it up.</p>
             }
         </script>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
