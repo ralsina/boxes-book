@@ -198,6 +198,9 @@ for w in range(5,15):
   print('page_width:', w, ' -> badness:', badness(w, boxes))
 ```
 
+As you can see, if the page was 10 units wide, it would be optimal.
+The second best option is for the page to be slightly wider, then maybe slightly thinner and so on.
+
 ```
 page_width: 5  -> badness: -10.0
 page_width: 6  -> badness: -8.0
