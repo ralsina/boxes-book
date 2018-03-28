@@ -113,7 +113,7 @@ We will need to load data that shows the problem. In this case, it's a row of
 
 Why?
 
-As before, the page is anout wide enough to fix 58 "a"s. That means the first
+As before, the page is about wide enough to fix 58 "a"s. That means the first
 run will not be enough to fill the line. The second run will still not be
 enough. The third run will, however, badly overfill it. So, we should go all
 the way to the end, see that it's too long, and then go back to the second
