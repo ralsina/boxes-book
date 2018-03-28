@@ -303,7 +303,7 @@ draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
 <hr />
 <p>Further references:</p>
 <ul>
-<li>Full source code for this lesson <a href="code/lesson6.py.run.html">lesson6.py</a></li>
+<li>Full source code for this lesson <a href="lesson6.py.run.html">lesson6.py</a></li>
 <li><a href="diffs/lesson5_lesson6.html">Difference with code from last lesson</a></li>
 </ul>
 
@@ -356,21 +356,6 @@ draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
             }
         </script>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

@@ -246,7 +246,7 @@ we are overflowing the big box vertically.</p>
 <hr />
 <p>Further references:</p>
 <ul>
-<li>Full source code for this lesson <a href="code/lesson3.py.run.html">lesson3.py</a></li>
+<li>Full source code for this lesson <a href="lesson3.py.run.html">lesson3.py</a></li>
 <li><a href="diffs/lesson2_lesson3.html">Difference with code from last lesson</a></li>
 </ul>
 
@@ -299,21 +299,6 @@ we are overflowing the big box vertically.</p>
             }
         </script>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         

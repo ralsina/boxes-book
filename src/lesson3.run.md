@@ -113,5 +113,5 @@ So, we could have more than one big box. And use them as pages?
 
 Further references:
 
-* Full source code for this lesson [lesson3.py](code/lesson3.py.run.html)
+* Full source code for this lesson [lesson3.py](lesson3.py.run.html)
 * [Difference with code from last lesson](diffs/lesson2_lesson3.html)

@@ -208,5 +208,5 @@ draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
 
 Further references:
 
-* Full source code for this lesson [lesson8.py](code/lesson8.py.run.html)
+* Full source code for this lesson [lesson8.py](lesson8.py.run.html)
 * [Difference with code from last lesson](diffs/lesson7_lesson8.html)

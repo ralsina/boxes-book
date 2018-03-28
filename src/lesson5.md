@@ -39,5 +39,5 @@ Doesn't it?
 
 Further references:
 
-* Full source code for this lesson [lesson5.py](code/lesson5.py.run.html)
+* Full source code for this lesson [lesson5.py](lesson5.py.run.html)
 * [Difference with code from last lesson](diffs/lesson4_lesson5.html)
