@@ -2,7 +2,7 @@
 
 [Introduction](./intro.md)
 
-- [Part 1](./finger_thinking.md)
+- [Part 1: Finger Thinking](./finger_thinking.md)
   - [Setup](./lesson0.run.md)
   - [Lesson 1](./lesson1.run.md)
   - [Lesson 2](./lesson2.run.md)
@@ -29,5 +29,8 @@
   - [part 1, lesson9](./lesson9.py.run.md)
   - [part 1, lesson10](./lesson10.py.run.md)
   - [part 1, lesson11](./lesson11.py.run.md)
+- [Part 2: Ducks in a Row](./ducks_in_a_row.md)
+- [Part 3: Wax On, Wax Off](./wax_on_wax_off.md)
+- [Part 4: Going Public](./going_public.md)
 
 [Dependencies](./dependencies.md)
