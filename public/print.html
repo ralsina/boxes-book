@@ -87,7 +87,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li><a href="lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li><li class="affix"><a href="original.run.html">Original Code</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1</a></li><li><ol class="section"><li><a href="lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li><a href="lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="lesson5.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li><li><a href="recap.html"><strong aria-hidden="true">1.13.</strong> Recapitulation</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li><li class="affix"><a href="original.run.html">Original Code</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -151,7 +151,7 @@
                     <main>
                         <a class="header" href="print.html#introduction" id="introduction"><h1>Introduction</h1></a>
 <p>This book tries to achieve only one thing:</p>
-<p>Show you a project go from <strong>nothing</strong> to <strong>good</strong>.</p>
+<p>Show you a project go from <strong>nothing</strong> to <strong>ok</strong>.</p>
 <p>By nothing I mean, no code at all. Not even a fleshed idea of what it does. No
 goals, no committments. Just a vague interest.</p>
 <p>And by good I mean it will work, it will have tests, it will be available to
@@ -1875,6 +1875,9 @@ def hyphenbox():
 </code></pre>
 <p>Also no changes in how we draw things.</p>
 <pre><code class="language-python"># lesson11.py
+import svgwrite
+
+
 def draw_boxes(boxes, fname, size, hide_boxes=False):
     dwg = svgwrite.Drawing(fname, profile='full', size=size)
     # Draw the pages
@@ -1953,7 +1956,8 @@ one we saw.</li>
 <li>If the overfull breaking point is better, break.</li>
 <li>If the overfull breaking point is worse, use the underfull breaking point.</li>
 </ul>
-<p>The first new thing is a function to calculate how good a breaking point is, in those terms.</p>
+<p>The first new thing is a function to calculate how good a breaking point is,
+in those terms.</p>
 <pre><code class="language-python"># lesson11.py
 def badness(page_width, row):
     &quot;&quot;&quot;Calculate how 'bad' a position to break is.
@@ -1986,12 +1990,14 @@ print(badness(8, boxes))
 </code></pre>
 <pre><code>-4.0
 </code></pre>
-<p>Let's see how that works for page widths between 5 and 15 (remember our row is 10 units wide):</p>
+<p>Let's see how that works for page widths between 5 and 15 (remember our row is
+10 units wide):</p>
 <pre><code class="language-python">for w in range(5,15):
   print('page_width:', w, ' -&gt; badness:', badness(w, boxes))
 </code></pre>
-<p>As you can see, if the page was 10 units wide, it would be optimal.
-The second best option is for the page to be slightly wider, then maybe slightly thinner and so on.</p>
+<p>As you can see, if the page was 10 units wide, it would be optimal. The second
+best option is for the page to be slightly wider, then maybe slightly thinner
+and so on.</p>
 <pre><code>page_width: 5  -&gt; badness: -10.0
 page_width: 6  -&gt; badness: -8.0
 page_width: 7  -&gt; badness: -6.0
@@ -2003,10 +2009,14 @@ page_width: 12  -&gt; badness: 2.0
 page_width: 13  -&gt; badness: 3.0
 page_width: 14  -&gt; badness: 4.0
 </code></pre>
-<p>We will need to load data that shows the problem. In this case, it's
-a row of 20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.</p>
+<p>We will need to load data that shows the problem. In this case, it's a row of
+20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.</p>
 <p>Why?</p>
-<p>As before, the page is anout wide enough to fix 58 &quot;a&quot;s. That means the first run will not be enough to fill the line. The second run will still not be enough. The third run will, however, badly overfll it. So, we should go all the way to the end, see that it's too long, and then go back to the second space and break there.</p>
+<p>As before, the page is anout wide enough to fix 58 &quot;a&quot;s. That means the first
+run will not be enough to fill the line. The second run will still not be
+enough. The third run will, however, badly overfill it. So, we should go all
+the way to the end, see that it's too long, and then go back to the second
+space and break there.</p>
 <pre><code class="language-python"># lesson11.py
 # Three runs of &quot;a&quot; with spaces between them.
 # The ideal breaking point is the second space.
@@ -2021,14 +2031,18 @@ adjust_widths_by_letter(text_boxes)
 pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
 
 </code></pre>
-<p>DO layout</p>
+<p>And now we have a problem. The change to our code needed to implement that is
+too large. It's so large that it amounts to a rewrite of our layout function
+and if we rewrite it, how would we be sure that we are not breaking all the
+things we achieved previously?</p>
+<p>It turns out this is as far as just sitting down and writing code will take
+us. We need to get more serious, and transform this small pile of fragile code
+into something we can actually hack confidently and transform without fear of
+destroying it.</p>
+<p>Therefore, we leave <code>layout</code> intact, show the failing test and move on to
+Part 2 of the book, where we will reorganize the code into a coherent
+software package and then... we will try again.</p>
 <pre><code class="language-python"># lesson11.py
-def hyphenbox():
-    b = Box(letter='-')
-    adjust_widths_by_letter([b])
-    return b
-
-
 # We add a &quot;separation&quot; constant so you can see the boxes individually
 separation = .05
 
@@ -2137,176 +2151,9 @@ def layout(_boxes):
 
 layout(text_boxes)
 
-
-import svgwrite
-
-
-def draw_boxes(boxes, fname, size, hide_boxes=False):
-    dwg = svgwrite.Drawing(fname, profile='full', size=size)
-    # Draw the pages
-    for page in pages:
-        dwg.add(
-            dwg.rect(
-                insert=(page.x, page.y),
-                size=(page.w, page.h),
-                fill='lightblue',
-            )
-        )
-    # Draw all the boxes
-    for box in boxes:
-        # The box color depends on its features
-        color = 'green' if box.stretchy else 'red'
-        # Make the colored boxes optional
-        if not hide_boxes:
-            dwg.add(
-                dwg.rect(
-                    insert=(box.x, box.y),
-                    size=(box.w, box.h),
-                    fill=color,
-                )
-            )
-        # Display the letter in the box
-        if box.letter:
-            dwg.add(
-                dwg.text(
-                    box.letter,
-                    insert=(box.x, box.y + box.h),
-                    font_size=box.h,
-                    font_family='Arial',
-                )
-            )
-    dwg.save()
-
-
-draw_boxes(text_boxes, 'lesson10.svg', (30, 50), hide_boxes=True)
-
-
-def badness(page_width, row):
-    &quot;&quot;&quot;Calculate how 'bad' a position to break is.
-    
-    bigger is worse.
-    &quot;&quot;&quot;
-    # Yes, this is suboptimal. It's easier to optimize working code
-    # than fixing fast code.
-    row_width = (row[-1].x + row[-1].w) - row[0].x
-    slack = page_width - row_width
-    stretchies = [b for b in row if b.stretchy]
-    if len(stretchies) &gt; 0:
-        stretchies_width = sum(s.w for s in stretchies)
-        # More stetchy space is good. More slack is bad.
-        badness = slack / stretchies_width
-    else:  # Nothing to stretch. Not good.
-        badness = 1000
-    if slack &lt; 0:
-        # Arbitrary fudge factor, negative slack is THIS much worse
-        badness *= 2
-    return badness
-
-
-def layout(_boxes):
-    &quot;&quot;&quot;Layout boxes along pages.
-
-    Keep in mind that this function modifies the boxes themselves, so
-    you should be very careful about trying to call layout() more than once
-    on the same boxes.
-
-    Specifically, some spaces will become 0-width and not stretchy.
-    &quot;&quot;&quot;
-
-    # Because we modify the box list, we will work on a copy
-    boxes = _boxes[:]
-    # We start at page 0
-    page = 0
-    # The 1st box should be placed in the correct page
-    previous = boxes.pop(0)
-    previous.x = pages[page].x
-    previous.y = pages[page].y
-    row = []
-    while boxes:
-        # We take the new 1st box
-        box = boxes.pop(0)
-        # And put it next to the other
-        box.x = previous.x + previous.w + separation
-        # At the same vertical location
-        box.y = previous.y
-
-        # Handle breaking on newlines
-        break_line = False
-        # But if it's a newline
-        if (box.letter == '\n'):
-            break_line = True
-            # Newlines take no horizontal space ever
-            box.w = 0
-            box.stretchy = False
-
-        # Or if it's too far to the right, and is a
-        # good place to break the line...
-        elif (box.x + box.w) &gt; (
-            pages[page].x + pages[page].w
-        ) and box.letter in (
-            ' ', '\xad'
-        ):
-            if box.letter == '\xad':
-                # Add a visible hyphen in the row
-                h_b = hyphenbox()
-                h_b.x = previous.x + previous.w + separation
-                h_b.y = previous.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b)  # So it's justified
-            break_line = True
-            # We adjust the row
-            # Remove all right-margin spaces
-            while row[-1].letter == ' ':
-                row.pop()
-            slack = (pages[page].x + pages[page].w) - (
-                row[-1].x + row[-1].w
-            )
-            # Get a list of all the ones that are stretchy
-            stretchies = [b for b in row if b.stretchy]
-            if not stretchies:  # Nothing stretches do as before.
-                bump = slack / len(row)
-                # The 1st box gets 0 bumps, the 2nd gets 1 and so on
-                for i, b in enumerate(row):
-                    b.x += bump * i
-            else:
-                bump = slack / len(stretchies)
-                # Each stretchy gets wider
-                for b in stretchies:
-                    b.w += bump
-                # And we put each thing next to the previous one
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
-
-
-        if break_line:
-            # We start a new row
-            row = []
-            # We go all the way left and a little down
-            box.x = pages[page].x
-            box.y = previous.y + previous.h + separation
-
-        # But if we go too far down
-        if box.y + box.h &gt; pages[page].y + pages[page].h:
-            # We go to the next page
-            page += 1
-            # And put the box at the top-left
-            box.x = pages[page].x
-            box.y = pages[page].y
-
-        # Put the box in the row
-        row.append(box)
-
-        # Collapse all left-margin space
-        if all(b.letter == ' ' for b in row):
-            box.w = 0
-            box.stretchy = False
-            box.x = pages[page].x
-
-        previous = box
-
-
-layout(text_boxes)
-draw_boxes(text_boxes, 'lesson11.svg', (30, 50), hide_boxes=True)
+</code></pre>
+<pre><code class="language-python"># lesson11.py
+draw_boxes(text_boxes, 'lesson11.svg', (33, 5), hide_boxes=True)
 
 </code></pre>
 <p><img src="lesson11.svg" alt="lesson11.svg" /></p>
@@ -2316,6 +2163,26 @@ draw_boxes(text_boxes, 'lesson11.svg', (30, 50), hide_boxes=True)
 <li>Full source code for this lesson <a href="code/lesson11.py">lesson11.py</a></li>
 <li><a href="diffs/lesson10_lesson11.html">Difference with code from last lesson</a></li>
 </ul>
+<a class="header" href="print.html#recapitulation" id="recapitulation"><h1>Recapitulation</h1></a>
+<p>If you are here, you have lived through 11 clumsy attempts at teaching you
+something. Or rather, to <em>show</em> you something.</p>
+<p>What did we get for our trouble?</p>
+<ul>
+<li>Some ideas about how to lay down text on a page.</li>
+<li>A rough implementation of such ideas.</li>
+<li>A specific thing our implementation can't do (yet)</li>
+<li>An idea of how it <em>could</em> do it.</li>
+</ul>
+<p>That is not a small thing. A vast majority of people who try to learn
+coding on their own never get this far. And while in the rest of the book we will be working on ways to make what we have now <em>better</em>, what we have is <em>fine</em>.</p>
+<p>For many people this is as far as your coding needs to take you. You can just
+take your knowledge of the language syntax, a desire to play with it and a
+problem and ride those things into a working solution that will <em>do what you need</em>.</p>
+<p>I am being deadly serious here. It's possible that you can just stop here.
+In fact, maybe you should go, grab the problem that has lead you into trying to learn to code, and just <em>play for a while</em>.</p>
+<p>Go, doodle, build something useful. Create a script that automates something you want. Use the approach I showed you and just build something.</p>
+<p>The rest of the book will still be here if you ever need to level up.</p>
+<p>And if you are ready to go on, then let's go.</p>
 <a class="header" href="print.html#dependencies" id="dependencies"><h1>Dependencies</h1></a>
 <p>(add list of things used in the code with references)</p>
 <a class="header" href="print.html#original-code" id="original-code"><h1>Original Code</h1></a>

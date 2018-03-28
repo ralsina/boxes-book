@@ -14,6 +14,7 @@
     - [Lesson 9](./lesson9.run.md)
     - [Lesson 10](./lesson10.run.md)
     - [Lesson 11](./lesson11.run.md)
+    - [Recapitulation](./recap.md)
 
 [Dependencies](./dependencies.md)
 [Original Code](./original.run.md)

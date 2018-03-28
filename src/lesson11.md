@@ -25,7 +25,7 @@ As you probably expected... no changes in the Box class.
 
 Also no changes in how we draw things.
 
-```python-include:code/lesson11.py:153:187
+```python-include:code/lesson11.py:172:209
 ```
 
 So far, our algorithm to break lines is simple:
@@ -72,9 +72,10 @@ And here's a plan to implement it:
 * If the overfull breaking point is better, break.
 * If the overfull breaking point is worse, use the underfull breaking point.
 
-The first new thing is a function to calculate how good a breaking point is, in those terms.
+The first new thing is a function to calculate how good a breaking point is,
+in those terms.
 
-```python-include:code/lesson11.py:193:212
+```python-include:code/lesson11.py:41:60
 ```
 
 ```python
@@ -90,35 +91,57 @@ print(badness(8, boxes))
 output goes here
 ```
 
-Let's see how that works for page widths between 5 and 15 (remember our row is 10 units wide):
+Let's see how that works for page widths between 5 and 15 (remember our row is
+10 units wide):
 
 ```python
 for w in range(5,15):
   print('page_width:', w, ' -> badness:', badness(w, boxes))
 ```
 
-As you can see, if the page was 10 units wide, it would be optimal.
-The second best option is for the page to be slightly wider, then maybe slightly thinner and so on.
+As you can see, if the page was 10 units wide, it would be optimal. The second
+best option is for the page to be slightly wider, then maybe slightly thinner
+and so on.
 
 ```
 output goes here
 ```
 
 
-We will need to load data that shows the problem. In this case, it's
-a row of 20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.
+We will need to load data that shows the problem. In this case, it's a row of
+20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.
 
 Why?
 
-As before, the page is anout wide enough to fix 58 "a"s. That means the first run will not be enough to fill the line. The second run will still not be enough. The third run will, however, badly overfll it. So, we should go all the way to the end, see that it's too long, and then go back to the second space and break there.
+As before, the page is anout wide enough to fix 58 "a"s. That means the first
+run will not be enough to fill the line. The second run will still not be
+enough. The third run will, however, badly overfill it. So, we should go all
+the way to the end, see that it's too long, and then go back to the second
+space and break there.
 
 
 ```python-include:code/lesson11.py:22:32
 ```
 
-DO layout
+And now we have a problem. The change to our code needed to implement that is
+too large. It's so large that it amounts to a rewrite of our layout function
+and if we rewrite it, how would we be sure that we are not breaking all the
+things we achieved previously?
 
-```python-include:code/lesson11.py:35
+It turns out this is as far as just sitting down and writing code will take
+us. We need to get more serious, and transform this small pile of fragile code
+into something we can actually hack confidently and transform without fear of
+destroying it.
+
+Therefore, we leave `layout` intact, show the failing test and move on to
+Part 2 of the book, where we will reorganize the code into a coherent
+software package and then... we will try again.
+
+
+```python-include:code/lesson11.py:63:169
+```
+
+```python-include:code/lesson11.py:212:212
 ```
 
 ![lesson11.svg](lesson11.svg)

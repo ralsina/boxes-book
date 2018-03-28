@@ -2,7 +2,7 @@
 
 This book tries to achieve only one thing:
 
-Show you a project go from **nothing** to **good**.
+Show you a project go from **nothing** to **ok**.
 
 By nothing I mean, no code at all. Not even a fleshed idea of what it does. No
 goals, no committments. Just a vague interest.
