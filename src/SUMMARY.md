@@ -1,5 +1,6 @@
 # Summary
 
+[Cover](./cover.md)
 [Introduction](./intro.md)
 
 - [Part 1: Finger Thinking](./finger_thinking.md)
