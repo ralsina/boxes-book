@@ -284,5 +284,5 @@ So, we know what to hit in the next lesson.
 
 Further references:
 
-* Full source code for this lesson [lesson7.py](code/lesson7.py)
+* Full source code for this lesson [lesson7.py](code/lesson7.py.run.html)
 * [Difference with code from last lesson](diffs/lesson6_lesson7.html)

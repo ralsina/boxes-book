@@ -82,4 +82,4 @@ So ... we should do something better. Or at least more interesting, in lesson 2.
 
 Further references:
 
-* Full source code for this lesson: [lesson1.py](code/lesson1.py)
+* Full source code for this lesson: [lesson1.py](code/lesson1.py.run.html)

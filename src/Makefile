@@ -3,6 +3,9 @@ all: format *.run.md *.md diffs
 %.run.md: %.md code/%.py
 	env PYTHONPATH=. run_markdown --timeout_seconds=15 $< > $@ 
 
+%.py.run.md: %.py.md code/%.py
+	env PYTHONPATH=. run_markdown --timeout_seconds=15 $< > $@ 
+
 format: code/*py
 	black -l 72 code/*py || true
 

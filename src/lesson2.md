@@ -44,5 +44,5 @@ the next lesson.
 
 Further references:
 
-* Full source code for this lesson [lesson2.py](code/lesson2.py)
+* Full source code for this lesson [lesson2.py](code/lesson2.py.run.html)
 * [Difference with code from last lesson](diffs/lesson1_lesson2.html)

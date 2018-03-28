@@ -8,13 +8,12 @@ causes a very long row to be fitted into a smaller page, causing letters to
 overlap. Or, if we are unable to break at all, we just spill to the right
 forever.
 
-  > ### Underfull and Overfull 
+  > ### Underfull and Overfull
   >
   > When a line has too few characters, slack is
   > positive and we have to "spread" them, that is called **underfull**. The
   > opposite, where a line has too many characters, slack is negative and we
   > have to "smush" them, is called **overfull**.
-
 
 ![lesson10_one_break.svg](lesson10_one_break.svg)
 
@@ -220,18 +219,16 @@ page_width: 13  -> badness: 3.0
 page_width: 14  -> badness: 4.0
 ```
 
-
 We will need to load data that shows the problem. In this case, it's a row of
 20 letters 'a' (without hyphens), a space, then 20, and then 30 more 'a's.
 
 Why?
 
-As before, the page is about wide enough to fix 58 "a"s. That means the first
+Like before, the page is about wide enough to fix 58 "a"s. That means the first
 run will not be enough to fill the line. The second run will still not be
 enough. The third run will, however, badly overfill it. So, we should go all
 the way to the end, see that it's too long, and then go back to the second
 space and break there.
-
 
 ```python
 # lesson11.py
@@ -262,7 +259,6 @@ destroying it.
 Therefore, we leave `layout` intact, show the failing test and move on to
 Part 2 of the book, where we will reorganize the code into a coherent
 software package and then... we will try again.
-
 
 ```python
 # lesson11.py
@@ -388,5 +384,5 @@ draw_boxes(text_boxes, 'lesson11.svg', (33, 5), hide_boxes=True)
 
 Further references:
 
-* Full source code for this lesson [lesson11.py](code/lesson11.py)
+* Full source code for this lesson [lesson11.py](code/lesson11.py.run.html)
 * [Difference with code from last lesson](diffs/lesson10_lesson11.html)

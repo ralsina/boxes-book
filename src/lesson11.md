@@ -8,13 +8,12 @@ causes a very long row to be fitted into a smaller page, causing letters to
 overlap. Or, if we are unable to break at all, we just spill to the right
 forever.
 
-  > ### Underfull and Overfull 
+  > ### Underfull and Overfull
   >
   > When a line has too few characters, slack is
   > positive and we have to "spread" them, that is called **underfull**. The
   > opposite, where a line has too many characters, slack is negative and we
   > have to "smush" them, is called **overfull**.
-
 
 ![lesson10_one_break.svg](lesson10_one_break.svg)
 
@@ -118,7 +117,6 @@ enough. The third run will, however, badly overfill it. So, we should go all
 the way to the end, see that it's too long, and then go back to the second
 space and break there.
 
-
 ```python-include:code/lesson11.py:22:32
 ```
 
@@ -136,7 +134,6 @@ Therefore, we leave `layout` intact, show the failing test and move on to
 Part 2 of the book, where we will reorganize the code into a coherent
 software package and then... we will try again.
 
-
 ```python-include:code/lesson11.py:63:169
 ```
 
@@ -149,5 +146,5 @@ software package and then... we will try again.
 
 Further references:
 
-* Full source code for this lesson [lesson11.py](code/lesson11.py)
+* Full source code for this lesson [lesson11.py](code/lesson11.py.run.html)
 * [Difference with code from last lesson](diffs/lesson10_lesson11.html)

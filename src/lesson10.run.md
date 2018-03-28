@@ -370,5 +370,5 @@ We will tackle that problem next.
 
 Further references:
 
-* Full source code for this lesson [lesson10.py](code/lesson10.py)
+* Full source code for this lesson [lesson10.py](code/lesson10.py.run.html)
 * [Difference with code from last lesson](diffs/lesson9_lesson10.html)

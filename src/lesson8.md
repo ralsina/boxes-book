@@ -56,5 +56,5 @@ The code changes are small, but the output now looks radically different.
 
 Further references:
 
-* Full source code for this lesson [lesson8.py](code/lesson8.py)
+* Full source code for this lesson [lesson8.py](code/lesson8.py.run.html)
 * [Difference with code from last lesson](diffs/lesson7_lesson8.html)
