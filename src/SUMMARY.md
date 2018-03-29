@@ -17,7 +17,7 @@
   - [Lesson 10](./lesson10.run.md)
   - [Lesson 11](./lesson11.run.md)
   - [Recapitulation](./recap.md)
-- [Part 2: Ducks in a Row](./ducks_in_a_row.md)
+- [Part 2: Ducks in a Row](part2/ducks_in_a_row.md)
   - [Lesson 12](./lesson12.run.md)
 - [Part 3: Wax On, Wax Off](./wax_on_wax_off.md)
 - [Part 4: Going Public](./going_public.md)
