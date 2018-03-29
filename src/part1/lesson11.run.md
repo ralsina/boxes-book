@@ -160,7 +160,7 @@ in those terms.
 # lesson11.py
 def badness(page_width, row):
     """Calculate how 'bad' a position to break is.
-
+    
     bigger is worse.
     """
     # Yes, this is suboptimal. It's easier to optimize working code
