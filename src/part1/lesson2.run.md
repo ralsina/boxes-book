@@ -91,4 +91,4 @@ the next lesson.
 Further references:
 
 * Full source code for this lesson [lesson2.py](lesson2.py.run.html)
-* [Difference with code from last lesson](diffs/lesson1_lesson2.html)
+* [Difference with code from last lesson](part1/code/diffs/lesson1_lesson2.html)

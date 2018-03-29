@@ -147,4 +147,4 @@ software package and then... we will try again.
 Further references:
 
 * Full source code for this lesson [lesson11.py](lesson11.py.run.html)
-* [Difference with code from last lesson](diffs/lesson10_lesson11.html)
+* [Difference with code from last lesson](part1/code/diffs/lesson10_lesson11.html)

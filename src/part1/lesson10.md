@@ -160,4 +160,4 @@ We will tackle that problem next.
 Further references:
 
 * Full source code for this lesson [lesson10.py](lesson10.py.run.html)
-* [Difference with code from last lesson](diffs/lesson9_lesson10.html)
+* [Difference with code from last lesson](part1/code/diffs/lesson9_lesson10.html)

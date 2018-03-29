@@ -60,4 +60,4 @@ That looks interesting...
 Further references:
 
 * Full source code for this lesson [lesson4.py](lesson4.py.run.html)
-* [Difference with code from last lesson](diffs/lesson3_lesson4.html)
+* [Difference with code from last lesson](part1/code/diffs/lesson3_lesson4.html)

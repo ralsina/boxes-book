@@ -215,4 +215,4 @@ With that taken care of, we will consider the problem of breaking lines inside w
 Further references:
 
 * Full source code for this lesson [lesson9.py](lesson9.py.run.html)
-* [Difference with code from last lesson](diffs/lesson8_lesson9.html)
+* [Difference with code from last lesson](part1/code/diffs/lesson8_lesson9.html)
