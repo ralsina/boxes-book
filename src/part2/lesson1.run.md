@@ -38,8 +38,13 @@ Usage:
 from docopt import docopt
 
 
+# __name__ is the name of the current module. If it's called as a
+# script, it will be '__main__'
 if __name__ == '__main__':
+    # If we are called as a script, call docopt.
+    # __doc__ is that big string at the beginning of the file.
     arguments = docopt(__doc__, version='Boxes 0.12')
+    # Print whatever docopt gives us
     print(arguments)
 ```
 
