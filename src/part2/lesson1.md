@@ -80,9 +80,27 @@ Boxes 0.12
 
 So, we have a dictionary with input and output as keys. That is handy. All we
 need to do is slap our existing code in this script and make it use those
-names.
+names. Because I don't want to show you a wall of code, I am going to just
+highlight some snippets. You can see the whole change in [our diff page](part2/code/diffs/lesson1_diff.html)
 
-```python-include-norun:code/lesson1/boxes.py
+Some of that code needs to be moved into proper functions:
+
+```python-include-norun:code/lesson1/boxes.py:202:215
+```
+
+We need to have pages be an argument to some functions instead of being a
+global variable:
+
+```python-include-norun:code/lesson1/boxes.py:63:63
+```
+
+```python-include-norun:code/lesson1/boxes.py:165:165
+```
+
+And of course, we need to write a new function that calls everything in the
+right order with the right arguments:
+
+```python-include-norun:code/lesson1/boxes.py:218:227
 ```
 
 And if we run it like this:
@@ -91,4 +109,13 @@ And if we run it like this:
 $ python boxes.py pride-and-prejudice.txt lesson1.svg
 ```
 
+It will give us this output:
+
 ![lesson1.svg](part2/lesson1.svg)
+
+----------
+
+Further references:
+
+* Full source code for this lesson [code.py](part2/code/lesson1/boxes.py)
+* [Difference with code from last lesson](part2/code/diffs/lesson1_diff.html)

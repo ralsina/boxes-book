@@ -1,7 +1,8 @@
 SVGS = lesson1.svg
 RUN_MDS = lesson1.run.md
+DIFFS = code/diffs/*html
 
-all: *.run.md format $(SVGS) $(RUN_MDS)
+all: *.run.md format $(SVGS) $(RUN_MDS) $(DIFFS)
 
 
 lesson1.run.md: lesson1.md
@@ -12,5 +13,8 @@ format: code/*/*.py
 
 lesson1.svg: code/lesson1/*py
 	python code/lesson1/boxes.py ./pride-and-prejudice.txt lesson1.svg
+
+code/diffs/lesson1_diff.html: code/lesson1/boxes.py ../part1/code/lesson11.py
+	../../tools/diff2HtmlCompare.py -p ../part1/code/lesson11.py code/lesson1/boxes.py && mv index.html code/diffs/lesson1_diff.html
 
 .PHONY: all format

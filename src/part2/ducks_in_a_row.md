@@ -16,6 +16,7 @@ thing in its place, without ever breaking it.
 
 Welcome to the world of refactoring and testing.
 
-I will show you how to use a tool called [pytest](https://docs.pytest.org/en/latest/)
-and using it we will learn how to do incremental improvements with confidence
+First, we will turn our ball of code into a organized whole, then we will
+learn how to use a tool called [pytest](https://docs.pytest.org/en/latest/)
+and through it how to do incremental improvements with confidence
 and radical changes without fear. Well, without too much fear.
