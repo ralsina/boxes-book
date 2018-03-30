@@ -14,7 +14,7 @@ Also unchanged is the drawing code.
 
 But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying "Pride and Prejudice":
 
-![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
+![lesson7_pride_and_prejudice.svg](part1/lesson7_pride_and_prejudice.svg)
 
 Let's count the problems:
 
@@ -50,7 +50,7 @@ The code changes are small, but the output now looks radically different.
 ```python-include:code/lesson8.py:148:148
 ```
 
-![lesson8.svg](lesson8.svg)
+![lesson8.svg](part1/lesson8.svg)
 
 ----------
 

@@ -1,9 +1,13 @@
 # BOXES v10
 
-In our [previous lesson](lesson9.run.html) we created a serviceable text layout engine. It has many problems, but remember our goal is not to create the best possible thing, this is an educational experience. The spit and polish will appear later on.
+In our [previous lesson](lesson9.run.html) we created a serviceable text
+layout engine. It has many problems, but remember our goal is not to create
+the best possible thing, this is an educational experience. The spit and
+polish will appear later on.
 
-But there is a glaring problem, it breaks words in all the wrong places. Examples of it appear in almost every line of the output. So, how does one 
-fix that?
+But there is a glaring problem, it breaks words in all the wrong places.
+Examples of it appear in almost every line of the output. So, how does one fix
+that?
 
 The traditional answer (and the one we will be using) is hyphenation, breaking
 words between lines in the correct places.
@@ -13,15 +17,15 @@ allow us to.
 
 Just as it happened with [text shaping](lesson7.run.html) we are lucky to live
 in a moment in time when almost everything we need to do it right is already
-in place. In particular, we will use a library called 
-[Pyphen](https://github.com/Kozea/Pyphen) mostly because I already have
-used it in another project.
+in place. In particular, we will use a library called [Pyphen](https://github.com/Kozea/Pyphen)
+mostly because I already have used it in another project.
 
-Am I sure it's the best one? No. Do I know exactly how it does what it does? No. I know enough to make
-it work, and it works *well enough* so for this stage in the life of this project that is more than
-enough. In fact, it takes the rules for word-breaking from dictionaries provided by an Office Suite,
-so it does about as good a job as the dictionary does. It even supports subtleties such as the
-differences betwen British and American English!
+Am I sure it's the best one? No. Do I know exactly how it does what it does?
+No. I know enough to make it work, and it works *well enough* so for this
+stage in the life of this project that is more than enough. In fact, it takes
+the rules for word-breaking from dictionaries provided by an Office Suite, so
+it does about as good a job as the dictionary does. It even supports
+subtleties such as the differences between British and American English!
 
 Here's an example of how it works:
 
@@ -38,8 +42,8 @@ en_GB: dic-tion-ary
 en_US: dic-tio-nary
 ```
 
-Keep in mind that this is not magic. If you feed it garbage, it
-will give you garbage.
+Keep in mind that this is not magic. If you feed it garbage, it will give you
+garbage.
 
 ```python
 dic = pyphen.Pyphen(lang='es_ES')
@@ -56,15 +60,22 @@ Where is it proper to break a line?
 * On a space
 * On a breaking point as defined by Pyphen
 
-One of those things is not like the others. We have boxes with newlines in them and we have boxes with spaces in them, but there are no boxes with breaking points in them.
+One of those things is not like the others. We have boxes with newlines in
+them and we have boxes with spaces in them, but there are no boxes with
+breaking points in them.
 
-But we can add them! There is unicode symbol for that: 
+But we can add them! There is Unicode symbol for that:
 
 > ### SOFT HYPHEN (SHY)
 >
-> The [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen) serves as an invisible marker used to specify a place in text where a hyphenated break is allowed without forcing a line break in an inconvenient place if the text is re-flowed. It becomes visible only after word wrapping at the end of a line.
+> The [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen) serves as an
+> invisible marker used to specify a place in text where a hyphenated break
+> is allowed without forcing a line break in an inconvenient place if the
+> text is re-flowed. It becomes visible only after word wrapping at the end
+> of a line.
 
-So, if we insert them in all the right places, then we can use them to decide whether we are at a suitable breaking point. We will put this in a file called
+So, if we insert them in all the right places, then we can use them to decide
+whether we are at a suitable breaking point. We will put this in a file called
 `hyphen.py`
 
 ```python
@@ -101,7 +112,8 @@ Ros-es are red
 Vi-o-lets are blue
 ```
 
-So, with this code ready, we can get to work on implementing hyphenation support in our layout function.
+So, with this code ready, we can get to work on implementing hyphenation
+support in our layout function.
 
 First, this code is exactly as it was before:
 
@@ -190,11 +202,10 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
 
 ```
 
-
 And now our layout function. One first approach, which we will refine later,
 is to simply refuse to break lines if we are not in a "good" place to break it.
 
-Then, we inject a box with a visible hyphen in the linebreak, and that's it.
+Then, we inject a box with a visible hyphen in the line break, and that's it.
 
 Here is the code to create a box with a hyphen:
 
@@ -327,9 +338,9 @@ draw_boxes(text_boxes, 'lesson10.svg', (30, 50), hide_boxes=True)
 
 ```
 
-![lesson10.svg](lesson10.svg)
+![lesson10.svg](part1/lesson10.svg)
 
-And there in "proper-ty" you can see it in action. Of course this is 
+And there in "proper-ty" you can see it in action. Of course this is
 a naïve implementation. What happens if you just can't break?
 
 ```python
@@ -339,7 +350,7 @@ layout(many_boxes)
 draw_boxes(many_boxes, 'lesson10_lots_of_a.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson10_lots_of_a.svg](lesson10_lots_of_a.svg)
+![lesson10_lots_of_a.svg](part1/lesson10_lots_of_a.svg)
 
 Since it can't break at all, it just goes on and on.
 
@@ -353,9 +364,9 @@ layout(many_boxes)
 draw_boxes(many_boxes, 'lesson10_one_break.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson10_one_break.svg](lesson10_one_break.svg)
+![lesson10_one_break.svg](part1/lesson10_one_break.svg)
 
-Because there is only one place to break the line, it then tries to 
+Because there is only one place to break the line, it then tries to
 wedge 100 letter "a" where there is room for 54 (I counted!) and something interesting happens... the "slack" is negative!
 
 Instead of stretching out a "underfilled" line, we are squeezing a "overfilled" one. Everything gets packed too tight, and the letters start

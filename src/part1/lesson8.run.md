@@ -85,7 +85,7 @@ def draw_boxes(boxes, fname, size, hide_boxes=False):
 
 But we need to work on our layout engine, a lot. Here is the image of our attempt at displaying "Pride and Prejudice":
 
-![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
+![lesson7_pride_and_prejudice.svg](part1/lesson7_pride_and_prejudice.svg)
 
 Let's count the problems:
 
@@ -202,7 +202,7 @@ draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
 
 ```
 
-![lesson8.svg](lesson8.svg)
+![lesson8.svg](part1/lesson8.svg)
 
 ----------
 

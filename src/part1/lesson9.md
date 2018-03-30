@@ -17,7 +17,7 @@ The more obvious problems are:
 * It keeps spaces at the end of rows, making the right side ragged.
 * White space at the beginning of rows is shown and it looks bad
 
-![lesson8.svg](lesson8.svg)
+![lesson8.svg](part1/lesson8.svg)
 
 You can see clearly, in the previous sample output where this happens in one of the latter paragraphs, "to see the place,  " appears ragged when it should not. And a similar thing happens in an earlier paragraph where there is a hole against the left margin in " told me all about it".
 
@@ -35,7 +35,7 @@ It's not a big problem, but it's worth keeping in mind, since it's the kind of t
 ```python-include:code/lesson9.py:167:167
 ```
 
-![lesson9.svg](lesson9.svg)
+![lesson9.svg](part1/lesson9.svg)
 
 As you can see, the justification now is absolutely tight where it needs to be.
 With that taken care of, we will consider the problem of breaking lines inside words and how to fix it using hyphenation in the next lesson.

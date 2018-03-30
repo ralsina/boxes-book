@@ -78,7 +78,7 @@ draw_boxes(many_boxes, 'lesson2.svg', (5, 2))
 ```
 And here is the output:
 
-![lesson2.svg](lesson2.svg)
+![lesson2.svg](part1/lesson2.svg)
 
 That was more or less what we expected, right? Of course since there are 5000 small
 boxes that row of boxes goes on for quite a while.

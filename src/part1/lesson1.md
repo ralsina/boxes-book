@@ -37,7 +37,7 @@ And yes, we can draw those boxes.
 ```
 And here is the output:
 
-![lesson1.svg](lesson1.svg)
+![lesson1.svg](/part1/lesson1.svg)
 
 That ... was not very interesting. It's a single small red square!
 

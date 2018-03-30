@@ -160,7 +160,7 @@ draw_boxes(text_boxes, 'lesson7.svg', (30, 20))
 
 ```
 
-![lesson7.svg](lesson7.svg)
+![lesson7.svg](part1/lesson7.svg)
 
 Of course this is very boring, so we need to spice up our data a little.
 We can use different letters, and then make the right ones stretchy. That is easy!
@@ -180,7 +180,7 @@ draw_boxes(text_boxes, 'lesson7_different_letters.svg', (30, 20))
 
 ```
 
-![lesson7_different_letters.svg](lesson7_different_letters.svg)
+![lesson7_different_letters.svg](part1/lesson7_different_letters.svg)
 
 As you can see, there are very minor horizontal shifts and stretches, since all boxes are the same size.
 
@@ -233,7 +233,7 @@ draw_boxes(text_boxes, 'lesson7_adjusted_letters.svg', (30, 20))
 
 ```
 
-![lesson7_adjusted_letters.svg](lesson7_adjusted_letters.svg)
+![lesson7_adjusted_letters.svg](part1/lesson7_adjusted_letters.svg)
 
 And nicer, without the boxes:
 
@@ -250,7 +250,7 @@ draw_boxes(
 
 ```
 
-![lesson7_adjusted_letters_no_boxes.svg](lesson7_adjusted_letters_no_boxes.svg)
+![lesson7_adjusted_letters_no_boxes.svg](part1/lesson7_adjusted_letters_no_boxes.svg)
 
 And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on, 
 Jane Austen's [Pride and Prejudice from Project Gutenberg](http://www.gutenberg.org/ebooks/1342)
@@ -272,7 +272,7 @@ draw_boxes(
 
 ```
 
-![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
+![lesson7_pride_and_prejudice.svg](part1/lesson7_pride_and_prejudice.svg)
 
 And that is ... maybe disappointing? While we spent a lot of time on things like justifying text, we have not even looked at newlines!
 

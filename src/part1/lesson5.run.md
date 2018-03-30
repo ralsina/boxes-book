@@ -132,7 +132,7 @@ draw_boxes(many_boxes, 'lesson5.svg', (100, 50))
 
 ```
 
-![lesson5.svg](lesson5.svg)
+![lesson5.svg](part1/lesson5.svg)
 
 Isn't that nice? If you look at it from afar it looks sort of familiar.
 Doesn't it?

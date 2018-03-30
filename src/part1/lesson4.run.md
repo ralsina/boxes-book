@@ -111,7 +111,7 @@ draw_boxes(many_boxes, 'lesson4.svg', (100, 50))
 
 And here is the output:
 
-![lesson4.svg](lesson4.svg)
+![lesson4.svg](part1/lesson4.svg)
 
 Would this work if the pages are arranged differently? Let's put the pages
 side by side instead.
@@ -124,7 +124,7 @@ draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 50))
 
 ```
 
-![lesson4_side_by_side.svg](lesson4_side_by_side.svg)
+![lesson4_side_by_side.svg](part1/lesson4_side_by_side.svg)
 
 And how about pages of different sizes?
 
@@ -141,7 +141,7 @@ draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 50))
 
 ```
 
-![lesson4_random_sizes.svg](lesson4_random_sizes.svg)
+![lesson4_random_sizes.svg](part1/lesson4_random_sizes.svg)
 
 So, we can fill pages and pages with little red squares now. Nice!
 
@@ -157,7 +157,7 @@ draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 50))
 
 This adds "noise" to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.
 
-![lesson4_random_box_sizes.svg](lesson4_random_box_sizes.svg)
+![lesson4_random_box_sizes.svg](part1/lesson4_random_box_sizes.svg)
 
 That looks interesting...
 

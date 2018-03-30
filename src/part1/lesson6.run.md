@@ -167,7 +167,7 @@ draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
 
 ```
 
-![lesson6.svg](lesson6.svg)
+![lesson6.svg](part1/lesson6.svg)
 
 This layout strategy works:
 

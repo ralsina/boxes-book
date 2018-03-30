@@ -29,7 +29,7 @@ big box, we will draw it too, in light blue.
 ```
 And here is the output:
 
-![lesson3.svg](lesson3.svg)
+![lesson3.svg](part1/lesson3.svg)
 
 That is strangely satisfying! Of course we are doing something wrong in that
 we are overflowing the big box vertically.

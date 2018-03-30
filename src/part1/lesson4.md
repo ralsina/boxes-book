@@ -25,7 +25,7 @@ We need to change our drawing code to draw more than one page.
 
 And here is the output:
 
-![lesson4.svg](lesson4.svg)
+![lesson4.svg](part1/lesson4.svg)
 
 Would this work if the pages are arranged differently? Let's put the pages
 side by side instead.
@@ -33,14 +33,14 @@ side by side instead.
 ```python-include:code/lesson4.py:84:86
 ```
 
-![lesson4_side_by_side.svg](lesson4_side_by_side.svg)
+![lesson4_side_by_side.svg](part1/lesson4_side_by_side.svg)
 
 And how about pages of different sizes?
 
 ```python-include:code/lesson4.py:89:96
 ```
 
-![lesson4_random_sizes.svg](lesson4_random_sizes.svg)
+![lesson4_random_sizes.svg](part1/lesson4_random_sizes.svg)
 
 So, we can fill pages and pages with little red squares now. Nice!
 
@@ -51,7 +51,7 @@ How about we make the squares not be all the same width?
 
 This adds "noise" to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.
 
-![lesson4_random_box_sizes.svg](lesson4_random_box_sizes.svg)
+![lesson4_random_box_sizes.svg](part1/lesson4_random_box_sizes.svg)
 
 That looks interesting...
 

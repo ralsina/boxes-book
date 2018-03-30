@@ -30,7 +30,7 @@ The drawing code needs no changes.
 ```python-include:code/lesson5.py:75
 ```
 
-![lesson5.svg](lesson5.svg)
+![lesson5.svg](part1/lesson5.svg)
 
 Isn't that nice? If you look at it from afar it looks sort of familiar.
 Doesn't it?

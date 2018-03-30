@@ -43,7 +43,7 @@ The drawing code needs a change so we can see the "stretchy" boxes in a differen
 ```python-include:code/lesson6.py:91
 ```
 
-![lesson6.svg](lesson6.svg)
+![lesson6.svg](part1/lesson6.svg)
 
 This layout strategy works:
 
