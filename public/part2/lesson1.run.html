@@ -149,7 +149,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="part2/lesson1.run.html#lesson-12" id="lesson-12"><h1>Lesson 12</h1></a>
+                        <a class="header" href="part2/lesson1.run.html#boxes-v012" id="boxes-v012"><h1>BOXES v0.12</h1></a>
+<p>What we have right now is not a real program, it's just a fun script. In order
+to turn it into a real program we need to figure out what we <strong>want</strong> it to
+be. Then we will take our wish and make it happen. Easy, right?</p>
+<p>We have the following things:</p>
+<ul>
+<li>Code to generate text &quot;boxes&quot; representing a given text file.</li>
+<li>Code to generate a series of pages.</li>
+<li>Code to lay the text boxes in the pages.</li>
+<li>Code to draw text boxes and pages in a SVG.</li>
+</ul>
+<p>How can we combine those assets into a working, functional piece of software?</p>
+<p>Because I am <em>old</em> my first idea is to create a command line tool. We can
+explore others later, but this one is easy. It takes the name of a text file
+as first argument, and the name of a SVG file as second argument and it
+creates the second with the contents of the first.</p>
+<p>My favorite to do this is using <a href="https://github.com/docopt/docopt">docopt</a>,
+where we will describe how the tool works and it turns the documentation into
+actual working code. It's serious overkill for what we want now, but we may
+grow into it.</p>
+<p>We will start with an empty file and then add all the bits of code we have
+until it works.</p>
+<p>Here's a first draft:</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+Usage:
+    boxes &lt;input&gt; &lt;output&gt;
+    boxes --version
+&quot;&quot;&quot;
+
+from docopt import docopt
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='Boxes 0')
+    print(arguments)
+</code></pre>
+<p>And here is how that works. If we call it with two arguments, we get the
+information in <code>arguments</code>:</p>
+<pre><code class="language-sh">$ python boxes.py foo bar
+
+{'--version': False,
+ '&lt;input&gt;': 'foo',
+ '&lt;output&gt;': 'bar'}
+</code></pre>
+<p>If we were missing one, then we are using it wrong, and it will complain and
+print the help.</p>
+<pre><code class="language-sh">$ python boxes.py foo
+
+Usage:
+    boxes &lt;input&gt; &lt;output&gt;
+    boxes --version
+</code></pre>
+<p>And if we pass <code>--version</code>?</p>
+<pre><code class="language-sh">$ python boxes.py foo
+
+Boxes 0
+</code></pre>
+<p>So, we have a dictionary with input and output as keys. That is handy. All we
+need to do is slap our existing code in this script and make it use those
+names.</p>
 
                     </main>
 

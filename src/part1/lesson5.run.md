@@ -1,4 +1,4 @@
-# BOXES v5
+# BOXES v0.5
 
 In our [previous lesson](lesson4.run.html) we created code that can fill a series of pages using many small boxes.
 

@@ -1,4 +1,4 @@
-# BOXES v6
+# BOXES v0.6
 
 In our [previous lesson](lesson5.run.html) we created a fully justified layout of varying-width boxes spread across multiple pages. But we cheated.
 

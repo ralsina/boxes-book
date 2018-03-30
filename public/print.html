@@ -205,7 +205,7 @@ requirements, no fuzz.</p>
 <p>The first part of this book is, then, an iterative doodle, showing the infancy of a project, and almost literally thinking with my fingers, and having them tell me where to go.</p>
 <p>In later sections, things will get much more serious. So, enjoy this part.</p>
 <a class="header" href="print.html#setup" id="setup"><h1>SETUP</h1></a>
-<a class="header" href="print.html#boxes-v1" id="boxes-v1"><h1>BOXES v1</h1></a>
+<a class="header" href="print.html#boxes-v01" id="boxes-v01"><h1>BOXES v0.1</h1></a>
 <p>Welcome to Boxes v1. I want to be able to draw some boxes. By boxes I don't mean actual boxes,
 but rather squares. I found a library called svgwrite that lets you do that pretty easily.</p>
 <p>First let's create a data structure. A simple class called Box.</p>
@@ -267,7 +267,7 @@ draw_boxes(many_boxes, 'lesson1.svg', (5, 2))
 <ul>
 <li>Full source code for this lesson: <a href="lesson1.py.run.html">lesson1.py</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v2" id="boxes-v2"><h1>BOXES v2</h1></a>
+<a class="header" href="print.html#boxes-v02" id="boxes-v02"><h1>BOXES v0.2</h1></a>
 <p>In our <a href="lesson1.run.html">previous lesson</a> we created a rather disappointing
 drawing using boxes. Let's introduce a new wrinkle, and <strong>layout</strong> the many
 boxes.</p>
@@ -342,7 +342,7 @@ the next lesson.</p>
 <li>Full source code for this lesson <a href="lesson2.py.run.html">lesson2.py</a></li>
 <li><a href="part1/code/diffs/lesson1_lesson2.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v3" id="boxes-v3"><h1>BOXES v3</h1></a>
+<a class="header" href="print.html#boxes-v03" id="boxes-v03"><h1>BOXES v0.3</h1></a>
 <p>In our <a href="lesson2.run.html">previous lesson</a> we ended with something like a line
 of army ants, all our boxes lined up. Let's make it better by making them
 organize themselves in rows.</p>
@@ -442,7 +442,7 @@ we are overflowing the big box vertically.</p>
 <li>Full source code for this lesson <a href="lesson3.py.run.html">lesson3.py</a></li>
 <li><a href="part1/code/diffs/lesson2_lesson3.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v4" id="boxes-v4"><h1>BOXES v4</h1></a>
+<a class="header" href="print.html#boxes-v04" id="boxes-v04"><h1>BOXES v0.4</h1></a>
 <p>In the <a href="lesson3.run.html">previous lesson</a> we totally nailed drawing between the lines ... horizontally. Let's improve on that by being bidimensional.</p>
 <p>This code is just like before:</p>
 <pre><code class="language-python"># lesson4.py
@@ -580,7 +580,7 @@ draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 50))
 <li>Full source code for this lesson <a href="lesson4.py.run.html">lesson4.py</a></li>
 <li><a href="part1/code/diffs/lesson3_lesson4.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v5" id="boxes-v5"><h1>BOXES v5</h1></a>
+<a class="header" href="print.html#boxes-v05" id="boxes-v05"><h1>BOXES v0.5</h1></a>
 <p>In our <a href="lesson4.run.html">previous lesson</a> we created code that can fill a series of pages using many small boxes.</p>
 <p>But only when those boxes are all alike. Once the boxes had different widths, the right side of our layout got all ragged. You surely have seen things like it when using word processors or reading web pages, where the text is all aligned on the left and all ragged on the right. It's called a &quot;left-aligned&quot; or &quot;ragged-right&quot; layout.</p>
 <p>The reason is that we exceed the page width by a random amount, and then,
@@ -710,7 +710,7 @@ Doesn't it?</p>
 <li>Full source code for this lesson <a href="lesson5.py.run.html">lesson5.py</a></li>
 <li><a href="part1/code/diffs/lesson4_lesson5.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v6" id="boxes-v6"><h1>BOXES v6</h1></a>
+<a class="header" href="print.html#boxes-v06" id="boxes-v06"><h1>BOXES v0.6</h1></a>
 <p>In our <a href="lesson5.run.html">previous lesson</a> we created a fully justified layout of varying-width boxes spread across multiple pages. But we cheated.</p>
 <p>To achieve full justification, we spread the &quot;slack&quot; evenly in the space between all boxes in the row. If we were trying to layout text, that is not the proper way.</p>
 <p>You see, text comes separated in words. And usually, in western languages, the words have characters called spaces between them. So what we do, when laying out text, is to make the special <strong>space</strong> boxes slightly larger and keep the separation between boxes constant (in fact, we also tweak separations between letters, but let's ignore that for now. Or for ever.</p>
@@ -867,7 +867,7 @@ draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
 <li>Full source code for this lesson <a href="lesson6.py.run.html">lesson6.py</a></li>
 <li><a href="part1/code/diffs/lesson5_lesson6.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v7" id="boxes-v7"><h1>BOXES v7</h1></a>
+<a class="header" href="print.html#boxes-v07" id="boxes-v07"><h1>BOXES v0.7</h1></a>
 <p>So far in our previous lessons we have worked in an abstract world of boxes.
 Some hints of a direction were visible, like organizing our boxes in <em>pages</em> and trying to achieve a <em>justified layout</em> among others.</p>
 <p>So, let's just say it, we are going to be doing text layout. But not the easy one. No, sir. No monospaced fonts for us. We want to do the whole enchilada, we are going to have variable-width fonts with kerning, and multi-page, fully-justified text layouts <strong>with hyphenation</strong>.</p>
@@ -1111,7 +1111,7 @@ draw_boxes(
 <li>Full source code for this lesson <a href="lesson7.py.run.html">lesson7.py</a></li>
 <li><a href="part1/code/diffs/lesson6_lesson7.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v8" id="boxes-v8"><h1>BOXES v8</h1></a>
+<a class="header" href="print.html#boxes-v08" id="boxes-v08"><h1>BOXES v0.8</h1></a>
 <p>In the <a href="lesson7.run.html">previous lesson</a> we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.</p>
 <p>We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes.</p>
 <pre><code class="language-python"># lesson8.py
@@ -1304,7 +1304,7 @@ draw_boxes(text_boxes, 'lesson8.svg', (30, 50), hide_boxes=True)
 <li>Full source code for this lesson <a href="lesson8.py.run.html">lesson8.py</a></li>
 <li><a href="part1/code/diffs/lesson7_lesson8.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v9" id="boxes-v9"><h1>BOXES v9</h1></a>
+<a class="header" href="print.html#boxes-v09" id="boxes-v09"><h1>BOXES v0.9</h1></a>
 <p>In the <a href="lesson8.run.html">previous lesson</a> we fixed the handling of newlines
 in our layout engine, and noticed a problem with spaces. Let's fix it!</p>
 <p>We have no changes in our Box class, or the page setup, or how we load and adjust the boxes' sizes.</p>
@@ -1503,7 +1503,7 @@ With that taken care of, we will consider the problem of breaking lines inside w
 <li>Full source code for this lesson <a href="lesson9.py.run.html">lesson9.py</a></li>
 <li><a href="part1/code/diffs/lesson8_lesson9.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v10" id="boxes-v10"><h1>BOXES v10</h1></a>
+<a class="header" href="print.html#boxes-v010" id="boxes-v010"><h1>BOXES v0.10</h1></a>
 <p>In our <a href="lesson9.run.html">previous lesson</a> we created a serviceable text
 layout engine. It has many problems, but remember our goal is not to create
 the best possible thing, this is an educational experience. The spit and
@@ -1827,7 +1827,7 @@ it's <strong>done</strong>. Even in the case of words, it can happen that breaki
 <li>Full source code for this lesson <a href="lesson10.py.run.html">lesson10.py</a></li>
 <li><a href="part1/code/diffs/lesson9_lesson10.html">Difference with code from last lesson</a></li>
 </ul>
-<a class="header" href="print.html#boxes-v11" id="boxes-v11"><h1>BOXES v11</h1></a>
+<a class="header" href="print.html#boxes-v011" id="boxes-v011"><h1>BOXES v0.11</h1></a>
 <p>In our <a href="lesson10.run.html">previous lesson</a> we promised we will improve the
 problem of overfull lines in our text layout engine.</p>
 <p>The problem: A long string of letters without any hyphenation points or spaces
@@ -2255,7 +2255,66 @@ thing in its place, without ever breaking it.</p>
 and using it we will learn how to do incremental improvements with confidence
 and radical changes without fear. Well, without too much fear.</p>
 <a class="header" href="print.html#setup-1" id="setup-1"><h1>Setup</h1></a>
-<a class="header" href="print.html#lesson-12" id="lesson-12"><h1>Lesson 12</h1></a>
+<a class="header" href="print.html#boxes-v012" id="boxes-v012"><h1>BOXES v0.12</h1></a>
+<p>What we have right now is not a real program, it's just a fun script. In order
+to turn it into a real program we need to figure out what we <strong>want</strong> it to
+be. Then we will take our wish and make it happen. Easy, right?</p>
+<p>We have the following things:</p>
+<ul>
+<li>Code to generate text &quot;boxes&quot; representing a given text file.</li>
+<li>Code to generate a series of pages.</li>
+<li>Code to lay the text boxes in the pages.</li>
+<li>Code to draw text boxes and pages in a SVG.</li>
+</ul>
+<p>How can we combine those assets into a working, functional piece of software?</p>
+<p>Because I am <em>old</em> my first idea is to create a command line tool. We can
+explore others later, but this one is easy. It takes the name of a text file
+as first argument, and the name of a SVG file as second argument and it
+creates the second with the contents of the first.</p>
+<p>My favorite to do this is using <a href="https://github.com/docopt/docopt">docopt</a>,
+where we will describe how the tool works and it turns the documentation into
+actual working code. It's serious overkill for what we want now, but we may
+grow into it.</p>
+<p>We will start with an empty file and then add all the bits of code we have
+until it works.</p>
+<p>Here's a first draft:</p>
+<pre><code class="language-python">&quot;&quot;&quot;
+Usage:
+    boxes &lt;input&gt; &lt;output&gt;
+    boxes --version
+&quot;&quot;&quot;
+
+from docopt import docopt
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='Boxes 0')
+    print(arguments)
+</code></pre>
+<p>And here is how that works. If we call it with two arguments, we get the
+information in <code>arguments</code>:</p>
+<pre><code class="language-sh">$ python boxes.py foo bar
+
+{'--version': False,
+ '&lt;input&gt;': 'foo',
+ '&lt;output&gt;': 'bar'}
+</code></pre>
+<p>If we were missing one, then we are using it wrong, and it will complain and
+print the help.</p>
+<pre><code class="language-sh">$ python boxes.py foo
+
+Usage:
+    boxes &lt;input&gt; &lt;output&gt;
+    boxes --version
+</code></pre>
+<p>And if we pass <code>--version</code>?</p>
+<pre><code class="language-sh">$ python boxes.py foo
+
+Boxes 0
+</code></pre>
+<p>So, we have a dictionary with input and output as keys. That is handy. All we
+need to do is slap our existing code in this script and make it use those
+names.</p>
 <a class="header" href="print.html#part-3-wax-on-wax-off" id="part-3-wax-on-wax-off"><h1>Part 3: Wax On, Wax Off</h1></a>
 <a class="header" href="print.html#part-4-going-public" id="part-4-going-public"><h1>Part 4: Going Public</h1></a>
 <a class="header" href="print.html#code-listings" id="code-listings"><h1>Code Listings</h1></a>

@@ -4,6 +4,7 @@ https://gitlab.com/ldo/python_freetype/repository/master/archive.zip
 pyphen
 https://github.com/ralsina/pyliterate/archive/master.zip
 black
+docopt==0.6.2
 
 # for diff2HtmlCompare
 pygments

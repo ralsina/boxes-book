@@ -1,4 +1,4 @@
-# BOXES v10
+# BOXES v0.10
 
 In our [previous lesson](lesson9.run.html) we created a serviceable text
 layout engine. It has many problems, but remember our goal is not to create

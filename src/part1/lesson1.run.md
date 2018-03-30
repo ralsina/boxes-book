@@ -1,4 +1,4 @@
-# BOXES v1
+# BOXES v0.1
 
 Welcome to Boxes v1. I want to be able to draw some boxes. By boxes I don't mean actual boxes,
 but rather squares. I found a library called svgwrite that lets you do that pretty easily.

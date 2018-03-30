@@ -1,4 +1,4 @@
-# BOXES v4
+# BOXES v0.4
 
 In the [previous lesson](lesson3.run.html) we totally nailed drawing between the lines ... horizontally. Let's improve on that by being bidimensional.
 

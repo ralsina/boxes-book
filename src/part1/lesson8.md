@@ -1,4 +1,4 @@
-# BOXES v8
+# BOXES v0.8
 
 In the [previous lesson](lesson7.run.html) we started using our layout engine to display text, and ran into some limitations. Let's get rid of them.
 

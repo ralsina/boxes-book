@@ -1,4 +1,4 @@
-# BOXES v11
+# BOXES v0.11
 
 In our [previous lesson](lesson10.run.html) we promised we will improve the
 problem of overfull lines in our text layout engine.

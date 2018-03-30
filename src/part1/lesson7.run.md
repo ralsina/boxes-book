@@ -1,4 +1,4 @@
-# BOXES v7
+# BOXES v0.7
 
 So far in our previous lessons we have worked in an abstract world of boxes.
 Some hints of a direction were visible, like organizing our boxes in *pages* and trying to achieve a *justified layout* among others.

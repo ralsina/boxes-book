@@ -1,4 +1,4 @@
-# BOXES v9
+# BOXES v0.9
 
 In the [previous lesson](lesson8.run.html) we fixed the handling of newlines
 in our layout engine, and noticed a problem with spaces. Let's fix it!

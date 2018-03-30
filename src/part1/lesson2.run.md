@@ -1,4 +1,4 @@
-# BOXES v2
+# BOXES v0.2
 
 In our [previous lesson](lesson1.run.html) we created a rather disappointing 
 drawing using boxes. Let's introduce a new wrinkle, and **layout** the many

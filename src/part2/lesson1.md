@@ -28,7 +28,7 @@ until it works.
 
 Here's a first draft:
 
-```python
+```python-norun
 """
 Usage:
     boxes <input> <output>
