@@ -20,6 +20,7 @@
 - [Part 2: Ducks in a Row](part2/ducks_in_a_row.md)
   - [Setup](part2/lesson0.run.md)
   - [Lesson 1](part2/lesson1.run.md)
+  - [Lesson 2](part2/lesson2.run.md)
 - [Part 3: Wax On, Wax Off](./wax_on_wax_off.md)
 - [Part 4: Going Public](./going_public.md)
 - [Code Listings](./code.md)
