@@ -2288,7 +2288,7 @@ from docopt import docopt
 
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='Boxes 0')
+    arguments = docopt(__doc__, version='Boxes 0.12')
     print(arguments)
 </code></pre>
 <p>And here is how that works. If we call it with two arguments, we get the
@@ -2310,7 +2310,7 @@ Usage:
 <p>And if we pass <code>--version</code>?</p>
 <pre><code class="language-sh">$ python boxes.py foo
 
-Boxes 0
+Boxes 0.12
 </code></pre>
 <p>So, we have a dictionary with input and output as keys. That is handy. All we
 need to do is slap our existing code in this script and make it use those

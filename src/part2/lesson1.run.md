@@ -39,7 +39,7 @@ from docopt import docopt
 
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='Boxes 0')
+    arguments = docopt(__doc__, version='Boxes 0.12')
     print(arguments)
 ```
 
@@ -70,7 +70,7 @@ And if we pass `--version`?
 ```sh
 $ python boxes.py foo
 
-Boxes 0
+Boxes 0.12
 ```
 
 So, we have a dictionary with input and output as keys. That is handy. All we
