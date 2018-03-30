@@ -30,7 +30,7 @@ We are deciding that 0.05 is a reasonable separation between letters. We are
 deciding our pages are 10, they are 30x50 and next to each other with a 
 specific separation.
 
-Magic numbers are bad because they **encode a choice**. They are literally
+Magic numbers are bad because they **encode a choice**. They are literally us
 choosing something and making it part of the code. By being inside the code,
 they are outside the reach of the user. In some cases the magic numbers have a
 good reason for existing. In others they should just be a default for
