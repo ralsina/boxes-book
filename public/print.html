@@ -2377,6 +2377,36 @@ if __name__ == '__main__':
 <li><a href="part2/code/diffs/lesson1_diff.html">Difference with code from last lesson</a></li>
 </ul>
 <a class="header" href="print.html#boxes-v013" id="boxes-v013"><h1>BOXES v0.13</h1></a>
+<p>I hate magic numbers. I <strong>love</strong> <a href="https://en.wikipedia.org/wiki/The_Magic_Numbers">The Magic Numbers</a> but I hate how many numbers are just there in our code. Let's look at some of it:</p>
+<pre><code class="language-python"># boxes.py
+# We add a &quot;separation&quot; constant so you can see the boxes individually
+separation = .05
+
+</code></pre>
+<pre><code class="language-python"># boxes.py
+    pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+
+</code></pre>
+<pre><code class="language-python"># boxes.py
+    draw_boxes(text_boxes, pages, output, (100, 50), True)
+
+</code></pre>
+<p>Magic numbers are what's called a <em>code smell</em>. When you read the code, you
+should be wrinkling your nose, like when you get sushi and it smells just a
+little bit off. Other code smells include global variables, and <code>separation</code>
+is actually both things, a global magic number!</p>
+<p>We are deciding that 0.05 is a reasonable separation between letters. We are
+deciding our pages are 10, they are 30x50 and next to each other with a
+specific separation.</p>
+<p>Magic numbers are bad because they <strong>encode a choice</strong>. They are literally
+choosing something and making it part of the code. By being inside the code,
+they are outside the reach of the user. In some cases the magic numbers have a
+good reason for existing. In others they should just be a default for
+something the user can change.</p>
+<p>There are additional decisions not in numbers, such as using the Arial font,
+but we will get around to them later.</p>
+<p>So, let's get rid of the stench, and make those things part of the interface
+we provide the user.</p>
 <a class="header" href="print.html#part-3-wax-on-wax-off" id="part-3-wax-on-wax-off"><h1>Part 3: Wax On, Wax Off</h1></a>
 <a class="header" href="print.html#part-4-going-public" id="part-4-going-public"><h1>Part 4: Going Public</h1></a>
 <a class="header" href="print.html#code-listings" id="code-listings"><h1>Code Listings</h1></a>
