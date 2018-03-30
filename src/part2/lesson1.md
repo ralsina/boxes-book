@@ -81,3 +81,14 @@ Boxes 0.12
 So, we have a dictionary with input and output as keys. That is handy. All we
 need to do is slap our existing code in this script and make it use those
 names.
+
+```python-include:code/lesson1/boxes.py
+```
+
+And if we run it like this:
+
+```sh
+$ python boxes.py pride-and-prejudice.txt lesson1.svg
+```
+
+![lesson1.svg](lesson1.svg)

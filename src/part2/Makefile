@@ -1,4 +1,6 @@
-all: *.run.md format
+SVGS = lesson1.svg
+
+all: *.run.md format $(SVGS)
 
 
 %.run.md: %.md
@@ -6,5 +8,8 @@ all: *.run.md format
 
 format: code/*/*.py
 	black -l 72 code/*/*.py || true
+
+lesson1.svg: code/lesson1/*py
+	python code/lesson1/boxes.py ./pride-and-prejudice.txt lesson1.svg
 
 .PHONY: all format
