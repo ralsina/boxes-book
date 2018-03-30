@@ -17,7 +17,7 @@ little bit off. Other code smells include global variables, and `separation`
 is actually both things, a global magic number!
 
 We are deciding that 0.05 is a reasonable separation between letters. We are
-deciding our pages are 10, they are 30x50 and next to each other with a 
+deciding there are 10 pages , they are 30x50 and next to each other with a
 specific separation.
 
 Magic numbers are bad because they **encode a choice**. They are literally us
