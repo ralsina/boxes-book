@@ -305,7 +305,7 @@ def convert(input, output):
     pages = create_pages()
     text_boxes = create_text_boxes(input)
     layout(text_boxes, pages)
-    draw_boxes(text_boxes, pages, output, (30, 90), True)
+    draw_boxes(text_boxes, pages, output, (90, 50), True)
 
 
 if __name__ == '__main__':
@@ -316,3 +316,8 @@ if __name__ == '__main__':
 
 And if we run it like this:
 
+```sh
+$ python boxes.py pride-and-prejudice.txt lesson1.svg
+```
+
+![lesson1.svg](part2/lesson1.svg)

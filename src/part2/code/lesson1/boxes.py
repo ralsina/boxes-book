@@ -219,7 +219,7 @@ def convert(input, output):
     pages = create_pages()
     text_boxes = create_text_boxes(input)
     layout(text_boxes, pages)
-    draw_boxes(text_boxes, pages, output, (90, 50), True)
+    draw_boxes(text_boxes, pages, output, (100, 50), True)
 
 
 if __name__ == '__main__':
