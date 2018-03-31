@@ -1,8 +1,8 @@
 all:
 	cd src; make
-	mdbook build .
+	gitbook build . public
 
 serve:
-	mdbook serve . 
+	gitbook serve . 
 
 .PHONY: all
