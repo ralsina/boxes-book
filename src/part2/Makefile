@@ -1,6 +1,6 @@
 SVGS = lesson1.svg
 RUN_MDS = lesson1.run.md lesson2.run.md
-DIFFS = code/diffs/*html
+DIFFS = code/diffs/lesson1_diff.html code/diffs/lesson2_diff.html
 
 all: *.run.md format $(SVGS) $(RUN_MDS) $(DIFFS)
 
@@ -18,5 +18,7 @@ lesson1.svg: code/lesson1/*py
 
 code/diffs/lesson1_diff.html: code/lesson1/boxes.py ../part1/code/lesson11.py
 	../../tools/diff2HtmlCompare.py -p ../part1/code/lesson11.py code/lesson1/boxes.py && mv index.html code/diffs/lesson1_diff.html
+code/diffs/lesson2_diff.html: code/lesson1/boxes.py code/lesson2/boxes.py
+	../../tools/diff2HtmlCompare.py -p code/lesson1/boxes.py code/lesson2/boxes.py && mv index.html code/diffs/lesson2_diff.html
 
 .PHONY: all format

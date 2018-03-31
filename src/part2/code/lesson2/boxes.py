@@ -1,6 +1,6 @@
 """
 Usage:
-    boxes <input> <output>
+    boxes <input> <output> [--page-size=<WxH>] [--separation=<sep>]
     boxes --version
 """
 
@@ -56,11 +56,7 @@ def badness(page_width, row):
     return badness
 
 
-# We add a "separation" constant so you can see the boxes individually
-separation = .05
-
-
-def layout(_boxes, pages):
+def layout(_boxes, pages, separation):
     """Layout boxes along pages.
 
     Keep in mind that this function modifies the boxes themselves, so
@@ -134,7 +130,6 @@ def layout(_boxes, pages):
                 for j, b in enumerate(row[1:], 1):
                     b.x = row[j - 1].x + row[j - 1].w + separation
 
-
         if break_line:
             # We start a new row
             row = []
@@ -160,6 +155,9 @@ def layout(_boxes, pages):
             box.x = pages[page].x
 
         previous = box
+
+    # Remove leftover boxes
+    del (pages[page:])
 
 
 def draw_boxes(boxes, pages, fname, size, hide_boxes=False):
@@ -209,19 +207,43 @@ def create_text_boxes(input_file):
     return text_boxes
 
 
-def create_pages():
+def create_pages(page_size):
     # A few pages all the same size
-    pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
+    w, h = page_size
+    pages = [Box(i * w + 5, 0, w, h) for i in range(1000)]
     return pages
 
 
-def convert(input, output):
-    pages = create_pages()
+def convert(input, output, page_size=(30, 50), separation=0.05):
+    pages = create_pages(page_size)
     text_boxes = create_text_boxes(input)
-    layout(text_boxes, pages)
-    draw_boxes(text_boxes, pages, output, (100, 50), True)
+    layout(text_boxes, pages, separation)
+    draw_boxes(
+        text_boxes,
+        pages,
+        output,
+        (pages[-1].w + pages[-1].x, pages[-1].h),
+        True,
+    )
 
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='Boxes 0')
-    convert(input=arguments['<input>'], output=arguments['<output>'])
+    arguments = docopt(__doc__, version='Boxes 0.13')
+
+    if arguments['--page-size']:
+        p_size = [int(x) for x in arguments['--page-size'].split('x')]
+    else:
+        p_size = (30, 50)
+
+    if arguments['--separation']:
+        separation = float(arguments['--separation'])
+    else:
+        separation = 0.05
+
+
+    convert(
+        input=arguments['<input>'],
+        output=arguments['<output>'],
+        page_size=p_size,
+        separation=separation,
+    )
