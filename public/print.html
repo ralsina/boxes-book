@@ -2499,6 +2499,32 @@ groundwork.</p>
 <li><a href="part2/code/diffs/lesson2_diff.html">Difference with code from last lesson</a></li>
 </ul>
 <a class="header" href="print.html#boxes-v014" id="boxes-v014"><h1>Boxes v0.14</h1></a>
+<p>In the <a href="lesson2.md">previous lesson</a> we mentioned <em>code smells</em>, the existence
+of hardcoded &quot;magic numbers&quot; and global variables in our code, and we cleaned
+it up. There is one other code smell that makes our code pretty funky.</p>
+<p>The <code>layout</code> function is <strong>long</strong>. It's 101 lines long. That is <strong>nuts</strong>. It's
+also one of the undesirable side effects of the process by which we wrote it.
+When you write your code organically from the core of an idea, it tends to
+produce long functions, because it's easier to just tweak things in place
+instead of breaking things into separate functions.</p>
+<p>So, in the future you may decide to do that along the way, or just do what we
+will now do and fix it afterwards.</p>
+<p>This functions does all the following things:</p>
+<ul>
+<li>Breaks our list of boxes into rows</li>
+<li>Insert hyphens if needed</li>
+<li>Justifies lines if needed</li>
+<li>Breaks the rows into pages</li>
+<li>Deletes leftover pages</li>
+</ul>
+<p>That is a lot of responsibility for a single function. So, we need to break it
+up.</p>
+<hr />
+<p>Further references:</p>
+<ul>
+<li>Full source code for this lesson <a href="part2/code/lesson3/boxes.py">boxes.py</a></li>
+<li><a href="part2/code/diffs/lesson3_diff.html">Difference with code from last lesson</a></li>
+</ul>
 <a class="header" href="print.html#part-3-wax-on-wax-off" id="part-3-wax-on-wax-off"><h1>Part 3: Wax On, Wax Off</h1></a>
 <p>Repeat something over and over and in the process learn something different.</p>
 <a class="header" href="print.html#part-4-going-public" id="part-4-going-public"><h1>Part 4: Going Public</h1></a>
