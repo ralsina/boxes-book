@@ -15,8 +15,8 @@ format: code/*/*.py
 
 lesson1.svg: code/lesson1/*py
 	python code/lesson1/boxes.py ./pride-and-prejudice.txt lesson1.svg
-lesson1.svg: code/lesson2/*py
-	python code/lesson2/boxes.py ./pride-and-prejudice.txt lesson2.svg
+lesson2.svg: code/lesson2/*py
+	python code/lesson2/boxes.py ./pride-and-prejudice.txt lesson2.svg --page-size=10x20
 
 code/diffs/lesson1_diff.html: code/lesson1/boxes.py ../part1/code/lesson11.py
 	../../tools/diff2HtmlCompare.py -p ../part1/code/lesson11.py code/lesson1/boxes.py && mv index.html code/diffs/lesson1_diff.html
