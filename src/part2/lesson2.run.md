@@ -151,3 +151,10 @@ And that, unfortunately, exposes a whole lot of bugs.
 
 We will get around to them. Don't worry. We just need to do a little more
 groundwork.
+
+----------
+
+Further references:
+
+* Full source code for this lesson [boxes.py](part2/code/lesson2/boxes.py)
+* [Difference with code from last lesson](part2/code/diffs/lesson2_diff.html)

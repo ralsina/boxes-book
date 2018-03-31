@@ -151,5 +151,5 @@ It will give us this output:
 
 Further references:
 
-* Full source code for this lesson [code.py](part2/code/lesson1/boxes.py)
+* Full source code for this lesson [boxes.py](part2/code/lesson1/boxes.py)
 * [Difference with code from last lesson](part2/code/diffs/lesson1_diff.html)
