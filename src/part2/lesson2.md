@@ -75,7 +75,8 @@ add a little code to delete the unused pages:
 
 I suggest you take a close look at [the diff for this lesson.](part2/code/diffs/lesson2_diff.html) to see all these small changes in context.
 
-What have we gained for this effort? Well, we can now do things that used to require editing code. Such as using very small pages:
+What have we gained for this effort? Well, we can now do things that used to
+require editing code. Such as using very small pages:
 
 ```sh
 python code/lesson2/boxes.py pride-and-prejudice.txt lesson2.svg --page-size=10x20
@@ -84,3 +85,13 @@ python code/lesson2/boxes.py pride-and-prejudice.txt lesson2.svg --page-size=10x
 And that, unfortunately, exposes a whole lot of bugs.
 
 ![lesson2.svg](part2/lesson2.svg)
+
+We will get around to them. Don't worry. We just need to do a little more
+groundwork.
+
+----------
+
+Further references:
+
+* Full source code for this lesson [boxes.py](part2/code/lesson2/boxes.py)
+* [Difference with code from last lesson](part2/code/diffs/lesson2_diff.html)

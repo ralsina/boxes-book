@@ -132,7 +132,7 @@ def convert(input, output):
 
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version='Boxes 0')
+    arguments = docopt(__doc__, version='Boxes 0.12')
     convert(input=arguments['<input>'], output=arguments['<output>'])
 
 ```
