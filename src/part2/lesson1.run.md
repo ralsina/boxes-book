@@ -81,7 +81,7 @@ Boxes 0.12
 So, we have a dictionary with input and output as keys. That is handy. All we
 need to do is slap our existing code in this script and make it use those
 names. Because I don't want to show you a wall of code, I am going to just
-highlight some snippets. You can see the whole change in [our diff page](part2/code/diffs/lesson1_diff.html)
+highlight some snippets. You can see the whole change in [our diff page](code/diffs/lesson1_diff.html)
 
 Some of that code needs to be moved into proper functions:
 
@@ -145,11 +145,11 @@ $ python boxes.py pride-and-prejudice.txt lesson1.svg
 
 It will give us this output:
 
-![lesson1.svg](part2/lesson1.svg)
+![lesson1.svg](lesson1.svg)
 
 ----------
 
 Further references:
 
-* Full source code for this lesson [boxes.py](part2/code/lesson1/boxes.py)
-* [Difference with code from last lesson](part2/code/diffs/lesson1_diff.html)
+* Full source code for this lesson [boxes.py](code/lesson1/boxes.py)
+* [Difference with code from last lesson](code/diffs/lesson1_diff.html)

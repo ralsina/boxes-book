@@ -106,7 +106,6 @@ from code.hyphen import insert_soft_hyphens
 print (insert_soft_hyphens('Roses are red\nViolets are blue', '-'))
 ```
 
-
 ```
 Ros-es are red
 Vi-o-lets are blue
@@ -338,7 +337,7 @@ draw_boxes(text_boxes, 'lesson10.svg', (30, 50), hide_boxes=True)
 
 ```
 
-![lesson10.svg](part1/lesson10.svg)
+![lesson10.svg](lesson10.svg)
 
 And there in "proper-ty" you can see it in action. Of course this is
 a naïve implementation. What happens if you just can't break?
@@ -350,7 +349,7 @@ layout(many_boxes)
 draw_boxes(many_boxes, 'lesson10_lots_of_a.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson10_lots_of_a.svg](part1/lesson10_lots_of_a.svg)
+![lesson10_lots_of_a.svg](lesson10_lots_of_a.svg)
 
 Since it can't break at all, it just goes on and on.
 
@@ -364,16 +363,19 @@ layout(many_boxes)
 draw_boxes(many_boxes, 'lesson10_one_break.svg', (35, 6), hide_boxes=True)
 ```
 
-![lesson10_one_break.svg](part1/lesson10_one_break.svg)
+![lesson10_one_break.svg](lesson10_one_break.svg)
 
-Because there is only one place to break the line, it then tries to
-wedge 100 letter "a" where there is room for 54 (I counted!) and something interesting happens... the "slack" is negative!
+Because there is only one place to break the line, it then tries to wedge 100
+letter "a" where there is room for 54 (I counted!) and something interesting
+happens... the "slack" is negative!
 
-Instead of stretching out a "underfilled" line, we are squeezing a "overfilled" one. Everything gets packed too tight, and the letters start
+Instead of stretching out a "underfilled" line, we are squeezing a
+"overfilled" one. Everything gets packed too tight, and the letters start
 overlapping one another.
 
 The lesson is that just because it works for the usual case it doesn't mean
-it's **done**. Even in the case of words, it can happen that breaking points take a while to appear and our line becomes overfull.
+it's **done**. Even in the case of words, it can happen that breaking points
+take a while to appear and our line becomes overfull.
 
 We will tackle that problem next.
 
@@ -382,4 +384,4 @@ We will tackle that problem next.
 Further references:
 
 * Full source code for this lesson [lesson10.py](lesson10.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson9_lesson10.html)
+* [Difference with code from last lesson](code/diffs/lesson9_lesson10.html)

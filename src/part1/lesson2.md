@@ -32,7 +32,7 @@ Let's draw them!
 ```
 And here is the output:
 
-![lesson2.svg](part1/lesson2.svg)
+![lesson2.svg](lesson2.svg)
 
 That was more or less what we expected, right? Of course since there are 5000 small
 boxes that row of boxes goes on for quite a while.
@@ -45,4 +45,4 @@ the next lesson.
 Further references:
 
 * Full source code for this lesson [lesson2.py](lesson2.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson1_lesson2.html)
+* [Difference with code from last lesson](code/diffs/lesson1_lesson2.html)

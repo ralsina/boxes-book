@@ -43,7 +43,7 @@ The drawing code needs a change so we can see the "stretchy" boxes in a differen
 ```python-include:code/lesson6.py:91
 ```
 
-![lesson6.svg](part1/lesson6.svg)
+![lesson6.svg](lesson6.svg)
 
 This layout strategy works:
 
@@ -58,4 +58,4 @@ But the next lesson will start taking things to the next level.
 Further references:
 
 * Full source code for this lesson [lesson6.py](lesson6.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson5_lesson6.html)
+* [Difference with code from last lesson](code/diffs/lesson5_lesson6.html)

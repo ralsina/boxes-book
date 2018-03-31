@@ -1,6 +1,7 @@
 # BOXES v0.4
 
-In the [previous lesson](lesson3.run.html) we totally nailed drawing between the lines ... horizontally. Let's improve on that by being bidimensional.
+In the [previous lesson](lesson3.run.html) we totally nailed drawing between
+the lines ... horizontally. Let's improve on that by being bidimensional.
 
 This code is just like before:
 
@@ -23,7 +24,8 @@ many_boxes = [Box() for i in range(5000)]
 
 ```
 
-But now, instead of a big box, let's have a list of, say, 10 pages (or large boxes), one below the other, slighty separated.
+But now, instead of a big box, let's have a list of, say, 10 pages (or large
+boxes), one below the other, slightly separated.
 
 ```python
 # lesson4.py
@@ -111,7 +113,7 @@ draw_boxes(many_boxes, 'lesson4.svg', (100, 50))
 
 And here is the output:
 
-![lesson4.svg](part1/lesson4.svg)
+![lesson4.svg](lesson4.svg)
 
 Would this work if the pages are arranged differently? Let's put the pages
 side by side instead.
@@ -124,7 +126,7 @@ draw_boxes(many_boxes, 'lesson4_side_by_side.svg', (100, 50))
 
 ```
 
-![lesson4_side_by_side.svg](part1/lesson4_side_by_side.svg)
+![lesson4_side_by_side.svg](lesson4_side_by_side.svg)
 
 And how about pages of different sizes?
 
@@ -141,7 +143,7 @@ draw_boxes(many_boxes, 'lesson4_random_sizes.svg', (100, 50))
 
 ```
 
-![lesson4_random_sizes.svg](part1/lesson4_random_sizes.svg)
+![lesson4_random_sizes.svg](lesson4_random_sizes.svg)
 
 So, we can fill pages and pages with little red squares now. Nice!
 
@@ -157,7 +159,7 @@ draw_boxes(many_boxes, 'lesson4_random_box_sizes.svg', (100, 50))
 
 This adds "noise" to the width of the boxes, so they are now anything between 0.5 and 1.5 units wide.
 
-![lesson4_random_box_sizes.svg](part1/lesson4_random_box_sizes.svg)
+![lesson4_random_box_sizes.svg](lesson4_random_box_sizes.svg)
 
 That looks interesting...
 
@@ -166,4 +168,4 @@ That looks interesting...
 Further references:
 
 * Full source code for this lesson [lesson4.py](lesson4.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson3_lesson4.html)
+* [Difference with code from last lesson](code/diffs/lesson3_lesson4.html)

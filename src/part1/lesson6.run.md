@@ -167,7 +167,7 @@ draw_boxes(many_boxes, 'lesson6.svg', (100, 50))
 
 ```
 
-![lesson6.svg](part1/lesson6.svg)
+![lesson6.svg](lesson6.svg)
 
 This layout strategy works:
 
@@ -182,4 +182,4 @@ But the next lesson will start taking things to the next level.
 Further references:
 
 * Full source code for this lesson [lesson6.py](lesson6.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson5_lesson6.html)
+* [Difference with code from last lesson](code/diffs/lesson5_lesson6.html)

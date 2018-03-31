@@ -15,7 +15,7 @@ forever.
   > opposite, where a line has too many characters, slack is negative and we
   > have to "smush" them, is called **overfull**.
 
-![lesson10_one_break.svg](part1/lesson10_one_break.svg)
+![lesson10_one_break.svg](lesson10_one_break.svg)
 
 As you probably expected... no changes in the Box class.
 
@@ -140,11 +140,11 @@ software package and then... we will try again.
 ```python-include:code/lesson11.py:212:212
 ```
 
-![lesson11.svg](part1/lesson11.svg)
+![lesson11.svg](lesson11.svg)
 
 ----------
 
 Further references:
 
 * Full source code for this lesson [lesson11.py](lesson11.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson10_lesson11.html)
+* [Difference with code from last lesson](code/diffs/lesson10_lesson11.html)

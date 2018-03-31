@@ -28,5 +28,5 @@ up.
 
 Further references:
 
-* Full source code for this lesson [boxes.py](part2/code/lesson3/boxes.py)
-* [Difference with code from last lesson](part2/code/diffs/lesson3_diff.html)
+* Full source code for this lesson [boxes.py](code/lesson3/boxes.py)
+* [Difference with code from last lesson](code/diffs/lesson3_diff.html)

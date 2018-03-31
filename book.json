@@ -3,5 +3,8 @@
     "description": "The full lifecycle of a project.",
     "author": "Roberto Alsina",
     "language": "en",
-    "root": "./src"
+    "root": "./src",
+    "styles": {
+        "website": "styles/website.css"
+    }
 }

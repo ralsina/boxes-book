@@ -37,7 +37,7 @@ boxes optional.
 ```python-include:code/lesson7.py:90:130
 ```
 
-![lesson7.svg](part1/lesson7.svg)
+![lesson7.svg](lesson7.svg)
 
 Of course this is very boring, so we need to spice up our data a little. We
 can use different letters, and then make the right ones stretchy. That is
@@ -46,7 +46,7 @@ easy!
 ```python-include:code/lesson7.py:133:142
 ```
 
-![lesson7_different_letters.svg](part1/lesson7_different_letters.svg)
+![lesson7_different_letters.svg](lesson7_different_letters.svg)
 
 As you can see, there are very minor horizontal shifts and stretches, since
 all boxes are the same size.
@@ -82,14 +82,14 @@ it.
 ```python-include:code/lesson7.py:145:151
 ```
 
-![lesson7_adjusted_letters.svg](part1/lesson7_adjusted_letters.svg)
+![lesson7_adjusted_letters.svg](lesson7_adjusted_letters.svg)
 
 And nicer, without the boxes:
 
 ```python-include:code/lesson7.py:154:161
 ```
 
-![lesson7_adjusted_letters_no_boxes.svg](part1/lesson7_adjusted_letters_no_boxes.svg)
+![lesson7_adjusted_letters_no_boxes.svg](lesson7_adjusted_letters_no_boxes.svg)
 
 And of course, we can just load text there instead of random letters. For
 example, here we load what is going to be our example test from now on, Jane
@@ -98,7 +98,7 @@ Austen's [Pride and Prejudice from Project Gutenberg](http://www.gutenberg.org/e
 ```python-include:code/lesson7.py:164:175
 ```
 
-![lesson7_pride_and_prejudice.svg](part1/lesson7_pride_and_prejudice.svg)
+![lesson7_pride_and_prejudice.svg](lesson7_pride_and_prejudice.svg)
 
 And that is ... maybe disappointing? While we spent a lot of time on things
 like justifying text, we have not even looked at newlines!
@@ -113,4 +113,4 @@ So, we know what to hit in the next lesson.
 Further references:
 
 * Full source code for this lesson [lesson7.py](lesson7.py.run.html)
-* [Difference with code from last lesson](part1/code/diffs/lesson6_lesson7.html)
+* [Difference with code from last lesson](code/diffs/lesson6_lesson7.html)
