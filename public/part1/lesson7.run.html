@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Lesson 7 · GitBook</title>
+        <title>Lesson 7 · Boxes: Your Second Python Book</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="Roberto Alsina">
         
         
     
@@ -466,11 +466,21 @@
                                 
                                 <h1 id="boxes-v07">BOXES v0.7</h1>
 <p>So far in our previous lessons we have worked in an abstract world of boxes.
-Some hints of a direction were visible, like organizing our boxes in <em>pages</em> and trying to achieve a <em>justified layout</em> among others.</p>
-<p>So, let&apos;s just say it, we are going to be doing text layout. But not the easy one. No, sir. No monospaced fonts for us. We want to do the whole enchilada, we are going to have variable-width fonts with kerning, and multi-page, fully-justified text layouts <strong>with hyphenation</strong>.</p>
-<p>Ok, perhaps about 50% of the enchilada, because it will have no bidirectional support, only wok in english, only read UTF-8 encoded files, and so on a lot of things. But it&apos;s still a lot of mexican food!</p>
-<p>And we are going to do that in lessons not much longer than the ones you have been seeing so far. Except this one. This one is much longer. So let&apos;s get started.</p>
-<p>Clearly, we want our boxes to have letters. And our &quot;stretchy&quot; boxes are special because they have things like spaces. In fact, let&apos;s just say they have spaces.</p>
+Some hints of a direction were visible, like organizing our boxes in <em>pages</em>
+and trying to achieve a <em>justified layout</em> among others.</p>
+<p>So, let&apos;s just say it, we are going to be doing text layout. But not the easy
+one. No, sir. No monospaced fonts for us. We want to do the whole enchilada,
+we are going to have variable-width fonts with kerning, and multi-page,
+fully-justified text layouts <strong>with hyphenation</strong>.</p>
+<p>OK, perhaps about 50% of the enchilada, because it will have no bidirectional
+support, only wok in English, only read UTF-8 encoded files, and so on a lot
+of things. But it&apos;s still a lot of Mexican food!</p>
+<p>And we are going to do that in lessons not much longer than the ones you have
+been seeing so far. Except this one. This one is much longer. So let&apos;s get
+started.</p>
+<p>Clearly, we want our boxes to have letters. And our &quot;stretchy&quot; boxes are
+special because they have things like spaces. In fact, let&apos;s just say they
+have spaces.</p>
 <p>We will now expand our Box class to support letters inside the boxes.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># lesson7.py</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span><span class="hljs-params">()</span>:</span>
@@ -563,7 +573,8 @@ separation = <span class="hljs-number">.05</span>
 
 layout(text_boxes)
 </code></pre>
-<p>And tweak the drawing function to show us letters, and to make the colored boxes optional.</p>
+<p>And tweak the drawing function to show us letters, and to make the colored
+boxes optional.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># lesson7.py</span>
 <span class="hljs-keyword">import</span> svgwrite
 
@@ -608,8 +619,9 @@ layout(text_boxes)
 draw_boxes(text_boxes, <span class="hljs-string">&apos;lesson7.svg&apos;</span>, (<span class="hljs-number">30</span>, <span class="hljs-number">20</span>))
 </code></pre>
 <p><img src="part1/lesson7.svg" alt="lesson7.svg"></p>
-<p>Of course this is very boring, so we need to spice up our data a little.
-We can use different letters, and then make the right ones stretchy. That is easy!</p>
+<p>Of course this is very boring, so we need to spice up our data a little. We
+can use different letters, and then make the right ones stretchy. That is
+easy!</p>
 <pre><code class="lang-python"><span class="hljs-comment"># lesson7.py</span>
 <span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> choice
 
@@ -623,13 +635,25 @@ layout(text_boxes)
 draw_boxes(text_boxes, <span class="hljs-string">&apos;lesson7_different_letters.svg&apos;</span>, (<span class="hljs-number">30</span>, <span class="hljs-number">20</span>))
 </code></pre>
 <p><img src="part1/lesson7_different_letters.svg" alt="lesson7_different_letters.svg"></p>
-<p>As you can see, there are very minor horizontal shifts and stretches, since all boxes are the same size.</p>
-<p>But as a text layout engine we have a <strong>major</strong> failure: we are ignoring the size of the letters we are layouting!</p>
-<p>This is a very complex thing to do called <em>text shaping</em>. You need to understand the content of the font you are using to display the text, and more subtle things like what happens if you put specific letters next to each other (kerning) and much more.</p>
-<p>The good news is that it&apos;s already done for us, in libraries called Harfbuzz and Freetype.</p>
-<p>This paragraph is perhaps the most important one in this book. I am about to show you some obscure code. And I will tell you the secret of how it got here:
-<strong>I copied it from the documentation for the libraries I am using.</strong> Sometimes you will need to do something complicated only once in your life. It&apos;s perfectly ok to just google how to do it. And as long as you are confident you can find it again if needed, it&apos;s ok to just forget about it.</p>
-<p>I will show you this code, and then put it in a separate file called <code>fonts.py</code> and from now on I will not show it in the lessons, because we are <em>not</em> going to change it, <em>ever</em>.</p>
+<p>As you can see, there are very minor horizontal shifts and stretches, since
+all boxes are the same size.</p>
+<p>But as a text layout engine we have a <strong>major</strong> failure: we are ignoring the
+size of the letters we are laying out!</p>
+<p>This is a very complex thing to do called <em>text shaping</em>. You need to
+understand the content of the font you are using to display the text, and more
+subtle things like what happens if you put specific letters next to each other
+(kerning) and much more.</p>
+<p>The good news is that it&apos;s already done for us, in libraries called Harfbuzz
+and Freetype.</p>
+<p>This paragraph is perhaps the most important one in this book. I am about to
+show you some obscure code. And I will tell you the secret of how it got here:
+<strong>I copied it from the documentation for the libraries I am using.</strong> Sometimes
+you will need to do something complicated only once in your life. It&apos;s
+perfectly OK to just google how to do it. And as long as you are confident you
+can find it again if needed, it&apos;s OK to just forget about it.</p>
+<p>I will show you this code, and then put it in a separate file called
+<code>fonts.py</code> and from now on I will not show it in the lessons, because we are
+<em>not</em> going to change it, <em>ever</em>.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># fonts.py</span>
 <span class="hljs-keyword">import</span> harfbuzz <span class="hljs-keyword">as</span> hb
 <span class="hljs-keyword">import</span> freetype2 <span class="hljs-keyword">as</span> ft
@@ -650,7 +674,8 @@ draw_boxes(text_boxes, <span class="hljs-string">&apos;lesson7_different_letters
     <span class="hljs-keyword">for</span> box, position <span class="hljs-keyword">in</span> zip(boxes, buf.glyph_positions):
         box.w = position.x_advance
 </code></pre>
-<p>And now we will pretend we know what that does, based on its docstring and use it.</p>
+<p>And now we will pretend we know what that does, based on its docstring and use
+it.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># lesson7.py</span>
 <span class="hljs-keyword">from</span> code <span class="hljs-keyword">import</span> fonts
 
@@ -673,8 +698,9 @@ draw_boxes(
 )
 </code></pre>
 <p><img src="part1/lesson7_adjusted_letters_no_boxes.svg" alt="lesson7_adjusted_letters_no_boxes.svg"></p>
-<p>And of course, we can just load text there instead of random letters. For example, here we load what is going to be our example test from now on, 
-Jane Austen&apos;s <a href="http://www.gutenberg.org/ebooks/1342" target="_blank">Pride and Prejudice from Project Gutenberg</a></p>
+<p>And of course, we can just load text there instead of random letters. For
+example, here we load what is going to be our example test from now on, Jane
+Austen&apos;s <a href="http://www.gutenberg.org/ebooks/1342" target="_blank">Pride and Prejudice from Project Gutenberg</a></p>
 <pre><code class="lang-python"><span class="hljs-comment"># lesson7.py</span>
 p_and_p = open(<span class="hljs-string">&apos;pride-and-prejudice.txt&apos;</span>).read()
 text_boxes = []
@@ -690,8 +716,10 @@ draw_boxes(
 )
 </code></pre>
 <p><img src="part1/lesson7_pride_and_prejudice.svg" alt="lesson7_pride_and_prejudice.svg"></p>
-<p>And that is ... maybe disappointing? While we spent a lot of time on things like justifying text, we have not even looked at newlines!</p>
-<p>Also, spaces at the end of lines make the line appear ragged again, now that they are not boxes.</p>
+<p>And that is ... maybe disappointing? While we spent a lot of time on things
+like justifying text, we have not even looked at newlines!</p>
+<p>Also, spaces at the end of lines make the line appear ragged again, now that
+they are not boxes.</p>
 <p>So, we know what to hit in the next lesson.</p>
 <hr>
 <p>Further references:</p>
@@ -742,7 +770,7 @@ draw_boxes(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lesson 7","level":"1.2.8","depth":2,"next":{"title":"Lesson 8","level":"1.2.9","depth":2,"path":"part1/lesson8.run.md","ref":"part1/lesson8.run.md","articles":[]},"previous":{"title":"Lesson 6","level":"1.2.7","depth":2,"path":"part1/lesson6.run.md","ref":"part1/lesson6.run.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"part1/lesson7.run.md","mtime":"2018-03-30T15:55:33.532Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-31T19:15:08.294Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lesson 7","level":"1.2.8","depth":2,"next":{"title":"Lesson 8","level":"1.2.9","depth":2,"path":"part1/lesson8.run.md","ref":"part1/lesson8.run.md","articles":[]},"previous":{"title":"Lesson 6","level":"1.2.7","depth":2,"path":"part1/lesson6.run.md","ref":"part1/lesson6.run.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Roberto Alsina","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Boxes: Your Second Python Book","language":"en","gitbook":"*","description":"The full lifecycle of a project."},"file":{"path":"part1/lesson7.run.md","mtime":"2018-03-31T19:28:27.455Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-31T19:29:33.655Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
