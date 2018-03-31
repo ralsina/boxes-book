@@ -210,7 +210,7 @@ def create_text_boxes(input_file):
 def create_pages(page_size):
     # A few pages all the same size
     w, h = page_size
-    pages = [Box(i * w + 5, 0, w, h) for i in range(1000)]
+    pages = [Box(i * (w + 5), 0, w, h) for i in range(1000)]
     return pages
 
 
