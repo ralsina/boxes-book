@@ -1,183 +1,497 @@
+
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible">
+<html lang="" >
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Lesson 5 - BOXES</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="The whole lifecycle of a project.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        <base href="../">
-
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme -->
+        <title>Lesson 5 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
         
-        <link rel="stylesheet" href="custom.css">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
         
 
+    
+
+    
         
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
-        <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
-        </script>
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
-        <noscript>
-            <style type="text/css">
-                .javascript-only {
-                    display: none;
-                }
-            </style>
-        </noscript>
+    
+    <link rel="next" href="lesson6.run.html" />
+    
+    
+    <link rel="prev" href="lesson4.run.html" />
+    
 
     </head>
-    <body class="light">
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
 
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme;
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="cover.html">Cover</a></li><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="part1/finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1: Finger Thinking</a></li><li><ol class="section"><li><a href="part1/lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li><a href="part1/lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="part1/lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="part1/lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="part1/lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="part1/lesson5.run.html" class="active"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="part1/lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="part1/lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="part1/lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="part1/lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="part1/lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="part1/lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li><li><a href="part1/recap.html"><strong aria-hidden="true">1.13.</strong> Recapitulation</a></li></ol></li><li><a href="part2/ducks_in_a_row.html"><strong aria-hidden="true">2.</strong> Part 2: Ducks in a Row</a></li><li><ol class="section"><li><a href="part2/lesson0.run.html"><strong aria-hidden="true">2.1.</strong> Setup</a></li><li><a href="part2/lesson1.run.html"><strong aria-hidden="true">2.2.</strong> Lesson 1</a></li><li><a href="part2/lesson2.run.html"><strong aria-hidden="true">2.3.</strong> Lesson 2</a></li><li><a href="part2/lesson3.run.html"><strong aria-hidden="true">2.4.</strong> Lesson 3</a></li></ol></li><li><a href="wax_on_wax_off.html"><strong aria-hidden="true">3.</strong> Part 3: Wax On, Wax Off</a></li><li><a href="going_public.html"><strong aria-hidden="true">4.</strong> Part 4: Going Public</a></li><li><a href="code.html"><strong aria-hidden="true">5.</strong> Code Listings</a></li><li><ol class="section"><li><a href="original.run.html"><strong aria-hidden="true">5.1.</strong> Original Code</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li></ol>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
+            
+                <nav role="navigation">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons javascript-only">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="finger_thinking.html">
+            
+                <a href="finger_thinking.html">
+            
+                    
+                    Part 1: Finger Thinking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="lesson0.run.html">
+            
+                <a href="lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="lesson1.run.html">
+            
+                <a href="lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="lesson2.run.html">
+            
+                <a href="lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="lesson3.run.html">
+            
+                <a href="lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="lesson4.run.html">
+            
+                <a href="lesson4.run.html">
+            
+                    
+                    Lesson 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.6" data-path="lesson5.run.html">
+            
+                <a href="lesson5.run.html">
+            
+                    
+                    Lesson 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="lesson6.run.html">
+            
+                <a href="lesson6.run.html">
+            
+                    
+                    Lesson 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="lesson7.run.html">
+            
+                <a href="lesson7.run.html">
+            
+                    
+                    Lesson 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="lesson8.run.html">
+            
+                <a href="lesson8.run.html">
+            
+                    
+                    Lesson 8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="lesson9.run.html">
+            
+                <a href="lesson9.run.html">
+            
+                    
+                    Lesson 9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="lesson10.run.html">
+            
+                <a href="lesson10.run.html">
+            
+                    
+                    Lesson 10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="lesson11.run.html">
+            
+                <a href="lesson11.run.html">
+            
+                    
+                    Lesson 11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="recap.html">
+            
+                <a href="recap.html">
+            
+                    
+                    Recapitulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part2/ducks_in_a_row.html">
+            
+                <a href="../part2/ducks_in_a_row.html">
+            
+                    
+                    Part 2: Ducks in a Row
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../part2/lesson0.run.html">
+            
+                <a href="../part2/lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../part2/lesson1.run.html">
+            
+                <a href="../part2/lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../part2/lesson2.run.html">
+            
+                <a href="../part2/lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../part2/lesson3.run.html">
+            
+                <a href="../part2/lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../wax_on_wax_off.html">
+            
+                <a href="../wax_on_wax_off.html">
+            
+                    
+                    Part 3: Wax On, Wax Off
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../going_public.html">
+            
+                <a href="../going_public.html">
+            
+                    
+                    Part 4: Going Public
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../code.html">
+            
+                <a href="../code.html">
+            
+                    
+                    Code Listings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../original.run.html">
+            
+                <a href="../original.run.html">
+            
+                    
+                    Original Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Lesson 5</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
                             
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
-
-                        <h1 class="menu-title">BOXES</h1> 
-
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="searchbar-outer" class="searchbar-outer">
-                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                </div>
-                <div id="searchresults-outer" class="searchresults-outer">
-                    <div class="searchresults-header" id="searchresults-header"></div>
-                    <ul id="searchresults">
-                    </ul>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <a class="header" href="part1/lesson5.run.html#boxes-v05" id="boxes-v05"><h1>BOXES v0.5</h1></a>
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="boxes-v05">BOXES v0.5</h1>
 <p>In our <a href="lesson4.run.html">previous lesson</a> we created code that can fill a series of pages using many small boxes.</p>
-<p>But only when those boxes are all alike. Once the boxes had different widths, the right side of our layout got all ragged. You surely have seen things like it when using word processors or reading web pages, where the text is all aligned on the left and all ragged on the right. It's called a &quot;left-aligned&quot; or &quot;ragged-right&quot; layout.</p>
+<p>But only when those boxes are all alike. Once the boxes had different widths, the right side of our layout got all ragged. You surely have seen things like it when using word processors or reading web pages, where the text is all aligned on the left and all ragged on the right. It&apos;s called a &quot;left-aligned&quot; or &quot;ragged-right&quot; layout. </p>
 <p>The reason is that we exceed the page width by a random amount, and then,
 when moving that box to the next row, we are left a random amount <strong>short</strong> of the desired width.</p>
-<p>Could we make it look aligned on BOTH sides? Of course. Let's try.</p>
+<p>Could we make it look aligned on BOTH sides? Of course. Let&apos;s try.</p>
 <p>This code is just like before:</p>
-<pre><code class="language-python"># lesson5.py
-class Box():
+<pre><code class="lang-python"><span class="hljs-comment"># lesson5.py</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span><span class="hljs-params">()</span>:</span>
 
-    def __init__(self, x=0, y=0, w=1, h=1):
-        &quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x=<span class="hljs-number">0</span>, y=<span class="hljs-number">0</span>, w=<span class="hljs-number">1</span>, h=<span class="hljs-number">1</span>)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;Accept arguments to define our box, and store them.&quot;&quot;&quot;</span>
         self.x = x
         self.y = y
         self.w = w
         self.h = h
 
-    def __repr__(self):
-        return 'Box(%s, %s, %s, %s)' % (self.x, self.y, self.w, self.y)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;Box(%s, %s, %s, %s)&apos;</span> % (self.x, self.y, self.w, self.y)
 
 
-# Many boxes with varying widths
-from random import randint
+<span class="hljs-comment"># Many boxes with varying widths</span>
+<span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint
 
-many_boxes = [Box(w=1 + randint(-5, 5) / 10) for i in range(5000)]
+many_boxes = [Box(w=<span class="hljs-number">1</span> + randint(<span class="hljs-number">-5</span>, <span class="hljs-number">5</span>) / <span class="hljs-number">10</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5000</span>)]
 
-# A few pages all the same size
-pages = [Box(i * 35, 0, 30, 50) for i in range(10)]
-
+<span class="hljs-comment"># A few pages all the same size</span>
+pages = [Box(i * <span class="hljs-number">35</span>, <span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">50</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
 </code></pre>
 <p>And of course, we need a new layout function. The plan is this:</p>
 <ul>
@@ -187,185 +501,173 @@ between the right side of our last box in the row and the edge of
 the page.</li>
 <li>Spread that slack by sliding all boxes slightly right so noone notices.</li>
 </ul>
-<pre><code class="language-python"># lesson5.py
-# We add a &quot;separation&quot; constant so you can see the boxes individually
-separation = .2
+<pre><code class="lang-python"><span class="hljs-comment"># lesson5.py</span>
+<span class="hljs-comment"># We add a &quot;separation&quot; constant so you can see the boxes individually</span>
+separation = <span class="hljs-number">.2</span>
 
 
-def layout(_boxes):
-    # Because we modify the box list, we will work on a copy
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout</span><span class="hljs-params">(_boxes)</span>:</span>
+    <span class="hljs-comment"># Because we modify the box list, we will work on a copy</span>
     boxes = _boxes[:]
-    # We start at page 0
-    page = 0
-    # The 1st box should be placed in the correct page
-    previous = boxes.pop(0)
+    <span class="hljs-comment"># We start at page 0</span>
+    page = <span class="hljs-number">0</span>
+    <span class="hljs-comment"># The 1st box should be placed in the correct page</span>
+    previous = boxes.pop(<span class="hljs-number">0</span>)
     previous.x = pages[page].x
     previous.y = pages[page].y
     row = []
-    while boxes:
-        # We take the new 1st box
-        box = boxes.pop(0)
-        # And put it next to the other
+    <span class="hljs-keyword">while</span> boxes:
+        <span class="hljs-comment"># We take the new 1st box</span>
+        box = boxes.pop(<span class="hljs-number">0</span>)
+        <span class="hljs-comment"># And put it next to the other</span>
         box.x = previous.x + previous.w + separation
-        # At the same vertical location
+        <span class="hljs-comment"># At the same vertical location</span>
         box.y = previous.y
-        # But if it's too far to the right...
-        if (box.x + box.w) &gt; (pages[page].x + pages[page].w):
-            # We adjust the row
+        <span class="hljs-comment"># But if it&apos;s too far to the right...</span>
+        <span class="hljs-keyword">if</span> (box.x + box.w) &gt; (pages[page].x + pages[page].w):
+            <span class="hljs-comment"># We adjust the row</span>
             slack = (pages[page].x + pages[page].w) - (
-                row[-1].x + row[-1].w
+                row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w
             )
             bump = slack / len(row)
-            # The 1st box gets 0 bumps, the 2nd gets 1 and so on
-            for i, b in enumerate(row):
+            <span class="hljs-comment"># The 1st box gets 0 bumps, the 2nd gets 1 and so on</span>
+            <span class="hljs-keyword">for</span> i, b <span class="hljs-keyword">in</span> enumerate(row):
                 b.x += bump * i
-            # We start a new row
+            <span class="hljs-comment"># We start a new row</span>
             row = []
-            # We go all the way left and a little down
+            <span class="hljs-comment"># We go all the way left and a little down</span>
             box.x = pages[page].x
             box.y = previous.y + previous.h + separation
 
-        # But if we go too far down
-        if box.y + box.h &gt; pages[page].y + pages[page].h:
-            # We go to the next page
-            page += 1
-            # And put the box at the top-left
+        <span class="hljs-comment"># But if we go too far down</span>
+        <span class="hljs-keyword">if</span> box.y + box.h &gt; pages[page].y + pages[page].h:
+            <span class="hljs-comment"># We go to the next page</span>
+            page += <span class="hljs-number">1</span>
+            <span class="hljs-comment"># And put the box at the top-left</span>
             box.x = pages[page].x
             box.y = pages[page].y
 
-        # Put the box in the row
+        <span class="hljs-comment"># Put the box in the row</span>
         row.append(box)
         previous = box
 
 
 layout(many_boxes)
-
 </code></pre>
 <p>The drawing code needs no changes.</p>
-<pre><code class="language-python"># lesson5.py
-import svgwrite
+<pre><code class="lang-python"><span class="hljs-comment"># lesson5.py</span>
+<span class="hljs-keyword">import</span> svgwrite
 
 
-def draw_boxes(boxes, fname, size):
-    dwg = svgwrite.Drawing(fname, profile='full', size=size)
-    # Draw the pages
-    for page in pages:
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_boxes</span><span class="hljs-params">(boxes, fname, size)</span>:</span>
+    dwg = svgwrite.Drawing(fname, profile=<span class="hljs-string">&apos;full&apos;</span>, size=size)
+    <span class="hljs-comment"># Draw the pages</span>
+    <span class="hljs-keyword">for</span> page <span class="hljs-keyword">in</span> pages:
         dwg.add(
             dwg.rect(
                 insert=(page.x, page.y),
                 size=(page.w, page.h),
-                fill='lightblue',
+                fill=<span class="hljs-string">&apos;lightblue&apos;</span>,
             )
         )
-    # Draw all the boxes
-    for box in boxes:
+    <span class="hljs-comment"># Draw all the boxes</span>
+    <span class="hljs-keyword">for</span> box <span class="hljs-keyword">in</span> boxes:
         dwg.add(
             dwg.rect(
-                insert=(box.x, box.y), size=(box.w, box.h), fill='red'
+                insert=(box.x, box.y), size=(box.w, box.h), fill=<span class="hljs-string">&apos;red&apos;</span>
             )
         )
     dwg.save()
 
 
-draw_boxes(many_boxes, 'lesson5.svg', (100, 50))
-
+draw_boxes(many_boxes, <span class="hljs-string">&apos;lesson5.svg&apos;</span>, (<span class="hljs-number">100</span>, <span class="hljs-number">50</span>))
 </code></pre>
-<p><img src="part1/lesson5.svg" alt="lesson5.svg" /></p>
-<p>Isn't that nice? If you look at it from afar it looks sort of familiar.
-Doesn't it?</p>
-<hr />
+<p><img src="part1/lesson5.svg" alt="lesson5.svg"></p>
+<p>Isn&apos;t that nice? If you look at it from afar it looks sort of familiar.
+Doesn&apos;t it?</p>
+<hr>
 <p>Further references:</p>
 <ul>
 <li>Full source code for this lesson <a href="lesson5.py.run.html">lesson5.py</a></li>
 <li><a href="part1/code/diffs/lesson4_lesson5.html">Difference with code from last lesson</a></li>
 </ul>
 
-                    </main>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="part1/lesson4.run.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="part1/lesson6.run.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
+                        </div>
+                    </div>
+                
             </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
                 
-                    <a href="part1/lesson4.run.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
+                <a href="lesson4.run.html" class="navigation navigation-prev " aria-label="Previous page: Lesson 4">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-
                 
-                    <a href="part1/lesson6.run.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+                <a href="lesson6.run.html" class="navigation navigation-next " aria-label="Next page: Lesson 6">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
-            </nav>
+            
+        
+    </div>
 
-        </div>
-
-
-        <!-- Local fallback for Font Awesome -->
-        <script>
-            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = '_FontAwesome/css/font-awesome.css';
-                document.head.insertBefore(link, document.head.firstChild)
-            }
-        </script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lesson 5","level":"1.2.6","depth":2,"next":{"title":"Lesson 6","level":"1.2.7","depth":2,"path":"part1/lesson6.run.md","ref":"part1/lesson6.run.md","articles":[]},"previous":{"title":"Lesson 4","level":"1.2.5","depth":2,"path":"part1/lesson4.run.md","ref":"part1/lesson4.run.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"part1/lesson5.run.md","mtime":"2018-03-30T15:55:38.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-31T19:15:08.294Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
         
-
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
-
+    
         
-
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+    
         
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
         
-
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
-
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS script -->
+    
         
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
 
     </body>
 </html>
+

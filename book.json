@@ -1,0 +1,7 @@
+{
+    "title": "Boxes: Your Second Python Book",
+    "description": "The full lifecycle of a project.",
+    "author": "Roberto Alsina",
+    "language": "en",
+    "root": "./src"
+}

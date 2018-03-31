@@ -1,158 +1,473 @@
+
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible">
+<html lang="" >
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Part 2: Ducks in a Row - BOXES</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="The whole lifecycle of a project.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        <base href="../">
-
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme -->
+        <title>Part 2: Ducks in a Row · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
         
-        <link rel="stylesheet" href="custom.css">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
         
 
+    
+
+    
         
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
-        <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
-        </script>
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
-        <noscript>
-            <style type="text/css">
-                .javascript-only {
-                    display: none;
-                }
-            </style>
-        </noscript>
+    
+    <link rel="next" href="lesson0.run.html" />
+    
+    
+    <link rel="prev" href="../part1/recap.html" />
+    
 
     </head>
-    <body class="light">
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
 
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme;
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="cover.html">Cover</a></li><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="part1/finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1: Finger Thinking</a></li><li><ol class="section"><li><a href="part1/lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li><a href="part1/lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="part1/lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="part1/lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="part1/lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="part1/lesson5.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="part1/lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="part1/lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="part1/lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="part1/lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="part1/lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="part1/lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li><li><a href="part1/recap.html"><strong aria-hidden="true">1.13.</strong> Recapitulation</a></li></ol></li><li><a href="part2/ducks_in_a_row.html" class="active"><strong aria-hidden="true">2.</strong> Part 2: Ducks in a Row</a></li><li><ol class="section"><li><a href="part2/lesson0.run.html"><strong aria-hidden="true">2.1.</strong> Setup</a></li><li><a href="part2/lesson1.run.html"><strong aria-hidden="true">2.2.</strong> Lesson 1</a></li><li><a href="part2/lesson2.run.html"><strong aria-hidden="true">2.3.</strong> Lesson 2</a></li><li><a href="part2/lesson3.run.html"><strong aria-hidden="true">2.4.</strong> Lesson 3</a></li></ol></li><li><a href="wax_on_wax_off.html"><strong aria-hidden="true">3.</strong> Part 3: Wax On, Wax Off</a></li><li><a href="going_public.html"><strong aria-hidden="true">4.</strong> Part 4: Going Public</a></li><li><a href="code.html"><strong aria-hidden="true">5.</strong> Code Listings</a></li><li><ol class="section"><li><a href="original.run.html"><strong aria-hidden="true">5.1.</strong> Original Code</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li></ol>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
+            
+                <nav role="navigation">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons javascript-only">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/finger_thinking.html">
+            
+                <a href="../part1/finger_thinking.html">
+            
+                    
+                    Part 1: Finger Thinking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../part1/lesson0.run.html">
+            
+                <a href="../part1/lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../part1/lesson1.run.html">
+            
+                <a href="../part1/lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../part1/lesson2.run.html">
+            
+                <a href="../part1/lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../part1/lesson3.run.html">
+            
+                <a href="../part1/lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../part1/lesson4.run.html">
+            
+                <a href="../part1/lesson4.run.html">
+            
+                    
+                    Lesson 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../part1/lesson5.run.html">
+            
+                <a href="../part1/lesson5.run.html">
+            
+                    
+                    Lesson 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../part1/lesson6.run.html">
+            
+                <a href="../part1/lesson6.run.html">
+            
+                    
+                    Lesson 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../part1/lesson7.run.html">
+            
+                <a href="../part1/lesson7.run.html">
+            
+                    
+                    Lesson 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../part1/lesson8.run.html">
+            
+                <a href="../part1/lesson8.run.html">
+            
+                    
+                    Lesson 8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../part1/lesson9.run.html">
+            
+                <a href="../part1/lesson9.run.html">
+            
+                    
+                    Lesson 9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../part1/lesson10.run.html">
+            
+                <a href="../part1/lesson10.run.html">
+            
+                    
+                    Lesson 10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../part1/lesson11.run.html">
+            
+                <a href="../part1/lesson11.run.html">
+            
+                    
+                    Lesson 11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../part1/recap.html">
+            
+                <a href="../part1/recap.html">
+            
+                    
+                    Recapitulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="ducks_in_a_row.html">
+            
+                <a href="ducks_in_a_row.html">
+            
+                    
+                    Part 2: Ducks in a Row
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="lesson0.run.html">
+            
+                <a href="lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="lesson1.run.html">
+            
+                <a href="lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="lesson2.run.html">
+            
+                <a href="lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="lesson3.run.html">
+            
+                <a href="lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../wax_on_wax_off.html">
+            
+                <a href="../wax_on_wax_off.html">
+            
+                    
+                    Part 3: Wax On, Wax Off
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../going_public.html">
+            
+                <a href="../going_public.html">
+            
+                    
+                    Part 4: Going Public
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../code.html">
+            
+                <a href="../code.html">
+            
+                    
+                    Code Listings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../original.run.html">
+            
+                <a href="../original.run.html">
+            
+                    
+                    Original Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 2: Ducks in a Row</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
                             
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
-
-                        <h1 class="menu-title">BOXES</h1> 
-
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="searchbar-outer" class="searchbar-outer">
-                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                </div>
-                <div id="searchresults-outer" class="searchresults-outer">
-                    <div class="searchresults-header" id="searchresults-header"></div>
-                    <ul id="searchresults">
-                    </ul>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <a class="header" href="part2/ducks_in_a_row.html#part-2-ducks-in-a-row" id="part-2-ducks-in-a-row"><h1>Part 2: Ducks in a Row</h1></a>
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-2-ducks-in-a-row">Part 2: Ducks in a Row</h1>
 <p>In Part 1 of this book we worked on a text layout engine. That is, code that
-knows how and where letters from a text go in a page. It's not a great engine,
-it is far from perfect, but it's the one we've got and for the purposes of
+knows how and where letters from a text go in a page. It&apos;s not a great engine,
+it is far from perfect, but it&apos;s the one we&apos;ve got and for the purposes of
 this book, I like it.</p>
 <p>We built it by experimenting. However, after a while, it got to the point
 where things are too complicated to add. We have an idea on how to do the next
@@ -163,96 +478,86 @@ in a very specific, controlled manner, and we will end up with a much better
 thing in its place, without ever breaking it.</p>
 <p>Welcome to the world of refactoring and testing.</p>
 <p>First, we will turn our ball of code into a organized whole, then we will
-learn how to use a tool called <a href="https://docs.pytest.org/en/latest/">pytest</a>
+learn how to use a tool called <a href="https://docs.pytest.org/en/latest/" target="_blank">pytest</a>
 and through it how to do incremental improvements with confidence
 and radical changes without fear. Well, without too much fear.</p>
 
-                    </main>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="part1/recap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="part2/lesson0.run.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
+                        </div>
+                    </div>
+                
             </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
                 
-                    <a href="part1/recap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
+                <a href="../part1/recap.html" class="navigation navigation-prev " aria-label="Previous page: Recapitulation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-
                 
-                    <a href="part2/lesson0.run.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
+                <a href="lesson0.run.html" class="navigation navigation-next " aria-label="Next page: Setup">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
-            </nav>
+            
+        
+    </div>
 
-        </div>
-
-
-        <!-- Local fallback for Font Awesome -->
-        <script>
-            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = '_FontAwesome/css/font-awesome.css';
-                document.head.insertBefore(link, document.head.firstChild)
-            }
-        </script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 2: Ducks in a Row","level":"1.3","depth":1,"next":{"title":"Setup","level":"1.3.1","depth":2,"path":"part2/lesson0.run.md","ref":"part2/lesson0.run.md","articles":[]},"previous":{"title":"Recapitulation","level":"1.2.13","depth":2,"path":"part1/recap.md","ref":"part1/recap.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"part2/ducks_in_a_row.md","mtime":"2018-03-30T17:23:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-31T19:15:08.294Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
         
-
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
-
+    
         
-
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+    
         
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
         
-
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
-
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS script -->
+    
         
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
 
     </body>
 </html>
+

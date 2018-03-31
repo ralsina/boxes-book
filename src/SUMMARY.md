@@ -1,8 +1,5 @@
 # Summary
 
-[Cover](./cover.md)
-[Introduction](./intro.md)
-
 - [Part 1: Finger Thinking](part1/finger_thinking.md)
   - [Setup](part1/lesson0.run.md)
   - [Lesson 1](part1/lesson1.run.md)

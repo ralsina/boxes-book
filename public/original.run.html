@@ -1,178 +1,491 @@
+
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible">
+<html lang="" >
     <head>
-        <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Original Code - BOXES</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="The whole lifecycle of a project.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        <base href="">
-
-        <link rel="stylesheet" href="book.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
-        <link rel="shortcut icon" href="favicon.png">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme -->
+        <title>Original Code · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
         
-        <link rel="stylesheet" href="custom.css">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
         
 
+    
+
+    
         
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
-        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
-        <script>
-            if (typeof Clipboard == 'undefined') {
-                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
-            }
-        </script>
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
-        <noscript>
-            <style type="text/css">
-                .javascript-only {
-                    display: none;
-                }
-            </style>
-        </noscript>
+    
+    
+    <link rel="prev" href="code.html" />
+    
 
     </head>
-    <body class="light">
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
-            try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
 
-                if (theme.startsWith('"') && theme.endsWith('"')) {
-                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
-                }
-
-                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
-                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
-                }
-            } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme;
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
-            if (document.body.clientWidth >= 1080) {
-                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
-                sidebar = sidebar || 'visible';
-            }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="cover.html">Cover</a></li><li class="affix"><a href="intro.html">Introduction</a></li><li><a href="part1/finger_thinking.html"><strong aria-hidden="true">1.</strong> Part 1: Finger Thinking</a></li><li><ol class="section"><li><a href="part1/lesson0.run.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li><a href="part1/lesson1.run.html"><strong aria-hidden="true">1.2.</strong> Lesson 1</a></li><li><a href="part1/lesson2.run.html"><strong aria-hidden="true">1.3.</strong> Lesson 2</a></li><li><a href="part1/lesson3.run.html"><strong aria-hidden="true">1.4.</strong> Lesson 3</a></li><li><a href="part1/lesson4.run.html"><strong aria-hidden="true">1.5.</strong> Lesson 4</a></li><li><a href="part1/lesson5.run.html"><strong aria-hidden="true">1.6.</strong> Lesson 5</a></li><li><a href="part1/lesson6.run.html"><strong aria-hidden="true">1.7.</strong> Lesson 6</a></li><li><a href="part1/lesson7.run.html"><strong aria-hidden="true">1.8.</strong> Lesson 7</a></li><li><a href="part1/lesson8.run.html"><strong aria-hidden="true">1.9.</strong> Lesson 8</a></li><li><a href="part1/lesson9.run.html"><strong aria-hidden="true">1.10.</strong> Lesson 9</a></li><li><a href="part1/lesson10.run.html"><strong aria-hidden="true">1.11.</strong> Lesson 10</a></li><li><a href="part1/lesson11.run.html"><strong aria-hidden="true">1.12.</strong> Lesson 11</a></li><li><a href="part1/recap.html"><strong aria-hidden="true">1.13.</strong> Recapitulation</a></li></ol></li><li><a href="part2/ducks_in_a_row.html"><strong aria-hidden="true">2.</strong> Part 2: Ducks in a Row</a></li><li><ol class="section"><li><a href="part2/lesson0.run.html"><strong aria-hidden="true">2.1.</strong> Setup</a></li><li><a href="part2/lesson1.run.html"><strong aria-hidden="true">2.2.</strong> Lesson 1</a></li><li><a href="part2/lesson2.run.html"><strong aria-hidden="true">2.3.</strong> Lesson 2</a></li><li><a href="part2/lesson3.run.html"><strong aria-hidden="true">2.4.</strong> Lesson 3</a></li></ol></li><li><a href="wax_on_wax_off.html"><strong aria-hidden="true">3.</strong> Part 3: Wax On, Wax Off</a></li><li><a href="going_public.html"><strong aria-hidden="true">4.</strong> Part 4: Going Public</a></li><li><a href="code.html"><strong aria-hidden="true">5.</strong> Code Listings</a></li><li><ol class="section"><li><a href="original.run.html" class="active"><strong aria-hidden="true">5.1.</strong> Original Code</a></li></ol></li><li><a href="dependencies.html">Dependencies</a></li></ol>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
+            
+                <nav role="navigation">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons javascript-only">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="part1/finger_thinking.html">
+            
+                <a href="part1/finger_thinking.html">
+            
+                    
+                    Part 1: Finger Thinking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="part1/lesson0.run.html">
+            
+                <a href="part1/lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="part1/lesson1.run.html">
+            
+                <a href="part1/lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="part1/lesson2.run.html">
+            
+                <a href="part1/lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="part1/lesson3.run.html">
+            
+                <a href="part1/lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="part1/lesson4.run.html">
+            
+                <a href="part1/lesson4.run.html">
+            
+                    
+                    Lesson 4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="part1/lesson5.run.html">
+            
+                <a href="part1/lesson5.run.html">
+            
+                    
+                    Lesson 5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="part1/lesson6.run.html">
+            
+                <a href="part1/lesson6.run.html">
+            
+                    
+                    Lesson 6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="part1/lesson7.run.html">
+            
+                <a href="part1/lesson7.run.html">
+            
+                    
+                    Lesson 7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="part1/lesson8.run.html">
+            
+                <a href="part1/lesson8.run.html">
+            
+                    
+                    Lesson 8
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="part1/lesson9.run.html">
+            
+                <a href="part1/lesson9.run.html">
+            
+                    
+                    Lesson 9
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="part1/lesson10.run.html">
+            
+                <a href="part1/lesson10.run.html">
+            
+                    
+                    Lesson 10
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="part1/lesson11.run.html">
+            
+                <a href="part1/lesson11.run.html">
+            
+                    
+                    Lesson 11
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="part1/recap.html">
+            
+                <a href="part1/recap.html">
+            
+                    
+                    Recapitulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="part2/ducks_in_a_row.html">
+            
+                <a href="part2/ducks_in_a_row.html">
+            
+                    
+                    Part 2: Ducks in a Row
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="part2/lesson0.run.html">
+            
+                <a href="part2/lesson0.run.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="part2/lesson1.run.html">
+            
+                <a href="part2/lesson1.run.html">
+            
+                    
+                    Lesson 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="part2/lesson2.run.html">
+            
+                <a href="part2/lesson2.run.html">
+            
+                    
+                    Lesson 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="part2/lesson3.run.html">
+            
+                <a href="part2/lesson3.run.html">
+            
+                    
+                    Lesson 3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="wax_on_wax_off.html">
+            
+                <a href="wax_on_wax_off.html">
+            
+                    
+                    Part 3: Wax On, Wax Off
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="going_public.html">
+            
+                <a href="going_public.html">
+            
+                    
+                    Part 4: Going Public
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="code.html">
+            
+                <a href="code.html">
+            
+                    
+                    Code Listings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="original.run.html">
+            
+                <a href="original.run.html">
+            
+                    
+                    Original Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Original Code</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
                             
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
-
-                        <h1 class="menu-title">BOXES</h1> 
-
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div id="searchbar-outer" class="searchbar-outer">
-                    <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                </div>
-                <div id="searchresults-outer" class="searchresults-outer">
-                    <div class="searchresults-header" id="searchresults-header"></div>
-                    <ul id="searchresults">
-                    </ul>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
-                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <a class="header" href="original.run.html#original-code" id="original-code"><h1>Original Code</h1></a>
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="original-code">Original Code</h1>
 <p>In <a href="finger_thinking.html">the intro to Part 1</a> I mentioned that I doodle in a thrwaway python file. Well, here is one I did
 not throw away, which turned into the seed for the code in this book.</p>
 <p>The code has not been improved in any way other than format it
-via <a href="https://github.com/ambv/black">black</a>.</p>
+via <a href="https://github.com/ambv/black" target="_blank">black</a>.</p>
 <p>It has comments written as &quot;we&quot; because it was meant to be a blog post, and then it grew.</p>
 <p>The code in the book is a lightly cleaned up version of this.</p>
-<pre><code class="language-python"># original.py
-import svgwrite
+<pre><code class="lang-python"><span class="hljs-comment"># original.py</span>
+<span class="hljs-keyword">import</span> svgwrite
 
 
-class Box():
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Box</span><span class="hljs-params">()</span>:</span>
 
-    def __init__(
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(
         self,
-        x=0,
-        y=0,
-        w=1,
-        h=1,
+        x=<span class="hljs-number">0</span>,
+        y=<span class="hljs-number">0</span>,
+        w=<span class="hljs-number">1</span>,
+        h=<span class="hljs-number">1</span>,
         red=False,
         blue=False,
         yellow=False,
         letter=None,
-    ):
+    )</span>:</span>
         self.x = x
         self.y = y
         self.w = w
@@ -182,503 +495,503 @@ class Box():
         self.yellow = yellow
         self.letter = letter
 
-    def __str__(self):
-        return self.letter or 'Box'
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.letter <span class="hljs-keyword">or</span> <span class="hljs-string">&apos;Box&apos;</span>
 
-    def __repr__(self):
-        return self.letter or 'Box'
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.letter <span class="hljs-keyword">or</span> <span class="hljs-string">&apos;Box&apos;</span>
 
 
-big_box = Box(0, 0, 80, 1000)
+big_box = Box(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">80</span>, <span class="hljs-number">1000</span>)
 pages = [big_box]
 
 
-def draw_boxes(boxes, with_boxes=True):
-    STYLES = &quot;&quot;&quot;
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_boxes</span><span class="hljs-params">(boxes, with_boxes=True)</span>:</span>
+    STYLES = <span class="hljs-string">&quot;&quot;&quot;
     .red { fill: red;}
     .green { fill: green;}
     .blue {fill: blue;}
     .yellow {fill: yellow;}
     .bigbox {fill: cyan; }
-    &quot;&quot;&quot;
+    &quot;&quot;&quot;</span>
     dwg = svgwrite.Drawing(
-        'test.svg',
-        profile='full',
-        size=('%d' % big_box.w, '%d' % big_box.w),
+        <span class="hljs-string">&apos;test.svg&apos;</span>,
+        profile=<span class="hljs-string">&apos;full&apos;</span>,
+        size=(<span class="hljs-string">&apos;%d&apos;</span> % big_box.w, <span class="hljs-string">&apos;%d&apos;</span> % big_box.w),
     )
     dwg.defs.add(dwg.style(STYLES))
-    for bb in pages:
+    <span class="hljs-keyword">for</span> bb <span class="hljs-keyword">in</span> pages:
         dwg.add(
             dwg.rect(
-                insert=(bb.x, bb.y), size=(bb.w, bb.h), class_='bigbox'
+                insert=(bb.x, bb.y), size=(bb.w, bb.h), class_=<span class="hljs-string">&apos;bigbox&apos;</span>
             )
         )
-    for box in boxes:
-        if with_boxes:
-            if box.red:
+    <span class="hljs-keyword">for</span> box <span class="hljs-keyword">in</span> boxes:
+        <span class="hljs-keyword">if</span> with_boxes:
+            <span class="hljs-keyword">if</span> box.red:
                 dwg.add(
                     dwg.rect(
                         insert=(box.x, box.y),
                         size=(box.w, box.h),
-                        class_='red',
+                        class_=<span class="hljs-string">&apos;red&apos;</span>,
                     )
                 )
-            elif box.blue:
+            <span class="hljs-keyword">elif</span> box.blue:
                 dwg.add(
                     dwg.rect(
                         insert=(box.x, box.y),
                         size=(box.w, box.h),
-                        class_='blue',
+                        class_=<span class="hljs-string">&apos;blue&apos;</span>,
                     )
                 )
-            elif box.yellow:
+            <span class="hljs-keyword">elif</span> box.yellow:
                 dwg.add(
                     dwg.rect(
                         insert=(box.x, box.y),
                         size=(box.w, box.h),
-                        class_='yellow',
+                        class_=<span class="hljs-string">&apos;yellow&apos;</span>,
                     )
                 )
-            else:
+            <span class="hljs-keyword">else</span>:
                 dwg.add(
                     dwg.rect(
                         insert=(box.x, box.y),
                         size=(box.w, box.h),
-                        class_='green',
+                        class_=<span class="hljs-string">&apos;green&apos;</span>,
                     )
                 )
-        if box.letter:
+        <span class="hljs-keyword">if</span> box.letter:
             dwg.add(
                 dwg.text(
                     box.letter,
                     insert=(box.x, box.y + box.h),
                     font_size=box.h,
-                    font_family='Arial',
+                    font_family=<span class="hljs-string">&apos;Arial&apos;</span>,
                 )
             )
     dwg.save()
 
 
-# So, how could we layout the many boxes inside the big_box?
-many_boxes = [Box(0, 0, 1, 1) for _ in range(5000)]
+<span class="hljs-comment"># So, how could we layout the many boxes inside the big_box?</span>
+many_boxes = [Box(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">5000</span>)]
 
-# Do nothing ...
-# They are all in the same place
-# draw_boxes(many_boxes)
+<span class="hljs-comment"># Do nothing ...</span>
+<span class="hljs-comment"># They are all in the same place</span>
+<span class="hljs-comment"># draw_boxes(many_boxes)</span>
 
-# Try to lay them out side by side
-# They just go too wide
-# We add a &quot;separation&quot; constant so you can see the boxes individually
-separation = .2
-
-
-def layout1(boxes):
-    for i, box in enumerate(boxes):
-        box.x = i * (1 + separation)
+<span class="hljs-comment"># Try to lay them out side by side</span>
+<span class="hljs-comment"># They just go too wide</span>
+<span class="hljs-comment"># We add a &quot;separation&quot; constant so you can see the boxes individually</span>
+separation = <span class="hljs-number">.2</span>
 
 
-# Put each one next to the other until they reach a width,
-# then go down. This is a monospaced layout.
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout1</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes):
+        box.x = i * (<span class="hljs-number">1</span> + separation)
 
 
-def layout2(boxes):
-    for i, box in enumerate(boxes[1:]):
-        box.x = boxes[i - 1].x + 1 + separation
-        box.y = boxes[i - 1].y
-        if box.x &gt; big_box.w:
-            box.x = 0
-            box.y = boxes[i - 1].y + 1.1
+<span class="hljs-comment"># Put each one next to the other until they reach a width,</span>
+<span class="hljs-comment"># then go down. This is a monospaced layout.</span>
 
 
-# Now, what happens if some boxes are wider than the others?
-# layout2 will make them overlap or have wide breaks between them
-import random
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout2</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:]):
+        box.x = boxes[i - <span class="hljs-number">1</span>].x + <span class="hljs-number">1</span> + separation
+        box.y = boxes[i - <span class="hljs-number">1</span>].y
+        <span class="hljs-keyword">if</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = boxes[i - <span class="hljs-number">1</span>].y + <span class="hljs-number">1.1</span>
+
+
+<span class="hljs-comment"># Now, what happens if some boxes are wider than the others?</span>
+<span class="hljs-comment"># layout2 will make them overlap or have wide breaks between them</span>
+<span class="hljs-keyword">import</span> random
 
 many_boxes = [
-    Box(0, 0, 1 + random.randint(-2, 2) / 10, 1) for _ in range(5000)
+    Box(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span> + random.randint(<span class="hljs-number">-2</span>, <span class="hljs-number">2</span>) / <span class="hljs-number">10</span>, <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">5000</span>)
 ]
 
-# So, we use each box's width instead of a fixed width
+<span class="hljs-comment"># So, we use each box&apos;s width instead of a fixed width</span>
 
 
-def layout3(boxes):
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout3</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if box.x &gt; big_box.w:
-            box.x = 0
-            box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
 
 
-# layout3(many_boxes)
-# But the right side is ragged
+<span class="hljs-comment"># layout3(many_boxes)</span>
+<span class="hljs-comment"># But the right side is ragged</span>
 
-# We can, when we break, put the remaining space spread between boxes
-# This is a &quot;justified&quot; layout
+<span class="hljs-comment"># We can, when we break, put the remaining space spread between boxes</span>
+<span class="hljs-comment"># This is a &quot;justified&quot; layout</span>
 
 
-def layout4(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout4</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if box.x &gt; big_box.w:
-            box.x = 0
-            box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
             slack = big_box.w - (prev_box.x + prev_box.w)
             mini_slack = slack / (i - last_break)
-            for j, b in enumerate(boxes[last_break:i]):
+            <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(boxes[last_break:i]):
                 b.x += j * mini_slack
             last_break = i
 
 
-# layout4(many_boxes)
+<span class="hljs-comment"># layout4(many_boxes)</span>
 
-# But what happens if some boxes are red?
-for box in many_boxes:
-    if random.randint(1, 6) &gt; 5:
-        box.red = True
-# Well, nothing much, other than they are red
+<span class="hljs-comment"># But what happens if some boxes are red?</span>
+<span class="hljs-keyword">for</span> box <span class="hljs-keyword">in</span> many_boxes:
+    <span class="hljs-keyword">if</span> random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">6</span>) &gt; <span class="hljs-number">5</span>:
+        box.red = <span class="hljs-keyword">True</span>
+<span class="hljs-comment"># Well, nothing much, other than they are red</span>
 
-# But what if red means &quot;stretchy&quot; and only those can stretch?
+<span class="hljs-comment"># But what if red means &quot;stretchy&quot; and only those can stretch?</span>
 
 
-def layout5(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout5</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if box.x &gt; big_box.w:
-            box.x = 0
-            box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
             slack = big_box.w - (prev_box.x + prev_box.w)
             row = boxes[last_break:i]
-            reds = [b for b in row if b.red]
-            # sometimes there is no red in the row. Do nothing.
-            if reds:
+            reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row <span class="hljs-keyword">if</span> b.red]
+            <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+            <span class="hljs-keyword">if</span> reds:
                 mini_slack = slack / len(reds)
-                for b in reds:
+                <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                     b.w += mini_slack
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
+                <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                    b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             last_break = i
 
 
-# But what happens if a few are blue?
-for box in many_boxes:
-    if random.randint(1, 150) &gt; 149:
-        box.blue = True
+<span class="hljs-comment"># But what happens if a few are blue?</span>
+<span class="hljs-keyword">for</span> box <span class="hljs-keyword">in</span> many_boxes:
+    <span class="hljs-keyword">if</span> random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">150</span>) &gt; <span class="hljs-number">149</span>:
+        box.blue = <span class="hljs-keyword">True</span>
 
-# Well, nothing much, other than they are blue
+<span class="hljs-comment"># Well, nothing much, other than they are blue</span>
 
-# But what if blue means &quot;this row ends here&quot;?
+<span class="hljs-comment"># But what if blue means &quot;this row ends here&quot;?</span>
 
 
-def layout6(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout6</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or box.x &gt; big_box.w:
-            box.x = 0
-            box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
             slack = big_box.w - (prev_box.x + prev_box.w)
             row = boxes[last_break:i]
-            reds = [b for b in row if b.red]
-            # sometimes there is no red in the row. Do nothing.
-            if reds:
+            reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row <span class="hljs-keyword">if</span> b.red]
+            <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+            <span class="hljs-keyword">if</span> reds:
                 mini_slack = slack / len(reds)
-                for b in reds:
+                <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                     b.w += mini_slack
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
+                <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                    b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             last_break = i
 
 
-# Some reds get reeeeeeealy stretchy! That is because rows that
-# end because of a blue have very few boxes. So maybe we don't stretch those?
+<span class="hljs-comment"># Some reds get reeeeeeealy stretchy! That is because rows that</span>
+<span class="hljs-comment"># end because of a blue have very few boxes. So maybe we don&apos;t stretch those?</span>
 
 
-def layout7(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout7</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or box.x &gt; big_box.w:
-            box.x = 0
-            box.y = prev_box.y + 1.1
-            if not prev_box.blue:
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> prev_box.blue:
                 row = boxes[last_break:i]
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                reds = [b for b in row if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             last_break = i
 
 
-# What if we want blue boxes break lines but also separate lines a little?
+<span class="hljs-comment"># What if we want blue boxes break lines but also separate lines a little?</span>
 
 
-def layout8(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout8</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or box.x &gt; big_box.w:
-            box.x = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
-            else:  # not blue
-                box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
                 row = boxes[last_break:i]
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                reds = [b for b in row if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             last_break = i
 
 
-# So ... what if each box has a letter or a space inside it?
-for box in many_boxes:
-    # More than one space so they appear often
-    box.letter = random.choice('     abcdefghijklmnopqrstuvwxyz')
+<span class="hljs-comment"># So ... what if each box has a letter or a space inside it?</span>
+<span class="hljs-keyword">for</span> box <span class="hljs-keyword">in</span> many_boxes:
+    <span class="hljs-comment"># More than one space so they appear often</span>
+    box.letter = random.choice(<span class="hljs-string">&apos;     abcdefghijklmnopqrstuvwxyz&apos;</span>)
 
-# Maybe we should make the box sizes depend on the letter inside it?
-# This is complicated, sorry
-import harfbuzz as hb
-import freetype2 as ft
+<span class="hljs-comment"># Maybe we should make the box sizes depend on the letter inside it?</span>
+<span class="hljs-comment"># This is complicated, sorry</span>
+<span class="hljs-keyword">import</span> harfbuzz <span class="hljs-keyword">as</span> hb
+<span class="hljs-keyword">import</span> freetype2 <span class="hljs-keyword">as</span> ft
 
 
-def adjust_widths_by_letter(boxes):
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">adjust_widths_by_letter</span><span class="hljs-params">(boxes)</span>:</span>
     buf = hb.Buffer.create()
-    buf.add_str(''.join(b.letter for b in boxes))
+    buf.add_str(<span class="hljs-string">&apos;&apos;</span>.join(b.letter <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> boxes))
     buf.guess_segment_properties()
     font_lib = ft.get_default_lib()
-    face = font_lib.find_face('Arial')
-    face.set_char_size(size=1, resolution=64)
+    face = font_lib.find_face(<span class="hljs-string">&apos;Arial&apos;</span>)
+    face.set_char_size(size=<span class="hljs-number">1</span>, resolution=<span class="hljs-number">64</span>)
     font = hb.Font.ft_create(face)
     hb.shape(font, buf)
-    # at this point buf.glyph_positions has all the data we need
-    for box, position in zip(boxes, buf.glyph_positions):
+    <span class="hljs-comment"># at this point buf.glyph_positions has all the data we need</span>
+    <span class="hljs-keyword">for</span> box, position <span class="hljs-keyword">in</span> zip(boxes, buf.glyph_positions):
         box.w = position.x_advance
 
 
 adjust_widths_by_letter(many_boxes)
-# layout8(many_boxes)
+<span class="hljs-comment"># layout8(many_boxes)</span>
 
-# There is all that space between letters we added when they were boxes. Let's remove it.
+<span class="hljs-comment"># There is all that space between letters we added when they were boxes. Let&apos;s remove it.</span>
 
-separation = 0
+separation = <span class="hljs-number">0</span>
 layout8(many_boxes)
 
-# How about we get the letters from a text instead of randomly?
-p_and_p = open('pride-and-prejudice.txt').read()
+<span class="hljs-comment"># How about we get the letters from a text instead of randomly?</span>
+p_and_p = open(<span class="hljs-string">&apos;pride-and-prejudice.txt&apos;</span>).read()
 text_boxes = []
-for l in p_and_p:
+<span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> p_and_p:
     text_boxes.append(Box(letter=l))
 adjust_widths_by_letter(text_boxes)
-# layout8(text_boxes)
-# Oh, it's all green now, and it's all one thing after another. We should make newlines blue!
+<span class="hljs-comment"># layout8(text_boxes)</span>
+<span class="hljs-comment"># Oh, it&apos;s all green now, and it&apos;s all one thing after another. We should make newlines blue!</span>
 
-for b in text_boxes:
-    if b.letter == '\n':
-        b.blue = True
-# layout8(text_boxes)
+<span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> text_boxes:
+    <span class="hljs-keyword">if</span> b.letter == <span class="hljs-string">&apos;\n&apos;</span>:
+        b.blue = <span class="hljs-keyword">True</span>
+<span class="hljs-comment"># layout8(text_boxes)</span>
 
-# Better, but newlines should not really take any space should they?
+<span class="hljs-comment"># Better, but newlines should not really take any space should they?</span>
 
 
-def add_blue(boxes):
-    for b in boxes:
-        if b.letter == '\n':
-            b.blue = True
-            b.w = 0
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_blue</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> boxes:
+        <span class="hljs-keyword">if</span> b.letter == <span class="hljs-string">&apos;\n&apos;</span>:
+            b.blue = <span class="hljs-keyword">True</span>
+            b.w = <span class="hljs-number">0</span>
 
 
 add_blue(text_boxes)
-# layout8(text_boxes)
+<span class="hljs-comment"># layout8(text_boxes)</span>
 
-# Our big_box is very wide now, that is why we have long lines. Let's make it narrower
-big_box = Box(0, 0, 30, 1000)
-# layout8(text_boxes)
+<span class="hljs-comment"># Our big_box is very wide now, that is why we have long lines. Let&apos;s make it narrower</span>
+big_box = Box(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">1000</span>)
+<span class="hljs-comment"># layout8(text_boxes)</span>
 
-# But our right side is ragged again! We should make spaces red.
+<span class="hljs-comment"># But our right side is ragged again! We should make spaces red.</span>
 
 
-def add_red(boxes):
-    for b in boxes:
-        if b.letter == ' ':
-            b.red = True
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_red</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> boxes:
+        <span class="hljs-keyword">if</span> b.letter == <span class="hljs-string">&apos; &apos;</span>:
+            b.red = <span class="hljs-keyword">True</span>
 
 
 add_red(text_boxes)
-# layout8(text_boxes)
+<span class="hljs-comment"># layout8(text_boxes)</span>
 
-# The second paragraph of Chapter 1 shows a red space as first thing in the row, and that looks bad!
-# So, when the 1st letter in a row is a space, let's make it take no width and not stretch
+<span class="hljs-comment"># The second paragraph of Chapter 1 shows a red space as first thing in the row, and that looks bad!</span>
+<span class="hljs-comment"># So, when the 1st letter in a row is a space, let&apos;s make it take no width and not stretch</span>
 
 
-def layout9(boxes):
-    last_break = 0
-    for i, box in enumerate(boxes[1:], 1):
-        prev_box = boxes[i - 1]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout9</span><span class="hljs-params">(boxes)</span>:</span>
+    last_break = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i, box <span class="hljs-keyword">in</span> enumerate(boxes[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+        prev_box = boxes[i - <span class="hljs-number">1</span>]
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or box.x &gt; big_box.w:
-            box.x = 0
-            if box.red:
-                box.w = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
-            else:  # not blue
-                box.y = prev_box.y + 1.1
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
                 row = boxes[last_break:i]
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                # If the 1st thing is a red, that one doesn't stretch
-                reds = [b for b in row[1:] if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             last_break = i
 
 
-# Just for fun, let's draw it without the colored boxes
-# layout9(text_boxes)
-# draw_boxes(text_boxes, False)
+<span class="hljs-comment"># Just for fun, let&apos;s draw it without the colored boxes</span>
+<span class="hljs-comment"># layout9(text_boxes)</span>
+<span class="hljs-comment"># draw_boxes(text_boxes, False)</span>
 
-# XXX layout9 rewritten using pop(), need to backport this version
+<span class="hljs-comment"># XXX layout9 rewritten using pop(), need to backport this version</span>
 
 
-def layout10(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    prev_box = boxes.pop(0)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout10</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    prev_box = boxes.pop(<span class="hljs-number">0</span>)
     row = [prev_box]
-    while (boxes):
-        box = boxes.pop(0)
+    <span class="hljs-keyword">while</span> (boxes):
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or box.x &gt; big_box.w:
-            box.x = 0
-            row.pop()  # our box will go in the next row
-            if box.red:
-                box.w = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> box.x &gt; big_box.w:
+            box.x = <span class="hljs-number">0</span>
+            row.pop()  <span class="hljs-comment"># our box will go in the next row</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
 
-            else:  # not blue
-                box.y = prev_box.y + 1.1
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                # If the 1st thing is a red, that one doesn't stretch
-                reds = [b for b in row[1:] if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
         prev_box = box
 
 
-# layout10(text_boxes)
+<span class="hljs-comment"># layout10(text_boxes)</span>
 
-# Looks good, except that the words are broken wrong. You can't break good like: g
-# ood!
+<span class="hljs-comment"># Looks good, except that the words are broken wrong. You can&apos;t break good like: g</span>
+<span class="hljs-comment"># ood!</span>
 
-# What if we only break on spaces?
+<span class="hljs-comment"># What if we only break on spaces?</span>
 
 
-def layout11(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    prev_box = boxes.pop(0)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout11</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    prev_box = boxes.pop(<span class="hljs-number">0</span>)
     row = [prev_box]
-    while (boxes):
-        box = boxes.pop(0)
+    <span class="hljs-keyword">while</span> (boxes):
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or (box.x &gt; big_box.w and box.red):
-            row.pop()  # our box will go in the next row
-            box.x = 0
-            if box.red:
-                box.w = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> (box.x &gt; big_box.w <span class="hljs-keyword">and</span> box.red):
+            row.pop()  <span class="hljs-comment"># our box will go in the next row</span>
+            box.x = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
 
-            else:  # not blue
-                box.y = prev_box.y + 1.1
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                # If the 1st thing is a red, that one doesn't stretch
-                reds = [b for b in row[1:] if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
         prev_box = box
 
 
-# layout11(text_boxes)
+<span class="hljs-comment"># layout11(text_boxes)</span>
 
-# That actually ... worked? Except that when we need to fit something wider than
-# big_box because we did not break the row, the slack is NEGATIVE and words get
-# smushed together!
+<span class="hljs-comment"># That actually ... worked? Except that when we need to fit something wider than</span>
+<span class="hljs-comment"># big_box because we did not break the row, the slack is NEGATIVE and words get</span>
+<span class="hljs-comment"># smushed together!</span>
 
-# What we actually need is hyphenation.
-# We can use pyphen to insert soft-hyphen characters wherever words can break.
-# And we can mark those positions yellow.
+<span class="hljs-comment"># What we actually need is hyphenation.</span>
+<span class="hljs-comment"># We can use pyphen to insert soft-hyphen characters wherever words can break.</span>
+<span class="hljs-comment"># And we can mark those positions yellow.</span>
 
-import pyphen
+<span class="hljs-keyword">import</span> pyphen
 
 hyphenator = pyphen.Pyphen(
-    lang='en_GB'
-)  # These things are language dependent
+    lang=<span class="hljs-string">&apos;en_GB&apos;</span>
+)  <span class="hljs-comment"># These things are language dependent</span>
 
-p_and_p = open('pride-and-prejudice.txt').readlines()
-for i, l in enumerate(p_and_p):
-    words = l.split(' ')
-    p_and_p[i] = ' '.join(
-        hyphenator.inserted(w, '\u00AD') for w in words
+p_and_p = open(<span class="hljs-string">&apos;pride-and-prejudice.txt&apos;</span>).readlines()
+<span class="hljs-keyword">for</span> i, l <span class="hljs-keyword">in</span> enumerate(p_and_p):
+    words = l.split(<span class="hljs-string">&apos; &apos;</span>)
+    p_and_p[i] = <span class="hljs-string">&apos; &apos;</span>.join(
+        hyphenator.inserted(w, <span class="hljs-string">&apos;\u00AD&apos;</span>) <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> words
     )
-p_and_p = ''.join(p_and_p)
+p_and_p = <span class="hljs-string">&apos;&apos;</span>.join(p_and_p)
 
 text_boxes = []
-for l in p_and_p:
+<span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> p_and_p:
     text_boxes.append(Box(letter=l))
 
 
-# This makes the characters '\u00AD' (soft-hyphen) yellow.
+<span class="hljs-comment"># This makes the characters &apos;\u00AD&apos; (soft-hyphen) yellow.</span>
 
 
-def add_yellow(boxes):
-    for b in boxes:
-        if b.letter == '\u00AD':
-            b.yellow = True
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_yellow</span><span class="hljs-params">(boxes)</span>:</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> boxes:
+        <span class="hljs-keyword">if</span> b.letter == <span class="hljs-string">&apos;\u00AD&apos;</span>:
+            b.yellow = <span class="hljs-keyword">True</span>
 
 
 add_blue(text_boxes)
@@ -686,404 +999,389 @@ add_red(text_boxes)
 add_yellow(text_boxes)
 adjust_widths_by_letter(text_boxes)
 
-# And create a new layout function that also breaks on yellow boxes.
+<span class="hljs-comment"># And create a new layout function that also breaks on yellow boxes.</span>
 
 
-def layout12(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    prev_box = boxes.pop(0)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout12</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    prev_box = boxes.pop(<span class="hljs-number">0</span>)
     row = [prev_box]
-    while (boxes):
-        box = boxes.pop(0)
+    <span class="hljs-keyword">while</span> (boxes):
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or (
-            box.x &gt; big_box.w and (box.red or box.yellow)
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> (
+            box.x &gt; big_box.w <span class="hljs-keyword">and</span> (box.red <span class="hljs-keyword">or</span> box.yellow)
         ):
-            row.pop()  # our box will go in the next row
-            box.x = 0
-            if box.red:
-                box.w = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
+            row.pop()  <span class="hljs-comment"># our box will go in the next row</span>
+            box.x = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
 
-            else:  # not blue
-                box.y = prev_box.y + 1.1
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                # If the 1st thing is a red, that one doesn't stretch
-                reds = [b for b in row[1:] if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
         prev_box = box
 
 
-# layout12(text_boxes)
+<span class="hljs-comment"># layout12(text_boxes)</span>
 
-# Better! Since we have more break chances, there is less word-smushing.
-# However our typography is wrong, because we are hyphenating but not showing a hyphen!
-# So, we need to ADD a box when we hyphenate. That special box is hyphenbox():
+<span class="hljs-comment"># Better! Since we have more break chances, there is less word-smushing.</span>
+<span class="hljs-comment"># However our typography is wrong, because we are hyphenating but not showing a hyphen!</span>
+<span class="hljs-comment"># So, we need to ADD a box when we hyphenate. That special box is hyphenbox():</span>
 
 
-def hyphenbox():  # Yes, this is not optimal
-    b = Box(letter='-', yellow=True)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hyphenbox</span><span class="hljs-params">()</span>:</span>  <span class="hljs-comment"># Yes, this is not optimal</span>
+    b = Box(letter=<span class="hljs-string">&apos;-&apos;</span>, yellow=<span class="hljs-keyword">True</span>)
     adjust_widths_by_letter([b])
-    return b
+    <span class="hljs-keyword">return</span> b
 
 
-def layout13(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    prev_box = boxes.pop(0)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout13</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    prev_box = boxes.pop(<span class="hljs-number">0</span>)
     row = [prev_box]
-    while (boxes):
-        box = boxes.pop(0)
+    <span class="hljs-keyword">while</span> (boxes):
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue or (
-            box.x &gt; big_box.w and (box.red or box.yellow)
+        <span class="hljs-keyword">if</span> prev_box.blue <span class="hljs-keyword">or</span> (
+            box.x &gt; big_box.w <span class="hljs-keyword">and</span> (box.red <span class="hljs-keyword">or</span> box.yellow)
         ):
-            row.pop()  # our box will go in the next row
-            if box.yellow:  # We need to insert the hyphen!
+            row.pop()  <span class="hljs-comment"># our box will go in the next row</span>
+            <span class="hljs-keyword">if</span> box.yellow:  <span class="hljs-comment"># We need to insert the hyphen!</span>
                 h_b = hyphenbox()
                 h_b.x = prev_box.x + prev_box.w + separation
                 h_b.y = prev_box.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b)  # So it's justified
-            box.x = 0
-            if box.red:
-                box.w = 0
-            if prev_box.blue:
-                box.y = prev_box.y + 2.1
+                _boxes.append(h_b)  <span class="hljs-comment"># So it&apos;s drawn</span>
+                row.append(h_b)  <span class="hljs-comment"># So it&apos;s justified</span>
+            box.x = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">if</span> prev_box.blue:
+                box.y = prev_box.y + <span class="hljs-number">2.1</span>
 
-            else:  # not blue
-                box.y = prev_box.y + 1.1
-                slack = big_box.w - (row[-1].x + row[-1].w)
-                # If the 1st thing is a red, that one doesn't stretch
-                reds = [b for b in row[1:] if b.red]
-                # sometimes there is no red in the row. Do nothing.
-                if reds:
+            <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># not blue</span>
+                box.y = prev_box.y + <span class="hljs-number">1.1</span>
+                slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+                <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+                reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+                <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+                <span class="hljs-keyword">if</span> reds:
                     mini_slack = slack / len(reds)
-                    for b in reds:
+                    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                         b.w += mini_slack
-                    for j, b in enumerate(row[1:], 1):
-                        b.x = row[j - 1].x + row[j - 1].w + separation
+                    <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                        b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
         prev_box = box
 
 
-# layout13(text_boxes)
+<span class="hljs-comment"># layout13(text_boxes)</span>
 
-# Good. However, we still have smushing. It's usually considered better to make spaces
-# between words grow, rather than shrink. So, what we should do is, instead of breaking
-# in the 1st yellow/red PAST the break, go back and break in the last BEFORE the break!
+<span class="hljs-comment"># Good. However, we still have smushing. It&apos;s usually considered better to make spaces</span>
+<span class="hljs-comment"># between words grow, rather than shrink. So, what we should do is, instead of breaking</span>
+<span class="hljs-comment"># in the 1st yellow/red PAST the break, go back and break in the last BEFORE the break!</span>
 
-# XXX backport simplifications from layout14: separation of blue case
+<span class="hljs-comment"># XXX backport simplifications from layout14: separation of blue case</span>
 
 
-def layout14(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    row = [boxes.pop(0)]
-    while (boxes):
-        prev_box = row[-1]
-        box = boxes.pop(0)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout14</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    row = [boxes.pop(<span class="hljs-number">0</span>)]
+    <span class="hljs-keyword">while</span> (boxes):
+        prev_box = row[<span class="hljs-number">-1</span>]
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue:
-            box.x = 0
-            box.y = prev_box.y + 2.1
+        <span class="hljs-keyword">if</span> prev_box.blue:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">2.1</span>
             row.pop()
             row = [box]
 
-        elif box.x &gt; big_box.w:
-            while not (box.red or box.yellow):  # backtrack onw
-                boxes.insert(0, row.pop())
-                # tip of row is now box, previous one is prev_box
-                box = row[-1]
-                prev_box = row[-2]
+        <span class="hljs-keyword">elif</span> box.x &gt; big_box.w:
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> (box.red <span class="hljs-keyword">or</span> box.yellow):  <span class="hljs-comment"># backtrack onw</span>
+                boxes.insert(<span class="hljs-number">0</span>, row.pop())
+                <span class="hljs-comment"># tip of row is now box, previous one is prev_box</span>
+                box = row[<span class="hljs-number">-1</span>]
+                prev_box = row[<span class="hljs-number">-2</span>]
 
-            row.pop()  # Breaking box goes in next row
-            if box.yellow:  # We need to insert the hyphen!
+            row.pop()  <span class="hljs-comment"># Breaking box goes in next row</span>
+            <span class="hljs-keyword">if</span> box.yellow:  <span class="hljs-comment"># We need to insert the hyphen!</span>
                 h_b = hyphenbox()
                 h_b.x = prev_box.x + prev_box.w + separation
                 h_b.y = prev_box.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b)  # So it's justified
-            box.x = 0
-            box.y = prev_box.y + 1.1
-            if box.red:
-                box.w = 0
-            slack = big_box.w - (row[-1].x + row[-1].w)
-            # If the 1st thing is a red, that one doesn't stretch
-            reds = [b for b in row[1:] if b.red]
-            # sometimes there is no red in the row. Do nothing.
-            if reds:
+                _boxes.append(h_b)  <span class="hljs-comment"># So it&apos;s drawn</span>
+                row.append(h_b)  <span class="hljs-comment"># So it&apos;s justified</span>
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            slack = big_box.w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+            <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+            reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+            <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+            <span class="hljs-keyword">if</span> reds:
                 mini_slack = slack / len(reds)
-                for b in reds:
+                <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                     b.w += mini_slack
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
+                <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                    b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
 
 
-# With a little separation for niceness, the result is not half bad!
-separation = 0.05
-# layout14(text_boxes)
+<span class="hljs-comment"># With a little separation for niceness, the result is not half bad!</span>
+separation = <span class="hljs-number">0.05</span>
+<span class="hljs-comment"># layout14(text_boxes)</span>
 
-# So far, our big_box has been very, very tall. What would happen if it were short?
-big_box = Box(0, 0, 30, 60)
-# layout14(text_boxes)
+<span class="hljs-comment"># So far, our big_box has been very, very tall. What would happen if it were short?</span>
+big_box = Box(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">60</span>)
+<span class="hljs-comment"># layout14(text_boxes)</span>
 
-# Well, that our text flows straight out of the box! And our initial problem was
-# &quot;So, how could we layout the many boxes inside the big_box?&quot; !
-# That won't do. Clearly, if we have more text than fits in a box, we need more than one
-# box. Like pages.
+<span class="hljs-comment"># Well, that our text flows straight out of the box! And our initial problem was</span>
+<span class="hljs-comment"># &quot;So, how could we layout the many boxes inside the big_box?&quot; !</span>
+<span class="hljs-comment"># That won&apos;t do. Clearly, if we have more text than fits in a box, we need more than one</span>
+<span class="hljs-comment"># box. Like pages.</span>
 
-# So, let's make many big boxes.
-
-
-pages = [Box(0, i * 65, 30, 60) for i in range(50)]
-
-# layout14(text_boxes)
-
-# Of course our layout engine does nothing with those pages. Let's fix that.
+<span class="hljs-comment"># So, let&apos;s make many big boxes.</span>
 
 
-def layout15(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    row = [boxes.pop(0)]
+pages = [Box(<span class="hljs-number">0</span>, i * <span class="hljs-number">65</span>, <span class="hljs-number">30</span>, <span class="hljs-number">60</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">50</span>)]
 
-    # Put the 1st box in the beginning of the 1st page
-    page = 0
-    row[0].x = pages[page].x
-    row[0].y = pages[page].y
+<span class="hljs-comment"># layout14(text_boxes)</span>
 
-    while (boxes):
-        prev_box = row[-1]
-        box = boxes.pop(0)
+<span class="hljs-comment"># Of course our layout engine does nothing with those pages. Let&apos;s fix that.</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout15</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    row = [boxes.pop(<span class="hljs-number">0</span>)]
+
+    <span class="hljs-comment"># Put the 1st box in the beginning of the 1st page</span>
+    page = <span class="hljs-number">0</span>
+    row[<span class="hljs-number">0</span>].x = pages[page].x
+    row[<span class="hljs-number">0</span>].y = pages[page].y
+
+    <span class="hljs-keyword">while</span> (boxes):
+        prev_box = row[<span class="hljs-number">-1</span>]
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue:
-            box.x = 0
-            box.y = prev_box.y + 2.1
+        <span class="hljs-keyword">if</span> prev_box.blue:
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">2.1</span>
             row.pop()
             row = [box]
 
-        elif box.x &gt; pages[page].w:
-            while not (box.red or box.yellow):  # backtrack onw
-                boxes.insert(0, row.pop())
-                # tip of row is now box, previous one is prev_box
-                box = row[-1]
-                prev_box = row[-2]
+        <span class="hljs-keyword">elif</span> box.x &gt; pages[page].w:
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> (box.red <span class="hljs-keyword">or</span> box.yellow):  <span class="hljs-comment"># backtrack onw</span>
+                boxes.insert(<span class="hljs-number">0</span>, row.pop())
+                <span class="hljs-comment"># tip of row is now box, previous one is prev_box</span>
+                box = row[<span class="hljs-number">-1</span>]
+                prev_box = row[<span class="hljs-number">-2</span>]
 
-            row.pop()  # Breaking box goes in next row
-            if box.yellow:  # We need to insert the hyphen!
+            row.pop()  <span class="hljs-comment"># Breaking box goes in next row</span>
+            <span class="hljs-keyword">if</span> box.yellow:  <span class="hljs-comment"># We need to insert the hyphen!</span>
                 h_b = hyphenbox()
                 h_b.x = prev_box.x + prev_box.w + separation
                 h_b.y = prev_box.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b)  # So it's justified
-            box.x = 0
-            box.y = prev_box.y + 1.1
-            if box.red:
-                box.w = 0
-            slack = pages[page].w - (row[-1].x + row[-1].w)
-            # If the 1st thing is a red, that one doesn't stretch
-            reds = [b for b in row[1:] if b.red]
-            # sometimes there is no red in the row. Do nothing.
-            if reds:
+                _boxes.append(h_b)  <span class="hljs-comment"># So it&apos;s drawn</span>
+                row.append(h_b)  <span class="hljs-comment"># So it&apos;s justified</span>
+            box.x = <span class="hljs-number">0</span>
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
+            slack = pages[page].w - (row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w)
+            <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+            reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+            <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+            <span class="hljs-keyword">if</span> reds:
                 mini_slack = slack / len(reds)
-                for b in reds:
+                <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                     b.w += mini_slack
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
+                <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                    b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
 
-        if box.y + box.h &gt; pages[page].y + pages[page].h:
-            # We need to go to the next page
-            page = page + 1
+        <span class="hljs-keyword">if</span> box.y + box.h &gt; pages[page].y + pages[page].h:
+            <span class="hljs-comment"># We need to go to the next page</span>
+            page = page + <span class="hljs-number">1</span>
             box.y = pages[page].y
 
 
-# layout15(text_boxes)
-# And there you go, pagination
+<span class="hljs-comment"># layout15(text_boxes)</span>
+<span class="hljs-comment"># And there you go, pagination</span>
 
-# What happens if pages are organized differently?
-# Let's put them left-to-right
-pages = [Box(i * 35, 0, 30, 60) for i in range(50)]
-# layout15(text_boxes)
+<span class="hljs-comment"># What happens if pages are organized differently?</span>
+<span class="hljs-comment"># Let&apos;s put them left-to-right</span>
+pages = [Box(i * <span class="hljs-number">35</span>, <span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">60</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">50</span>)]
+<span class="hljs-comment"># layout15(text_boxes)</span>
 
-# Everything is in the same page, because we are resetting x to 0 on line breaks.
-# You always need to find your hidden assumptions.
+<span class="hljs-comment"># Everything is in the same page, because we are resetting x to 0 on line breaks.</span>
+<span class="hljs-comment"># You always need to find your hidden assumptions.</span>
 
 
-def layout16(_boxes):
-    boxes = _boxes[:]  # Work on a copy
-    row = [boxes.pop(0)]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">layout16</span><span class="hljs-params">(_boxes)</span>:</span>
+    boxes = _boxes[:]  <span class="hljs-comment"># Work on a copy</span>
+    row = [boxes.pop(<span class="hljs-number">0</span>)]
 
-    # Put the 1st box in the beginning of the 1st page
-    page = 0
-    row[0].x = pages[page].x
-    row[0].y = pages[page].y
+    <span class="hljs-comment"># Put the 1st box in the beginning of the 1st page</span>
+    page = <span class="hljs-number">0</span>
+    row[<span class="hljs-number">0</span>].x = pages[page].x
+    row[<span class="hljs-number">0</span>].y = pages[page].y
 
-    while (boxes):
-        prev_box = row[-1]
-        box = boxes.pop(0)
+    <span class="hljs-keyword">while</span> (boxes):
+        prev_box = row[<span class="hljs-number">-1</span>]
+        box = boxes.pop(<span class="hljs-number">0</span>)
         row.append(box)
         box.x = prev_box.x + prev_box.w + separation
         box.y = prev_box.y
-        if prev_box.blue:
+        <span class="hljs-keyword">if</span> prev_box.blue:
             box.x = pages[page].x
-            box.y = prev_box.y + 2.1
+            box.y = prev_box.y + <span class="hljs-number">2.1</span>
             row.pop()
             row = [box]
 
-        elif box.x &gt; pages[page].w + pages[page].x:
-            while not (box.red or box.yellow):  # backtrack onw
-                boxes.insert(0, row.pop())
-                # tip of row is now box, previous one is prev_box
-                box = row[-1]
-                prev_box = row[-2]
+        <span class="hljs-keyword">elif</span> box.x &gt; pages[page].w + pages[page].x:
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> (box.red <span class="hljs-keyword">or</span> box.yellow):  <span class="hljs-comment"># backtrack onw</span>
+                boxes.insert(<span class="hljs-number">0</span>, row.pop())
+                <span class="hljs-comment"># tip of row is now box, previous one is prev_box</span>
+                box = row[<span class="hljs-number">-1</span>]
+                prev_box = row[<span class="hljs-number">-2</span>]
 
-            row.pop()  # Breaking box goes in next row
-            if box.yellow:  # We need to insert the hyphen!
+            row.pop()  <span class="hljs-comment"># Breaking box goes in next row</span>
+            <span class="hljs-keyword">if</span> box.yellow:  <span class="hljs-comment"># We need to insert the hyphen!</span>
                 h_b = hyphenbox()
                 h_b.x = prev_box.x + prev_box.w + separation
                 h_b.y = prev_box.y
-                _boxes.append(h_b)  # So it's drawn
-                row.append(h_b)  # So it's justified
+                _boxes.append(h_b)  <span class="hljs-comment"># So it&apos;s drawn</span>
+                row.append(h_b)  <span class="hljs-comment"># So it&apos;s justified</span>
             box.x = pages[page].x
-            box.y = prev_box.y + 1.1
-            if box.red:
-                box.w = 0
+            box.y = prev_box.y + <span class="hljs-number">1.1</span>
+            <span class="hljs-keyword">if</span> box.red:
+                box.w = <span class="hljs-number">0</span>
             slack = (pages[page].w + pages[page].x) - (
-                row[-1].x + row[-1].w
+                row[<span class="hljs-number">-1</span>].x + row[<span class="hljs-number">-1</span>].w
             )
-            # If the 1st thing is a red, that one doesn't stretch
-            reds = [b for b in row[1:] if b.red]
-            # sometimes there is no red in the row. Do nothing.
-            if reds:
+            <span class="hljs-comment"># If the 1st thing is a red, that one doesn&apos;t stretch</span>
+            reds = [b <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> row[<span class="hljs-number">1</span>:] <span class="hljs-keyword">if</span> b.red]
+            <span class="hljs-comment"># sometimes there is no red in the row. Do nothing.</span>
+            <span class="hljs-keyword">if</span> reds:
                 mini_slack = slack / len(reds)
-                for b in reds:
+                <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> reds:
                     b.w += mini_slack
-                for j, b in enumerate(row[1:], 1):
-                    b.x = row[j - 1].x + row[j - 1].w + separation
+                <span class="hljs-keyword">for</span> j, b <span class="hljs-keyword">in</span> enumerate(row[<span class="hljs-number">1</span>:], <span class="hljs-number">1</span>):
+                    b.x = row[j - <span class="hljs-number">1</span>].x + row[j - <span class="hljs-number">1</span>].w + separation
             row = [box]
 
-        # We may need to go to the next page
-        if box.y + box.h &gt; pages[page].y + pages[page].h:
-            page = page + 1
-            # Since the location of a page is arbitrary, both coordinates are reset
+        <span class="hljs-comment"># We may need to go to the next page</span>
+        <span class="hljs-keyword">if</span> box.y + box.h &gt; pages[page].y + pages[page].h:
+            page = page + <span class="hljs-number">1</span>
+            <span class="hljs-comment"># Since the location of a page is arbitrary, both coordinates are reset</span>
             box.y = pages[page].y
             box.x = pages[page].x
 
 
-# This may even work with oddly-sized pages!
+<span class="hljs-comment"># This may even work with oddly-sized pages!</span>
 pages = [
-    Box(i * 35, 0, 20, 60 + random.randint(-20, 20)) for i in range(50)
+    Box(i * <span class="hljs-number">35</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>, <span class="hljs-number">60</span> + random.randint(<span class="hljs-number">-20</span>, <span class="hljs-number">20</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">50</span>)
 ]
 
 layout16(text_boxes)
-draw_boxes(text_boxes, False)
+draw_boxes(text_boxes, <span class="hljs-keyword">False</span>)
 
-# This is a good point to STOP. Look at the code, and clean house.
-
+<span class="hljs-comment"># This is a good point to STOP. Look at the code, and clean house.</span>
 </code></pre>
 
-                    </main>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="code.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="dependencies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
+                        </div>
+                    </div>
+                
             </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
                 
-                    <a href="code.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
+                <a href="code.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Code Listings">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-
                 
-                    <a href="dependencies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
+            
+        
+    </div>
 
-        </div>
-
-
-        <!-- Local fallback for Font Awesome -->
-        <script>
-            if (getComputedStyle(document.querySelector(".fa")).fontFamily !== "FontAwesome") {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = '_FontAwesome/css/font-awesome.css';
-                document.head.insertBefore(link, document.head.firstChild)
-            }
-        </script>
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Original Code","level":"1.6.1","depth":2,"previous":{"title":"Code Listings","level":"1.6","depth":1,"path":"code.md","ref":"./code.md","articles":[{"title":"Original Code","level":"1.6.1","depth":2,"path":"original.run.md","ref":"./original.run.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"original.run.md","mtime":"2018-03-28T12:35:40.817Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-31T19:15:08.294Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
 
         
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3001");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload(true); // force reload from server (not from cache)
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
         
-
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
         
-
+    
         
-
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
         
-        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+    
         
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
         
-
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
         
-
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
-
-        <!-- Custom JS script -->
+    
         
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
 
     </body>
 </html>
+

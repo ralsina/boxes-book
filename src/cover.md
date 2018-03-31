@@ -1,1 +1,0 @@
-![cover.svg](cover.svg)
